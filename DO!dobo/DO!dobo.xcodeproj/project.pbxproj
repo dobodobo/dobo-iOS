@@ -10,6 +10,14 @@
 		22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */; };
 		22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */; };
 		22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */; };
+		22A66F95214FB3F5003D896F /* SeoulListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F94214FB3F5003D896F /* SeoulListViewController.swift */; };
+		22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F99214FB506003D896F /* SeoulListTableViewCell.swift */; };
+		22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */; };
+		22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9D214FB88C003D896F /* SeoulDetailViewController.swift */; };
+		22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */; };
+		22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */; };
+		22A66FA4214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA3214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift */; };
+		22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
 		22C75726214E354300809616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75725214E354300809616 /* MainViewController.swift */; };
 		22C75729214E354300809616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C75727214E354300809616 /* Main.storyboard */; };
@@ -24,6 +32,14 @@
 		22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailViewController.swift; sourceTree = "<group>"; };
 		22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulLightListTableViewCell.swift; sourceTree = "<group>"; };
+		22A66F94214FB3F5003D896F /* SeoulListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulListViewController.swift; sourceTree = "<group>"; };
+		22A66F99214FB506003D896F /* SeoulListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulListTableViewCell.swift; sourceTree = "<group>"; };
+		22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetailReviewTableViewCell.swift; sourceTree = "<group>"; };
+		22A66F9D214FB88C003D896F /* SeoulDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetailViewController.swift; sourceTree = "<group>"; };
+		22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		22A66FA3214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightCourseCollectionViewCell.swift; sourceTree = "<group>"; };
+		22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCourseCollectionViewCell.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C75723214E354300809616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C75725214E354300809616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22A66F96214FB4B2003D896F /* Seoulight */ = {
+			isa = PBXGroup;
+			children = (
+				22C7573B214E8B4200809616 /* SeoulightListViewController.swift */,
+				22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */,
+				22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */,
+				22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */,
+				22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */,
+				22A66FA3214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift */,
+			);
+			path = Seoulight;
+			sourceTree = "<group>";
+		};
+		22A66F98214FB4D3003D896F /* Seoul */ = {
+			isa = PBXGroup;
+			children = (
+				22A66F94214FB3F5003D896F /* SeoulListViewController.swift */,
+				22A66F99214FB506003D896F /* SeoulListTableViewCell.swift */,
+				22A66F9D214FB88C003D896F /* SeoulDetailViewController.swift */,
+				22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */,
+				22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */,
+				22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */,
+			);
+			path = Seoul;
+			sourceTree = "<group>";
+		};
 		22C75717214E354200809616 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				22C75725214E354300809616 /* MainViewController.swift */,
-				22C7573B214E8B4200809616 /* SeoulightListViewController.swift */,
-				22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */,
-				22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */,
-				22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */,
+				22A66F98214FB4D3003D896F /* Seoul */,
+				22A66F96214FB4B2003D896F /* Seoulight */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -255,11 +295,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */,
 				22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */,
+				22A66FA4214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */,
 				22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */,
+				22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */,
 				22C75726214E354300809616 /* MainViewController.swift in Sources */,
+				22A66F95214FB3F5003D896F /* SeoulListViewController.swift in Sources */,
+				22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */,
+				22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */,
 				22C7573C214E8B4200809616 /* SeoulightListViewController.swift in Sources */,
+				22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */,
+				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22C75724214E354300809616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

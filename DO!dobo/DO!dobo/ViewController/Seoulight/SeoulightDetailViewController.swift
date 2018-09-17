@@ -10,7 +10,7 @@ import UIKit
 import ImageSlideshow
 import Kingfisher
 
-class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -25,11 +25,14 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
     
-    
     @IBOutlet weak var seoulightView: UIView!
     @IBOutlet weak var seoulightImageView: UIImageView!
     @IBOutlet weak var seoulightNameLabel: UILabel!
     @IBOutlet weak var seoulightCompanyLabel: UILabel!
+    
+    @IBOutlet weak var courseCollectionView: UICollectionView!
+    @IBOutlet weak var placeCollectionView: UICollectionView!
+    
 
 //    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
 //    let alamofireSource = [AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
@@ -68,6 +71,13 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(SeoulightDetailViewController.didTap))
             placeImageSlide.addGestureRecognizer(recognizer)
+        
+        //CollectionView
+        placeCollectionView.delegate = self
+        placeCollectionView.dataSource = self
+        
+        courseCollectionView.delegate = self
+        courseCollectionView.dataSource = self
     
     }
     
@@ -105,6 +115,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     }
     
     
+    //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -118,6 +129,41 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         cell.contentLabel.text = "정말 좋은 경험이었습니다."
         
         return cell
+    }
+    
+    //MARK: CollectionView method
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == placeCollectionView {
+            return 5
+        } else {
+            return 6
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == placeCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightPlaceCollectionViewCell", for: indexPath) as! SeoulightPlaceCollectionViewCell
+            
+            cell.placeImageView.image = #imageLiteral(resourceName: "group16.png")
+            cell.nameLabel.text = "오설록"
+            cell.categoryLabel.text = "음식점"
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightCourseCollectionViewCell", for: indexPath) as! SeoulightCourseCollectionViewCell
+            
+            cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
+            cell.nameTextView.text = "오설록"
+            
+            return cell
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 
     override func didReceiveMemoryWarning() {
