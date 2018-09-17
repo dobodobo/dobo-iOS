@@ -10,8 +10,10 @@ import UIKit
 import ImageSlideshow
 import Kingfisher
 import SilentScrolly
+import MessageUI
 
-class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SilentScrollable {
+
+class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SilentScrollable, MFMailComposeViewControllerDelegate {
     
     //imageslideshow
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -147,14 +149,35 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
+    //MARK: mail
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true)
+    }
+    
+    //TODO: 해설자 이메일 넣기
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["rkdthd1234@naver.com"]) //해설자 이메일 받기
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+    
     //TODO: 예약 상태 활성화 / 비활성화
     //MARK: 예약하기
     @IBAction func reservationAction(_ sender: UIButton) {
     }
     
     //TODO: 메일 보내기 연결
-    //MARK: 문희하기
+    //MARK: 문의하기
     @IBAction func mailAction(_ sender: UIButton) {
+        
+        sendEmail()
         
     }
     
