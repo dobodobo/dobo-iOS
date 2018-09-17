@@ -25,6 +25,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
     
+    
+    @IBOutlet weak var seoulightView: UIView!
+    @IBOutlet weak var seoulightImageView: UIImageView!
     @IBOutlet weak var seoulightNameLabel: UILabel!
     @IBOutlet weak var seoulightCompanyLabel: UILabel!
 
@@ -40,6 +43,17 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         //TableView
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+        
+        //navigation bar
+        setNavigationBar()
+        
+        //imageView Circle
+        seoulightView.layer.masksToBounds = true
+        seoulightView.layer.cornerRadius = seoulightImageView.layer.frame.width/2
+        
+        seoulightImageView.layer.masksToBounds = true
+        seoulightImageView.layer.cornerRadius = seoulightImageView.layer.frame.width/2
 
         //ImageSlideShow
         placeImageSlide.slideshowInterval = 5.0
@@ -55,6 +69,16 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(SeoulightDetailViewController.didTap))
             placeImageSlide.addGestureRecognizer(recognizer)
     
+    }
+    
+    //MARK: 네비게이션 바 투명하게 하는 함수
+    func setNavigationBar() {
+        let bar: UINavigationBar! = self.navigationController?.navigationBar
+        
+        bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        bar.shadowImage = UIImage()
+        bar.backgroundColor = UIColor.clear
+        
     }
     
     //MARK: ImageSlideShow
@@ -102,3 +126,4 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     }
 
 }
+

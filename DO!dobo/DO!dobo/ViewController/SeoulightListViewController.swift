@@ -34,16 +34,10 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.placeImageView.image = #imageLiteral(resourceName: "rectangle5.png")
         cell.titleLabel.text = "수원 화성"
-        cell.introLabel.text = "화성의 경치와 역사를 함께 느꺄보세요."
+        cell.introTextView.text = "화성의 경치와 역사를 함께 느꺄보세요."
         cell.dateLabel.text = "2019.10.01"
-        cell.peopleLabel.text = "3~6명"
-    
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-    
+        cell.peopleLabel.text = "3~6명"    
         
-        cell.contentView.layer.cornerRadius = 8 // Your choice here.
-        cell.contentView.clipsToBounds = true
         
         return cell
     }
