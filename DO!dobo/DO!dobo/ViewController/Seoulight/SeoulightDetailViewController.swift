@@ -9,13 +9,22 @@
 import UIKit
 import ImageSlideshow
 import Kingfisher
+import SilentScrolly
 
-class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SilentScrollable {
     
+    //imageslideshow
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    //silentscrolly
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle(showStyle: .lightContent, hideStyle: .default)
+    }
 
+    var silentScrolly: SilentScrolly?
+    
     @IBOutlet weak var placeImageSlide: ImageSlideshow!
     @IBOutlet weak var tableView: UITableView!
     
@@ -46,9 +55,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         //TableView
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
         
         //navigation bar
+        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
         setNavigationBar()
         
         //imageView Circle
@@ -62,6 +71,11 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         placeImageSlide.slideshowInterval = 5.0
         placeImageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         placeImageSlide.contentScaleMode = UIViewContentMode.scaleToFill
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
+        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+        placeImageSlide.pageIndicator = pageControl
         
         placeImageSlide.currentPageChanged = { page in
             print("current page:", page)
@@ -79,6 +93,41 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         courseCollectionView.delegate = self
         courseCollectionView.dataSource = self
     
+    }
+    
+    //MARK: silentscrolly
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        silentDidLayoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureSilentScrolly(tableView, followBottomView: tabBarController?.tabBar)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        silentWillDisappear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        silentDidDisappear()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        silentWillTranstion()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        silentDidScroll()
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        showNavigationBar()
+        return true
     }
     
     //MARK: 네비게이션 바 투명하게 하는 함수

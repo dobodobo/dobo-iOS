@@ -10,7 +10,7 @@ target 'DO!dobo' do
     pod "ImageSlideshow/Kingfisher"
     pod 'SwiftyJSON'
     pod 'GooglePlaces'
-
+    pod 'SilentScrolly'
 
   # Pods for DO!dobo
 
