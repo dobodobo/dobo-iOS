@@ -74,10 +74,12 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         placeImageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         placeImageSlide.contentScaleMode = UIViewContentMode.scaleToFill
         
+        
         let pageControl = UIPageControl()
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
         pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
         placeImageSlide.pageIndicator = pageControl
+        placeImageSlide.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
         
         placeImageSlide.currentPageChanged = { page in
             print("current page:", page)
