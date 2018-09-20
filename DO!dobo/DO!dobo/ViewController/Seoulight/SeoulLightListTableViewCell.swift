@@ -16,6 +16,9 @@ class SeoulLightListTableViewCell: UITableViewCell {
     @IBOutlet weak var introTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var languageImageView: UIImageView!
+    @IBOutlet weak var languageLabel: UILabel!
+    
     
 
     override func awakeFromNib() {
@@ -26,6 +29,10 @@ class SeoulLightListTableViewCell: UITableViewCell {
         listView.layer.cornerRadius = 4
         placeImageView.clipsToBounds = true
         placeImageView.layer.cornerRadius = 4
+        
+        placeImageView.clipsToBounds = true
+        languageImageView.layer.cornerRadius = 4
+
 
         if #available(iOS 11.0, *) {
             placeImageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]

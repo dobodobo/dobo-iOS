@@ -43,6 +43,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var placeCollectionView: UICollectionView!
+    @IBOutlet weak var languageImageView: UIImageView!
     
 
 //    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
@@ -70,6 +71,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         
         seoulightImageView.layer.masksToBounds = true
         seoulightImageView.layer.cornerRadius = seoulightImageView.layer.frame.width/2
+        
+        languageImageView.layer.masksToBounds = true
+        languageImageView.layer.cornerRadius = 4
 
         //ImageSlideShow
         placeImageSlide.slideshowInterval = 5.0

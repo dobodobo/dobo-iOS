@@ -11,6 +11,7 @@ import UIKit
 class SeoulightListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabelView: UITableView!
+    @IBOutlet weak var languageImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         //TableView
         tabelView.delegate = self
         tabelView.dataSource = self
+        
         
 
         // Do any additional setup after loading the view.
@@ -36,7 +38,8 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         cell.titleLabel.text = "수원 화성"
         cell.introTextView.text = "화성의 경치와 역사를 함께 느꺄보세요."
         cell.dateLabel.text = "2019.10.01"
-        cell.peopleLabel.text = "3~6명"    
+        cell.peopleLabel.text = "3~6명"
+        cell.languageLabel.text = "영어"
         
         
         return cell
