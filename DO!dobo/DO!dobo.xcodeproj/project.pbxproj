@@ -14,6 +14,7 @@
 		226C91662152D0680029FFB7 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91652152D0680029FFB7 /* MyPageCollectionViewCell.swift */; };
 		226C916821536E830029FFB7 /* MyPageModViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C916721536E830029FFB7 /* MyPageModViewController.swift */; };
 		226C916A215379380029FFB7 /* SeoulightApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9169215379380029FFB7 /* SeoulightApplyViewController.swift */; };
+		226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C916B2153BDD60029FFB7 /* SeoulWebViewController.swift */; };
 		22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */; };
 		22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */; };
 		22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		226C91652152D0680029FFB7 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		226C916721536E830029FFB7 /* MyPageModViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModViewController.swift; sourceTree = "<group>"; };
 		226C9169215379380029FFB7 /* SeoulightApplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightApplyViewController.swift; sourceTree = "<group>"; };
+		226C916B2153BDD60029FFB7 /* SeoulWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulWebViewController.swift; sourceTree = "<group>"; };
 		22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailViewController.swift; sourceTree = "<group>"; };
 		22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulLightListTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */,
 				22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */,
 				22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */,
+				226C916B2153BDD60029FFB7 /* SeoulWebViewController.swift */,
 			);
 			path = Seoul;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				22C7573C214E8B4200809616 /* SeoulightListViewController.swift in Sources */,
 				22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */,
 				226C9160215268820029FFB7 /* ReportViewController.swift in Sources */,
+				226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */,
 				22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */,
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22C75724214E354300809616 /* AppDelegate.swift in Sources */,

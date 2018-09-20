@@ -38,7 +38,7 @@ class SeoulightApplyViewController: UIViewController {
         
         if sender == singleButton {
             singleButton.isSelected = !singleButton.isSelected
-            singleButton.setImage(#imageLiteral(resourceName: "group2"), for: UIControlState.normal)
+            singleButton.setImage(#imageLiteral(resourceName: "group23"), for: UIControlState.normal)
             orgButton.setImage(#imageLiteral(resourceName: "group4Copy"), for: UIControlState.normal)
             single = "개인"
         }
