@@ -12,9 +12,9 @@ class ReportViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var c: NSLayoutConstraint!
+    var keyboardDismissGesture: UITapGestureRecognizer?
     var constraintInitVal : CGFloat = 0
-        var check = true
-        var keyboardDismissGesture: UITapGestureRecognizer?
+    var check = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,5 @@ extension ReportViewController {
     @objc func tapBackground() {
         self.view.endEditing(true)
     }
-    ////////
 }
 
