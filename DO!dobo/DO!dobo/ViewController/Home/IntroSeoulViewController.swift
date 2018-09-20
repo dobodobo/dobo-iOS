@@ -53,5 +53,12 @@ class IntroSeoulViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: dismiss
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

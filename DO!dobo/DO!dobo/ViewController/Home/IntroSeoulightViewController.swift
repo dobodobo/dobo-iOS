@@ -13,6 +13,8 @@ class IntroSeoulightViewController: UIViewController {
     
     @IBOutlet weak var howTextView: UITextView!
     @IBOutlet weak var courseTextView: UITextView!
+    @IBOutlet weak var seoulightTextView: UITextView!
+    @IBOutlet weak var meanTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,18 @@ class IntroSeoulightViewController: UIViewController {
         //navigation bar background image
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"combinedShapeCopy"),for: .default)
         
+        seoulightTextView.text =
+        """
+        서울을 방문한 국내외 관광객들에게 1일 테마 서울 도보 관광 코스를
+        운영하여 신청자들과 함께 서울을 거닐며 해설을 해주는
+        "서울 시민 해설사" 입니다.
+        """
+        
+        meanTextView.text =
+        """
+        Seoulight는 Seoulite(서울 시민) + light(빛)를 조합하여 만든 것으로
+        "서울을 빛내는 시민"을 의미합니다.
+        """
         
         howTextView.text =
         """
@@ -49,15 +63,12 @@ class IntroSeoulightViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: dismiss
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
+
 
 }
