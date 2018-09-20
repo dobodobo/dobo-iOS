@@ -17,6 +17,7 @@ PODS:
   - Kingfisher (4.9.0)
   - SilentScrolly (1.0.8)
   - SwiftyJSON (4.1.0)
+  - "UITextView+Placeholder (1.2.1)"
 
 DEPENDENCIES:
   - GooglePlaces
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - ImageSlideshow/Kingfisher
   - SilentScrolly
   - SwiftyJSON
+  - "UITextView+Placeholder"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -36,6 +38,7 @@ SPEC REPOS:
     - Kingfisher
     - SilentScrolly
     - SwiftyJSON
+    - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -46,7 +49,8 @@ SPEC CHECKSUMS:
   Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
   SilentScrolly: 0d85996304048c9e6c49788823c9c2a64185be76
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 009f9907a928dfb470cd221b84a2fed21774614b
+PODFILE CHECKSUM: ac259ecc1e7af937a9930a363f51d44c246a838c
 
 COCOAPODS: 1.5.3

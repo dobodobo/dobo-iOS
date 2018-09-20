@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import SilentScrolly
 
-class WebSeoulViewController: UIViewController {
+class WebSeoulViewController: UIViewController, SilentScrollable {
+    
+    //silentscrolly
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle(showStyle: .lightContent, hideStyle: .default)
+    }
+    
+    var silentScrolly: SilentScrolly?
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -22,6 +30,41 @@ class WebSeoulViewController: UIViewController {
         webView.loadRequest(requestObj)
 
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: silentscrolly
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        silentDidLayoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureSilentScrolly(webView.scrollView, followBottomView: tabBarController?.tabBar)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        silentWillDisappear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        silentDidDisappear()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        silentWillTranstion()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        silentDidScroll()
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        showNavigationBar()
+        return true
     }
 
     override func didReceiveMemoryWarning() {

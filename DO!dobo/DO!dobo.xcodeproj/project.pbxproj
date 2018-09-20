@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		226C915D2151075A0029FFB7 /* WebSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */; };
+		226C9160215268820029FFB7 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915F215268820029FFB7 /* ReportViewController.swift */; };
+		226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91612152CFA90029FFB7 /* MyPageViewController.swift */; };
+		226C91642152D0570029FFB7 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91632152D0570029FFB7 /* MyPageTableViewCell.swift */; };
+		226C91662152D0680029FFB7 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91652152D0680029FFB7 /* MyPageCollectionViewCell.swift */; };
 		22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */; };
 		22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */; };
 		22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */; };
@@ -33,6 +37,10 @@
 /* Begin PBXFileReference section */
 		03EFD1ADA7131D42F2187372 /* Pods-DO!dobo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DO!dobo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DO!dobo/Pods-DO!dobo.release.xcconfig"; sourceTree = "<group>"; };
 		226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeoulViewController.swift; sourceTree = "<group>"; };
+		226C915F215268820029FFB7 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		226C91612152CFA90029FFB7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		226C91632152D0570029FFB7 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
+		226C91652152D0680029FFB7 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailViewController.swift; sourceTree = "<group>"; };
 		22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		22A66F92214EC8E0003D896F /* SeoulLightListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulLightListTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +78,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		226C915E215268630029FFB7 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				226C91612152CFA90029FFB7 /* MyPageViewController.swift */,
+				226C91632152D0570029FFB7 /* MyPageTableViewCell.swift */,
+				226C91652152D0680029FFB7 /* MyPageCollectionViewCell.swift */,
+				226C915F215268820029FFB7 /* ReportViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		22A66F96214FB4B2003D896F /* Seoulight */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +162,7 @@
 				22A66FA72150A9BA003D896F /* Home */,
 				22A66F98214FB4D3003D896F /* Seoul */,
 				22A66F96214FB4B2003D896F /* Seoulight */,
+				226C915E215268630029FFB7 /* MyPage */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -274,6 +294,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SilentScrolly/SilentScrolly.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -283,6 +304,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SilentScrolly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -314,11 +336,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */,
 				22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */,
 				22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */,
+				226C91662152D0680029FFB7 /* MyPageCollectionViewCell.swift in Sources */,
 				22A66FA4214FCDF0003D896F /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				22A66FA92150A9E8003D896F /* IntroSeoulViewController.swift in Sources */,
 				226C915D2151075A0029FFB7 /* WebSeoulViewController.swift in Sources */,
+				226C91642152D0570029FFB7 /* MyPageTableViewCell.swift in Sources */,
 				22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */,
 				22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */,
 				22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */,
@@ -328,6 +353,7 @@
 				22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */,
 				22C7573C214E8B4200809616 /* SeoulightListViewController.swift in Sources */,
 				22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */,
+				226C9160215268820029FFB7 /* ReportViewController.swift in Sources */,
 				22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */,
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22C75724214E354300809616 /* AppDelegate.swift in Sources */,

@@ -11,6 +11,7 @@ target 'DO!dobo' do
     pod 'SwiftyJSON'
     pod 'GooglePlaces'
     pod 'SilentScrolly'
+    pod 'UITextView+Placeholder'
 
   # Pods for DO!dobo
 

@@ -54,6 +54,8 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackBtn(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        
         //TableView
         tableView.delegate = self
         tableView.dataSource = self
@@ -220,7 +222,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         if collectionView == placeCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightPlaceCollectionViewCell", for: indexPath) as! SeoulightPlaceCollectionViewCell
             
-            cell.placeImageView.image = #imageLiteral(resourceName: "group16.png")
+            cell.placeImageView.image = #imageLiteral(resourceName: "b")
             cell.nameLabel.text = "오설록"
             cell.categoryLabel.text = "음식점"
             

@@ -20,16 +20,13 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     //silentscrolly
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return statusBarStyle(showStyle: .lightContent, hideStyle: .default)
+        return statusBarStyle(showStyle: .default, hideStyle: .default)
     }
     
     var silentScrolly: SilentScrolly?
     
     @IBOutlet weak var placeImageSlide: ImageSlideshow!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var peopleLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var reservationButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -44,6 +41,8 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setBackBtn(color: .white)
         
         //TableView
         tableView.delegate = self
