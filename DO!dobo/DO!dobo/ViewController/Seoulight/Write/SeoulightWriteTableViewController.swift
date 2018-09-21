@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class SeoulightWriteTableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -123,6 +124,15 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     //MARK: 글 등록 액션
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
     }
+    
+    //MARK: 코스 검색 액션
+    @IBAction func courseSearchAction(_ sender: UITextField) {
+        
+        courseSearchTextField.resignFirstResponder()
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        present(acController, animated: true, completion: nil)
+    }
 
     // MARK: TableView method
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -172,6 +182,29 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     }
 
 }
+
+//MARK: Google Place API extension
+extension SeoulightWriteTableViewController: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        // Get the place name from 'GMSAutocompleteViewController'
+        // Then display the name in textField
+        courseSearchTextField.text = place.name
+        
+        // Dismiss the GMSAutocompleteViewController when something is selected
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // Handle the error
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        // Dismiss when the user canceled the action
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 
 //MARK: date picker extension
 extension SeoulightWriteTableViewController {
