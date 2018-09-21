@@ -50,9 +50,8 @@ class MyPageModViewController: UIViewController {
     
     @IBAction func profileGesture(_ sender: UITapGestureRecognizer) {
        openGallery()
-        print("반응")
+
     }
-    
     
 }
 

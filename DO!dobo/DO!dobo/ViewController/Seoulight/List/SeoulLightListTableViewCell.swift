@@ -13,7 +13,6 @@ class SeoulLightListTableViewCell: UITableViewCell {
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var introTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var peopleLabel: UILabel!
     @IBOutlet weak var languageImageView: UIImageView!

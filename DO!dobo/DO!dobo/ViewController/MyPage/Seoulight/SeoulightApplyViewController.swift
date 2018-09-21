@@ -61,7 +61,7 @@ class SeoulightApplyViewController: UIViewController {
     
 }
 
-//keyboard setting extension
+//MARK: keyboard setting extension
 extension SeoulightApplyViewController{
     
     func setKeyboardSetting() {
@@ -116,7 +116,7 @@ extension SeoulightApplyViewController{
     }
 }
 
-//date picker extension
+//MARK: date picker extension
 extension SeoulightApplyViewController  {
     
     func initDatePicker(){
