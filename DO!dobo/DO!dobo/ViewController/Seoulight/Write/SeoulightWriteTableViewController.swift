@@ -31,7 +31,10 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     
     var datePicker = UIDatePicker()
     
-
+    let imagePicker : UIImagePickerController = UIImagePickerController()
+    var imageArr: [UIImage] = [#imageLiteral(resourceName: "icAdImage")]
+    var imageNum = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,6 +137,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         present(acController, animated: true, completion: nil)
     }
 
+
     // MARK: TableView method
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -162,23 +166,59 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         }
         
         else {
-            return 1
+            return imageArr.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == courseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightAddCourseCollectionViewCell", for: indexPath) as! SeoulightAddCourseCollectionViewCell
             
             cell.nameLabel.text = "서울창조경제혁신센터"
             
             return cell
+            
         } else {
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightAddImageCollectionViewCell", for: indexPath) as! SeoulightAddImageCollectionViewCell
             
+            if indexPath.row == 0 {
+                cell.deleteButton.isHidden = true
+            } else {
+                 cell.deleteButton.isHidden = false
+            }
+            
+            cell.placeImageView.image = imageArr[indexPath.row]
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(deleteCellFromButton(button:)), for: .touchUpInside)
             
             return cell
+            
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            if imageNum < 5 {
+                openGallery()
+            }
+            
+            else if imageNum >= 5 {
+                let message = UIAlertController(title: "사진 개수 초과", message: "사진은 최대 5장까지 첨부 가능합니다.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                message.addAction(action)
+                self.present(message, animated: true,completion: nil)
+            }
+        }
+    }
+    
+    @objc func deleteCellFromButton(button: UIButton) {
+        
+        imageArr.remove(at: button.tag)
+        imageNum -= 1
+        imageCollectionView.reloadData()
     }
 
 }
@@ -202,6 +242,57 @@ extension SeoulightWriteTableViewController: GMSAutocompleteViewControllerDelega
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         // Dismiss when the user canceled the action
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: 이미지 첨부
+extension SeoulightWriteTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Method
+    @objc func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            self.imagePicker.sourceType = .photoLibrary
+            self.imagePicker.delegate = self
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: { print("이미지 피커 나옴") })
+        }
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.delegate = self
+            self.present(self.imagePicker, animated: true, completion: { print("이미지 피커 나옴") })
+        }
+    }
+    
+    // imagePickerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("사용자가 취소함")
+        self.dismiss(animated: true) {
+            print("이미지 피커 사라짐")
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //        defer {
+        //            self.dismiss(animated: true) {
+        //                print("이미지 피커 사라짐")
+        //            }
+        //        }
+        
+        if let editedImage: UIImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageArr.append(editedImage)
+            imageNum += 1
+        } else if let originalImage: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            imageArr.append(originalImage)
+            imageNum += 1
+        }
+        
+        self.dismiss(animated: true) {
+            print("이미지 피커 사라짐")
+            self.imageCollectionView.reloadData()
+        }
     }
 }
 
