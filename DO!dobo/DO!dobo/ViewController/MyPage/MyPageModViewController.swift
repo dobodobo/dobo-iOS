@@ -9,7 +9,9 @@
 import UIKit
 
 class MyPageModViewController: UIViewController {
-
+    
+//    var homeController: UIViewController?
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var c: NSLayoutConstraint!
@@ -17,13 +19,18 @@ class MyPageModViewController: UIViewController {
     var constraintInitVal : CGFloat = 0
     var check = true
     
+    let imagePicker : UIImagePickerController = UIImagePickerController()
+    
     //TODO: 일반 회원일때, 보이기
     @IBOutlet weak var seoulightButton: UIButton!
     
     //TODO: 서울라이트일 때, 보이기
     @IBOutlet weak var SeoulightImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        homeController = self
         
         setBackBtn()
         setKeyboardSetting()
@@ -40,6 +47,12 @@ class MyPageModViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func profileGesture(_ sender: UITapGestureRecognizer) {
+       openGallery()
+        print("반응")
+    }
+    
     
 }
 
@@ -97,3 +110,112 @@ extension MyPageModViewController {
     }
 }
 
+// MARK: 이미지 첨부
+extension MyPageModViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Method
+    @objc func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            self.imagePicker.sourceType = .photoLibrary
+            self.imagePicker.delegate = self
+            self.imagePicker.allowsEditing = true
+            self.present(self.imagePicker, animated: true, completion: { print("이미지 피커 나옴") })
+        }
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.imagePicker.sourceType = .camera
+            self.imagePicker.delegate = self
+            self.present(self.imagePicker, animated: true, completion: { print("이미지 피커 나옴") })
+        }
+    }
+    
+    // imagePickerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("사용자가 취소함")
+        self.dismiss(animated: true) {
+            print("이미지 피커 사라짐")
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //        defer {
+        //            self.dismiss(animated: true) {
+        //                print("이미지 피커 사라짐")
+        //            }
+        //        }
+        
+        if let editedImage: UIImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            profileImageView.image = editedImage
+        } else if let originalImage: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            profileImageView.image = originalImage
+        }
+        
+        //        if let imageUrl = info[UIImagePickerControllerReferenceURL] as? URL{
+        //            profileUrl = imageUrl
+        //
+        //
+        //            print((profileUrl)!)
+        //            self.userdefault.set((self.profileUrl)!, forKey: "image_profile")
+        //
+        //        }
+        
+        //        if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
+        //            let imgName = imgUrl.lastPathComponent
+        //            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        //            let localPath = documentDirectory?.appending(imgName)
+        //
+        //            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //            let data = UIImagePNGRepresentation(image)! as NSData
+        //            data.write(toFile: localPath!, atomically: true)
+        //            //let imageData = NSData(contentsOfFile: localPath!)!
+        //            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+        //            print(photoURL)
+        //
+        //            self.userdefault.set(photoURL, forKey: "image_profile")
+        //        }
+        
+        self.dismiss(animated: true) {
+            print("이미지 피커 사라짐")
+        }
+    }
+    
+    
+}
+
+//protocol Gallery : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+//    var homeController : UIViewController? {get set}
+//    func openGalleryCamera()
+//}
+//
+//extension Gallery {
+//
+//    func openGalleryCamera(){
+//        let selectAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let libraryAction = UIAlertAction(title: "앨범", style: .default) { _ in if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+//            let imagePicker = UIImagePickerController()
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//            imagePicker.allowsEditing = true
+//            self.homeController?.present(imagePicker, animated: true, completion: nil)
+//            }
+//
+//        }
+//        let cameraAction = UIAlertAction(title: "카메라", style: .default) {
+//            _ in  if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+//                let imagePicker = UIImagePickerController()
+//                imagePicker.delegate = self
+//                imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+//                imagePicker.allowsEditing = true
+//                self.homeController?.present(imagePicker, animated: true, completion: nil)
+//            }
+//        }
+//        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+//        selectAlert.addAction(libraryAction)
+//        selectAlert.addAction(cameraAction)
+//        selectAlert.addAction(cancelAction)
+//        self.homeController?.present(selectAlert, animated: true, completion: nil)
+//    }
+//}
+//

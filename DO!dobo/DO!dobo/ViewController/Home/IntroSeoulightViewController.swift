@@ -24,14 +24,14 @@ class IntroSeoulightViewController: UIViewController {
         
         seoulightTextView.text =
         """
-        서울을 방문한 국내외 관광객들에게 1일 테마 서울 도보 관광 코스를
-        운영하여 신청자들과 함께 서울을 거닐며 해설을 해주는
-        "서울 시민 해설사" 입니다.
+        서울을 방문한 국내외 관광객들에게 1일 테마 서울 도보 관광 코스를 운영하여 신청자들과 함께
+        서울을 거닐며 해설을 해주는 "서울 시민 해설사" 입니다.
         """
         
+     
         meanTextView.text =
         """
-        Seoulight는 Seoulite(서울 시민) + light(빛)를 조합하여 만든 것으로
+        Seoulight는 Seoulite + light를 조합하여 만든 것으로
         "서울을 빛내는 시민"을 의미합니다.
         """
         

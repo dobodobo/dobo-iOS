@@ -14,8 +14,7 @@ class SeoulListTableViewCell: UITableViewCell {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var introTextView: UITextView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var peopleLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -47,7 +47,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath ) as! MyPageTableViewCell
         
-        cell.listNameLabel.text = "신청리스트"
+        cell.listNameLabel.text = "신청 리스트"
         cell.collectionView.reloadData()
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = .zero
@@ -55,6 +55,14 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    
+    //MARK: 시민해설사 신청하기
+    @IBAction func applyAction(_ sender: UIButton) {
+        let applyVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightApplyViewController") as! SeoulightApplyViewController
+        
+        self.navigationController?.pushViewController(applyVC, animated: true)
+    }
+    
 
 }
 

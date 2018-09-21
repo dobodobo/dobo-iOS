@@ -10,20 +10,28 @@ import UIKit
 
 class SeoulightApplyViewController: UIViewController {
 
+    //keyboaed var
     @IBOutlet weak var c: NSLayoutConstraint!
     var keyboardDismissGesture: UITapGestureRecognizer?
     var constraintInitVal : CGFloat = 0
     var check = true
     
+    //toggle btn var
     @IBOutlet weak var singleButton: UIButton!
     @IBOutlet weak var orgButton: UIButton!
     var single: String?
+    
+    //pickerView var
+    let datePicker = UIDatePicker()
+
+    @IBOutlet weak var birthTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackBtn()
         setKeyboardSetting()
+        initDatePicker()
 
         // Do any additional setup after loading the view.
     }
@@ -53,6 +61,7 @@ class SeoulightApplyViewController: UIViewController {
     
 }
 
+//keyboard setting extension
 extension SeoulightApplyViewController{
     
     func setKeyboardSetting() {
@@ -105,5 +114,62 @@ extension SeoulightApplyViewController{
     @objc func tapBackground() {
         self.view.endEditing(true)
     }
+}
+
+//date picker extension
+extension SeoulightApplyViewController  {
+    
+    func initDatePicker(){
+        
+        datePicker.datePickerMode = .date
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        
+        guard let date = dateFormatter.date(from: "1996.01.29") else {
+            fatalError("포맷과 맞지 않아 데이터 변환이 실패했습니다")
+        }
+        
+        datePicker.date = date
+        
+        datePicker.maximumDate = Date()
+        
+        
+        setTextfieldView(textField: birthTextField, selector: #selector(selectedDatePicker), inputView: datePicker)
+    }
+    
+    func setTextfieldView(textField:UITextField, selector : Selector, inputView : Any){
+        
+        let bar = UIToolbar()
+        bar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "확인", style: .done
+            , target: self, action: selector)
+        
+        bar.setItems([doneButton], animated: true)
+        textField.inputAccessoryView = bar
+        
+        if let tempView = inputView as? UIView {
+            textField.inputView = tempView
+        }
+        if let tempView = inputView as? UIControl {
+            textField.inputView = tempView
+        }
+        
+    }
+    
+    @objc func selectedDatePicker(){
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy.MM.dd"
+        
+        let date = dateformatter.string(from: datePicker.date)
+        
+        birthTextField.text = date
+        
+        view.endEditing(true)
+    }
+    
 }
 
