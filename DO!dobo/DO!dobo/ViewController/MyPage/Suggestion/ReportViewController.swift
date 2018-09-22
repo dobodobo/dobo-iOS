@@ -41,7 +41,7 @@ class ReportViewController: UIViewController {
         
         if titleTextField.text == "" || contentTextView.text == "" {
             
-            let alertView = UIAlertController(title: "제출 실패", message: "항목을 모두 입력헤주세요.", preferredStyle: .alert)
+            let alertView = UIAlertController(title: "제출 실패", message: "모든 항목을 입력해주세요.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
             alertView.addAction(ok)
             self.present(alertView, animated: true, completion: nil)
@@ -56,6 +56,7 @@ class ReportViewController: UIViewController {
     func suggest(title: String, content: String) {
         MyPageService.suggest(title: title, content: content) { (message) in
             
+            //TODO: 팝업 라이브러리 추가
             if message == "success" {
                 self.navigationController?.popViewController(animated: true)
             }
@@ -71,8 +72,6 @@ class ReportViewController: UIViewController {
             
         }
     }
-    
-
 
 }
 

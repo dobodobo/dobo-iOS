@@ -12,6 +12,60 @@ import SwiftyJSON
 
 struct MyPageService: APIService {
     
+    //MARK: 마이페이지 조회 - GET
+    static func myPageInit(completion: @escaping (MyPage) -> Void) {
+
+        let URL = url("/users/mypage")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token_header).responseData() { res in
+            
+            switch res.result {
+                
+            case .success:
+                
+                print("마이페이지 : 진입")
+                if let value = res.result.value {
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let myPageData = try decoder.decode(MyPageData.self, from: value)
+                        
+                        if myPageData.status == 200 {
+                
+                            let message = JSON(value)["message"].string
+                            print(message)
+                            if myPageData.message == "success" {
+                                 print("마이페이지 : 성공")
+                                completion(myPageData.result)
+                            } else {
+                                print("마이페이지 : 실패")
+                            }
+                            
+                        } else {
+                            print("마이페이지 : 서버 에러")
+                        }
+                        
+                    } catch {
+                        print("마이페이지 : 변수 에러")
+                    }
+                    
+                }
+                
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+        
+    }
+    
+    
     //MARK: 서울라이트 신청하기 - POST
     static func applySeoulight(name: String, birth: String, organization: String, portfolio: String, phone: String, intro: String, completion: @escaping (_ message: String) -> Void) {
         

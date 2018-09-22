@@ -39,6 +39,16 @@ extension UIViewController {
     
 }
 
+extension UITableViewCell {
+    func gsno(_ value: String?) -> String { //String 옵셔널 벗기기
+        return value ?? ""
+    }
+    
+    func gino(_ value: Int?) -> Int { //Int 옵셔널 벗기기
+        return value ?? 0
+    }
+}
+
 extension NSObject {
     static var reuseIdentifier: String { //스토리보드 idetifier
         return String(describing: self)

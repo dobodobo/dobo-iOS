@@ -38,7 +38,6 @@ class MyPageModViewController: UIViewController {
         //imageView circle
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.layer.frame.width/2
-        
 
         // Do any additional setup after loading the view.
     }
@@ -48,6 +47,7 @@ class MyPageModViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: 프로필 이미지 선택 액션
     @IBAction func profileGesture(_ sender: UITapGestureRecognizer) {
        openGallery()
 
@@ -55,6 +55,7 @@ class MyPageModViewController: UIViewController {
     
 }
 
+//MARK: keyboard setting extension
 extension MyPageModViewController {
     
     func setKeyboardSetting() {

@@ -2436,7 +2436,7 @@
                                                                             <constraint firstAttribute="width" constant="249" id="p7g-8a-w70"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VeH-dt-x5P">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a" translatesAutoresizingMaskIntoConstraints="NO" id="VeH-dt-x5P">
                                                                         <rect key="frame" x="0.5" y="1" width="249" height="108"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="249" id="XbB-Fk-EGu"/>
@@ -2479,6 +2479,7 @@
                                                 <constraint firstItem="gq9-Wy-83v" firstAttribute="top" secondItem="pqH-zL-brq" secondAttribute="bottom" constant="13" id="rYV-Fl-dtH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="collectionView" destination="gq9-Wy-83v" id="Dcm-kZ-l52"/>
                                             <outlet property="listNameLabel" destination="jQ8-I4-VhX" id="uiy-PE-0ww"/>
@@ -2512,6 +2513,7 @@
                         <outlet property="nameLabel" destination="Qk3-Ky-6Hc" id="tqP-nW-Xt0"/>
                         <outlet property="profileImageView" destination="Mnz-4b-liG" id="cvm-wc-s3r"/>
                         <outlet property="reportView" destination="x0H-6s-KSL" id="shT-LN-Bad"/>
+                        <outlet property="seoulightImageView" destination="Z5b-33-Np6" id="1x5-r7-Ngq"/>
                         <outlet property="tableView" destination="qZ1-bR-Mai" id="f6Y-bd-xLo"/>
                     </connections>
                 </viewController>
@@ -3849,6 +3851,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         </scene>
     </scenes>
     <resources>
+        <image name="a" width="539" height="250"/>
         <image name="activityGray" width="82" height="32"/>
         <image name="combinedShape" width="375" height="235"/>
         <image name="cultureGray" width="82" height="32"/>

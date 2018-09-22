@@ -31,11 +31,13 @@
 		22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */; };
 		22A66FA92150A9E8003D896F /* IntroSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */; };
 		22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */; };
-		22B407DD2156667300FD9D44 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407DC2156667300FD9D44 /* signUp.swift */; };
 		22B407E22156671700FD9D44 /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E12156671700FD9D44 /* SignService.swift */; };
 		22B407E42156672100FD9D44 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E32156672100FD9D44 /* APIService.swift */; };
 		22B407E72156725400FD9D44 /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E62156725400FD9D44 /* ExtensionControl.swift */; };
 		22B407EB21567F1000FD9D44 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407EA21567F1000FD9D44 /* MyPageService.swift */; };
+		22B407F12156A30900FD9D44 /* MyPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F02156A30900FD9D44 /* MyPageData.swift */; };
+		22B407F32156A31600FD9D44 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F22156A31600FD9D44 /* MyPage.swift */; };
+		22B407F52156A3D400FD9D44 /* TourList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F42156A3D400FD9D44 /* TourList.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
 		22C75726214E354300809616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75725214E354300809616 /* MainViewController.swift */; };
 		22C75729214E354300809616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C75727214E354300809616 /* Main.storyboard */; };
@@ -74,11 +76,13 @@
 		22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCourseCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulViewController.swift; sourceTree = "<group>"; };
 		22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulightViewController.swift; sourceTree = "<group>"; };
-		22B407DC2156667300FD9D44 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
 		22B407E12156671700FD9D44 /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
 		22B407E32156672100FD9D44 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		22B407E62156725400FD9D44 /* ExtensionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
 		22B407EA21567F1000FD9D44 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
+		22B407F02156A30900FD9D44 /* MyPageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageData.swift; sourceTree = "<group>"; };
+		22B407F22156A31600FD9D44 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		22B407F42156A3D400FD9D44 /* TourList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourList.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C75723214E354300809616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C75725214E354300809616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -259,7 +263,7 @@
 		22B407DB215665EE00FD9D44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				22B407DC2156667300FD9D44 /* signUp.swift */,
+				22B407F62156A4C200FD9D44 /* MyPage */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +284,16 @@
 				22B407E62156725400FD9D44 /* ExtensionControl.swift */,
 			);
 			path = Function;
+			sourceTree = "<group>";
+		};
+		22B407F62156A4C200FD9D44 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				22B407F02156A30900FD9D44 /* MyPageData.swift */,
+				22B407F22156A31600FD9D44 /* MyPage.swift */,
+				22B407F42156A3D400FD9D44 /* TourList.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		22C75717214E354200809616 = {
@@ -516,7 +530,6 @@
 			files = (
 				226C916A215379380029FFB7 /* SeoulightApplyViewController.swift in Sources */,
 				226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */,
-				22B407DD2156667300FD9D44 /* signUp.swift in Sources */,
 				22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */,
 				22B407E42156672100FD9D44 /* APIService.swift in Sources */,
 				22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */,
@@ -535,12 +548,15 @@
 				226C917421552FA40029FFB7 /* SeoulightAddImageCollectionViewCell.swift in Sources */,
 				226C917221552F520029FFB7 /* SeoulightWriteTableViewController.swift in Sources */,
 				226C917821552FDE0029FFB7 /* SeoulightAddCourseCollectionViewCell.swift in Sources */,
+				22B407F12156A30900FD9D44 /* MyPageData.swift in Sources */,
 				22A66F95214FB3F5003D896F /* SeoulListViewController.swift in Sources */,
 				22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */,
 				22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */,
 				22C7573C214E8B4200809616 /* SeoulightListViewController.swift in Sources */,
 				22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */,
+				22B407F32156A31600FD9D44 /* MyPage.swift in Sources */,
 				226C9160215268820029FFB7 /* ReportViewController.swift in Sources */,
+				22B407F52156A3D400FD9D44 /* TourList.swift in Sources */,
 				226C917E215531BD0029FFB7 /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */,
 				226C916E21550E500029FFB7 /* SeoulightCategoryViewController.swift in Sources */,

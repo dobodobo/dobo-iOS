@@ -86,8 +86,8 @@ class SeoulightApplyViewController: UIViewController {
                 //FIXME: 알림 메시지 수정
                 self.simpleAlert(title: "신청 완료", message:
                     """
-                    신청이 완료되었습니다.
-                    관리자 심사 후, 기재하신 번호를 통하여 추후 결과가 발표됩니다.
+                    관리자 심사 후, 추후 기재하신 번호를 통하여
+                    결과가 발표됩니다.
                     """
                 )
                 

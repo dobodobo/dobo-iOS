@@ -103,12 +103,13 @@ struct SignService: APIService {
                         
                         let des = JSON(value)["description"].string
                         
-                        UserDefaults.standard.set(JSON(value)["result"]["profile"]["email"].string, forKey: "id") //회원 아이디
-                        
                         if message == "success"{ // 로그인 성공
                             print("로그인 : 성공")
                             
+                            UserDefaults.standard.set(JSON(value)["result"]["profile"]["email"].string, forKey: "id") //회원 아이디
                             UserDefaults.standard.set(JSON(value)["result"]["token"].string, forKey: "token") //회원 토큰
+                            UserDefaults.standard.set(JSON(value)["result"]["profile"]["role"].string, forKey: "role") //신분
+                            
                             let token = UserDefaults.standard.string(forKey: "token")
                             
                             print("토큰 : \(token ?? "")")
