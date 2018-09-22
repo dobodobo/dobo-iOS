@@ -28,7 +28,6 @@
 		22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */; };
 		22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9D214FB88C003D896F /* SeoulDetailViewController.swift */; };
 		22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */; };
-		22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */; };
 		22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */; };
 		22A66FA92150A9E8003D896F /* IntroSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */; };
 		22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */; };
@@ -67,7 +66,6 @@
 		22A66F9B214FB870003D896F /* SeoulDetailReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetailReviewTableViewCell.swift; sourceTree = "<group>"; };
 		22A66F9D214FB88C003D896F /* SeoulDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetailViewController.swift; sourceTree = "<group>"; };
 		22A66F9F214FC000003D896F /* SeoulPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
-		22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCourseCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulViewController.swift; sourceTree = "<group>"; };
 		22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulightViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			children = (
 				226C916D21550E500029FFB7 /* SeoulightCategoryViewController.swift */,
 				22A66F8E214EC0CB003D896F /* SeoulightDetailViewController.swift */,
-				22A66FA1214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift */,
 				22A66F90214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift */,
 				226C917D215531BD0029FFB7 /* SeoulightCourseCollectionViewCell.swift */,
 			);
@@ -504,7 +501,6 @@
 				226C917E215531BD0029FFB7 /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */,
 				226C916E21550E500029FFB7 /* SeoulightCategoryViewController.swift in Sources */,
-				22A66FA2214FC85A003D896F /* SeoulightPlaceCollectionViewCell.swift in Sources */,
 				22F5FCEE215653AC00D1750F /* APIKey.swift in Sources */,
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22F5FCEC215647C500D1750F /* JoinViewController.swift in Sources */,

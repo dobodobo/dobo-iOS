@@ -42,7 +42,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var seoulightCompanyLabel: UILabel!
     
     @IBOutlet weak var courseCollectionView: UICollectionView!
-    @IBOutlet weak var placeCollectionView: UICollectionView!
     @IBOutlet weak var languageImageView: UIImageView!
     
 
@@ -97,9 +96,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             placeImageSlide.addGestureRecognizer(recognizer)
         
         //CollectionView
-        placeCollectionView.delegate = self
-        placeCollectionView.dataSource = self
-        
         courseCollectionView.delegate = self
         courseCollectionView.dataSource = self
     
@@ -214,32 +210,17 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     //MARK: CollectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == placeCollectionView {
-            return 5
-        } else {
             return 6
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == placeCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightPlaceCollectionViewCell", for: indexPath) as! SeoulightPlaceCollectionViewCell
-            
-            cell.placeImageView.image = #imageLiteral(resourceName: "b")
-            cell.nameLabel.text = "오설록"
-            cell.categoryLabel.text = "음식점"
-            
-            return cell
-        } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightCourseCollectionViewCell", for: indexPath) as! SeoulightCourseCollectionViewCell
             
             cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
             cell.nameTextView.text = "오설록"
             
             return cell
-            
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
