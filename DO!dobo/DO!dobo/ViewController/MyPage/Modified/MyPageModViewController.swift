@@ -7,30 +7,38 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MyPageModViewController: UIViewController {
     
-//    var homeController: UIViewController?
     
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var pwdModTextField: UITextField!
+    @IBOutlet weak var pwdCheckTextField: UITextField!
     
+    //keyboard var
     @IBOutlet weak var c: NSLayoutConstraint!
     var keyboardDismissGesture: UITapGestureRecognizer?
     var constraintInitVal : CGFloat = 0
     var check = true
     
-    let imagePicker : UIImagePickerController = UIImagePickerController()
-    
-    //TODO: 일반 회원일때, 보이기
     @IBOutlet weak var seoulightButton: UIButton!
+    @IBOutlet weak var seoulightImageView: UIImageView!
     
-    //TODO: 서울라이트일 때, 보이기
-    @IBOutlet weak var SeoulightImageView: UIImageView!
+    let name = UserDefaults.standard.string(forKey: "name")
+    let email = UserDefaults.standard.string(forKey: "email")
+    
+        let imagePicker : UIImagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        homeController = self
+        profileImageInit()
+        isRole()
+        nameLabel.text = name
+        emailLabel.text = email
         
         setBackBtn()
         setKeyboardSetting()
@@ -51,6 +59,96 @@ class MyPageModViewController: UIViewController {
     @IBAction func profileGesture(_ sender: UITapGestureRecognizer) {
        openGallery()
 
+    }
+    
+    //MARK: 프로필 수정 액션
+    @IBAction func modifyAction(_ sender: UIButton) {
+        
+        //TODO: 팝업추가
+        if let pImage = profileImageView.image {
+            modProfileImage(avatar: pImage)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        if pwdModTextField.text != "" && pwdCheckTextField.text != "" {
+            if pwdModTextField.text == pwdCheckTextField.text {
+                modpwd(pwd: gsno(pwdModTextField.text))
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                simpleAlert(title: "수정 실패", message: "비밀번호가 일치하지 않습니다.")
+            }
+        }
+        
+        if pwdModTextField.text != "" || pwdCheckTextField.text != "" {
+            simpleAlertwithHandler(title: "비밀번호 수정", message:
+            """
+            비밀번호가 수정되지 않았습니다.
+            그대로 나가시겠습니까?
+            """) { (okHandler) in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+    }
+    
+    //MARK: 프로필 사진 조회 - GET
+    func profileImageInit() {
+            MyPageService.myPageInit{ (myPage) in
+                
+                self.profileImageView.kf.setImage(with: URL(string: self.gsno(myPage.avatar)), placeholder: UIImage())
+            }
+    }
+    
+    //MARK: 프로필 수정 - PUT
+    func modProfileImage(avatar: UIImage) {
+        MyPageService.modProfileImage(avatar: avatar) { (message) in
+            
+            if message == "success" {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            else if message == "internal_server_error" {
+                self.simpleAlert(title: "서버 에러", message: "서버 상태가 불안정 합니다.")
+            }
+            
+            else {
+                self.simpleAlert(title: "수정 실패", message: "다시 시도해주세요.")
+            }
+        }
+    }
+    
+    //MARK: 비밀번호 수정 - PUT
+    func modpwd(pwd: String) {
+        
+        MyPageService.modPwd(pwd: pwd) { (message) in
+            
+            if message == "success" {
+                //TODO: 팝업 추가
+                self.navigationController?.popViewController(animated: true)
+            }
+                
+            else if message == "internal_server_error" {
+                self.simpleAlert(title: "서버 에러", message: "서버 상태가 불안정 합니다.")
+            }
+                
+            else {
+                self.simpleAlert(title: "수정 실패", message: "다시 시도해주세요.")
+            }
+        }
+    }
+    
+    //MARK: 서울라이트/회원 판단 함수
+    func isRole() {
+        let role = UserDefaults.standard.string(forKey: "role")
+        
+        if role == "SEOULITE" {
+            seoulightImageView.isHidden = false
+            seoulightButton.isHidden = true
+        } else {
+            seoulightImageView.isHidden = true
+            seoulightButton.isHidden = false
+        }
     }
     
 }
@@ -160,38 +258,3 @@ extension MyPageModViewController: UIImagePickerControllerDelegate, UINavigation
     
 }
 
-//protocol Gallery : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-//    var homeController : UIViewController? {get set}
-//    func openGalleryCamera()
-//}
-//
-//extension Gallery {
-//
-//    func openGalleryCamera(){
-//        let selectAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let libraryAction = UIAlertAction(title: "앨범", style: .default) { _ in if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
-//            let imagePicker = UIImagePickerController()
-//            imagePicker.delegate = self
-//            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//            imagePicker.allowsEditing = true
-//            self.homeController?.present(imagePicker, animated: true, completion: nil)
-//            }
-//
-//        }
-//        let cameraAction = UIAlertAction(title: "카메라", style: .default) {
-//            _ in  if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-//                let imagePicker = UIImagePickerController()
-//                imagePicker.delegate = self
-//                imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-//                imagePicker.allowsEditing = true
-//                self.homeController?.present(imagePicker, animated: true, completion: nil)
-//            }
-//        }
-//        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-//        selectAlert.addAction(libraryAction)
-//        selectAlert.addAction(cameraAction)
-//        selectAlert.addAction(cancelAction)
-//        self.homeController?.present(selectAlert, animated: true, completion: nil)
-//    }
-//}
-//

@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwdTextField: UITextField!
     
+    @IBOutlet weak var idTextBoxImageView: UIImageView!
+    @IBOutlet weak var pwdTextBoxImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,9 +56,13 @@ class LoginViewController: UIViewController {
         
     }
     
+    //TODO: 팝업 삭제하기 - 예외 처리 끝나면
+    //MARK: 로그인 - POST
     func login(email: String, pwd: String) {
         SignService.login(email: email, pwd: pwd) { (message) in
+            
             if message == "success"{
+                self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
                 let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabVC")
             
                 self.present(tabVC, animated: true, completion: nil)
@@ -62,14 +70,16 @@ class LoginViewController: UIViewController {
                 
             else if message == "not_match_email_or_pw" {
                 
+                self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
                 self.simpleAlert(title: "로그인 실패", message: "아이디 또는 비밀번호가 일치하지 않습니다.")
                 
             }
             
             else if message == "not_signin" {
                 
+                self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
                 self.simpleAlert(title: "로그인 실패", message: "아이디가 존재하지 않습니다.")
-
+                
             }
                 
             else {

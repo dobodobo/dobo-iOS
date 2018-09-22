@@ -2686,6 +2686,9 @@
                                                 <constraint firstAttribute="height" constant="31" id="01d-ux-Uff"/>
                                             </constraints>
                                             <state key="normal" image="rectangle2Copy"/>
+                                            <connections>
+                                                <action selector="modifyAction:" destination="lJT-aG-Bl0" eventType="touchUpInside" id="8Tn-IX-9ic"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수정 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q51-n4-IBu">
                                             <rect key="frame" x="165" y="499" width="45" height="15"/>
@@ -2736,10 +2739,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="프로필 수정" id="wI8-bh-3WA"/>
                     <connections>
-                        <outlet property="SeoulightImageView" destination="D6H-3G-g5u" id="Kdr-US-3aL"/>
                         <outlet property="c" destination="c1R-mU-zVn" id="erM-HG-6si"/>
+                        <outlet property="emailLabel" destination="Vcg-Sl-Eeo" id="GC1-BK-kSo"/>
+                        <outlet property="nameLabel" destination="XU5-vD-fHE" id="V4X-Rz-9Fg"/>
                         <outlet property="profileImageView" destination="5kF-6B-NOs" id="rt5-0F-LkA"/>
+                        <outlet property="pwdCheckTextField" destination="btd-Ua-35e" id="4Ni-oY-ori"/>
+                        <outlet property="pwdModTextField" destination="RLn-8K-zrk" id="TPW-50-HL7"/>
                         <outlet property="seoulightButton" destination="zMS-XA-r4B" id="eUu-4H-3UF"/>
+                        <outlet property="seoulightImageView" destination="D6H-3G-g5u" id="2X2-ri-lF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beU-FA-j8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3671,7 +3678,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                                 <constraint firstAttribute="height" constant="35" id="zuf-65-dvM"/>
                                             </constraints>
                                         </imageView>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email@email.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSh-jy-5QP">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="id@example.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSh-jy-5QP">
                                             <rect key="frame" x="87.5" y="415" width="200" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="Z2R-a7-JE6"/>
@@ -3752,9 +3759,11 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                     </view>
                     <connections>
                         <outlet property="c" destination="sEW-KN-Dbl" id="FT2-ef-KMC"/>
+                        <outlet property="idTextBoxImageView" destination="IhP-dM-qVl" id="EUo-Id-gYo"/>
                         <outlet property="idTextField" destination="jSh-jy-5QP" id="Xss-Re-wfr"/>
                         <outlet property="introStackView" destination="RqK-i8-hh7" id="g01-ro-MyC"/>
-                        <outlet property="loginImageView" destination="JIC-u4-N3X" id="ere-OJ-c8R"/>
+                        <outlet property="loginImageView" destination="JIC-u4-N3X" id="fCb-fy-ieZ"/>
+                        <outlet property="pwdTextBoxImageView" destination="1k0-IU-TqQ" id="RDS-j6-tDx"/>
                         <outlet property="pwdTextField" destination="FvX-vS-wKe" id="7pn-EX-mhY"/>
                         <outlet property="tableView" destination="ANX-Ed-gm8" id="fvj-nX-Frc"/>
                     </connections>

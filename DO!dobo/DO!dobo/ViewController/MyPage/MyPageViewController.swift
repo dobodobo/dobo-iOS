@@ -103,6 +103,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         MyPageService.myPageInit{ (myPage) in
             
             self.nameLabel.text = myPage.nick
+            UserDefaults.standard.set(myPage.nick, forKey: "name")
             self.emailLabel.text = myPage.email
             self.role = myPage.role
             self.profileImageView.kf.setImage(with: URL(string: self.gsno(myPage.avatar)), placeholder: UIImage())
