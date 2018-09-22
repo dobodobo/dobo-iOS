@@ -25,11 +25,15 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBOutlet weak var peopleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var finishTextField: UITextField!
+    @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var courseSearchTextField: UITextField!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     var datePicker = UIDatePicker()
+    
+    let pickerView = UIPickerView()
+    var categoryArr = [#imageLiteral(resourceName: "group2Copy.png"), #imageLiteral(resourceName: "group4Copy.png"), #imageLiteral(resourceName: "group23.png")]
     
     let imagePicker : UIImagePickerController = UIImagePickerController()
     var imageArr: [UIImage] = [#imageLiteral(resourceName: "icAdImage")]
@@ -128,6 +132,12 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
     }
     
+    
+    @IBAction func categryIconAction(_ sender: UIButton) {
+        
+    }
+    
+    
     //MARK: 코스 검색 액션
     @IBAction func courseSearchAction(_ sender: UITextField) {
         
@@ -222,6 +232,68 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     }
 
 }
+
+//extension SeoulightWriteTableViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+//    
+//    //UIPickerViewDelegate
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    //UIPickerViewDelegate
+//    //컴포넌트 당 row 가 몇개가 될 것인가
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return categoryArr.count
+//    }
+//    
+//    ///UIPickerViewDataSource 위한 것
+//    //각각의 row 에 어떠한 내용이 들어갈 것인가
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> UIImage? {
+//        return categoryArr[row]
+//        
+//    }
+//    
+//    func initPicker(){
+//        //구현 후에 해당 pickerView의 데이터 소스와 델리게이트가 있는 위치 알려 주는 것
+//        pickerView.delegate = self
+//        pickerView.dataSource = self
+//        
+//        setButtonView(button: categoryButton, selector: #selector(selectedPicker), inputView: pickerView)
+//        
+//    }
+//    
+//    
+//    func setButtonView(button : UIButton, selector : Selector, inputView : Any){
+//        
+//        let bar = UIToolbar()
+//        bar.sizeToFit()
+//        
+//        let doneButton = UIBarButtonItem(title: "확인", style: .done
+//            , target: self, action: selector)
+//        
+//        bar.setItems([doneButton], animated: true)
+//        button.inputAccessoryView = bar
+//        
+//        if let tempView = inputView as? UIView {
+//            button.inputView = tempView
+//        }
+//        if let tempView = inputView as? UIControl {
+//            button.inputView = tempView
+//        }
+//        
+//    }
+//    
+//    @objc func selectedPicker(){
+//        
+//        let row = pickerView.selectedRow(inComponent: 0)
+//        
+//        categoryButton.text = categoryArr[row]
+//        
+//        view.endEditing(true)
+//    }
+//}
+
+
 
 //MARK: Google Place API extension
 extension SeoulightWriteTableViewController: GMSAutocompleteViewControllerDelegate {

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Set the Google Place API's autocomplete UI control
-        GMSPlacesClient.provideAPIKey("AIzaSyDPpJKg82mZ-sdydmNSZfdZSJOI1qLnw-I")
+        GMSPlacesClient.provideAPIKey(googlePlacesKey)
         
         // Customize the UI of GMSAutocompleteViewController
         // Set some colors (colorLiteral is convenient)
