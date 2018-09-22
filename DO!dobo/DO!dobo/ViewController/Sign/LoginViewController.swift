@@ -47,16 +47,17 @@ class LoginViewController: UIViewController {
             alertView.addAction(ok)
             self.present(alertView, animated: true, completion: nil)
         } else {
-            login()
+            login(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text))
         }
         
         
     }
     
-    func login() {
-        SignService.login(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text)) { (message) in
+    func login(email: String, pwd: String) {
+        SignService.login(email: email, pwd: pwd) { (message) in
             if message == "success"{
                 let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabVC")
+            
                 self.present(tabVC, animated: true, completion: nil)
             }
                 
@@ -76,6 +77,7 @@ class LoginViewController: UIViewController {
                 self.present(alertView, animated: true, completion: nil)
                 
             }
+                
             else {
                 let alertView = UIAlertController(title: "로그인 실패", message: "다시 시도해주세요.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "확인", style: .default, handler: nil)

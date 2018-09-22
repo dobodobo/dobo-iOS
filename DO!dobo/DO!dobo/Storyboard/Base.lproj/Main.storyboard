@@ -3156,6 +3156,9 @@
                                                 <constraint firstAttribute="height" constant="31" id="wGn-4d-chb"/>
                                             </constraints>
                                             <state key="normal" image="rectangle2Copy"/>
+                                            <connections>
+                                                <action selector="suggestAction:" destination="6Jb-oB-cdf" eventType="touchUpInside" id="yeg-D7-IeO"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제출하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRY-JS-IGI">
                                             <rect key="frame" x="165.5" y="511" width="42" height="15"/>
@@ -3194,7 +3197,9 @@
                     <navigationItem key="navigationItem" title="건의사항" id="kpf-04-Doh"/>
                     <connections>
                         <outlet property="c" destination="vVq-LL-WtA" id="O3P-52-Oz7"/>
+                        <outlet property="contentTextView" destination="0Y7-kJ-8jY" id="Y7b-wH-TIY"/>
                         <outlet property="tableView" destination="bG9-vF-30a" id="dJB-iS-6lk"/>
+                        <outlet property="titleTextField" destination="9dA-1E-2d0" id="AcL-Ej-t8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9X1-24-RoA" userLabel="First Responder" sceneMemberID="firstResponder"/>

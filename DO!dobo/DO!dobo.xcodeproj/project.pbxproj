@@ -35,6 +35,7 @@
 		22B407E22156671700FD9D44 /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E12156671700FD9D44 /* SignService.swift */; };
 		22B407E42156672100FD9D44 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E32156672100FD9D44 /* APIService.swift */; };
 		22B407E72156725400FD9D44 /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E62156725400FD9D44 /* ExtensionControl.swift */; };
+		22B407EB21567F1000FD9D44 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407EA21567F1000FD9D44 /* MyPageService.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
 		22C75726214E354300809616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75725214E354300809616 /* MainViewController.swift */; };
 		22C75729214E354300809616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C75727214E354300809616 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		22B407E12156671700FD9D44 /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
 		22B407E32156672100FD9D44 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		22B407E62156725400FD9D44 /* ExtensionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
+		22B407EA21567F1000FD9D44 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C75723214E354300809616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C75725214E354300809616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			children = (
 				22B407E32156672100FD9D44 /* APIService.swift */,
 				22B407E12156671700FD9D44 /* SignService.swift */,
+				22B407EA21567F1000FD9D44 /* MyPageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				226C917E215531BD0029FFB7 /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */,
 				226C916E21550E500029FFB7 /* SeoulightCategoryViewController.swift in Sources */,
+				22B407EB21567F1000FD9D44 /* MyPageService.swift in Sources */,
 				22F5FCEE215653AC00D1750F /* APIKey.swift in Sources */,
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22F5FCEC215647C500D1750F /* JoinViewController.swift in Sources */,

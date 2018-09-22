@@ -11,10 +11,16 @@ import UIKit
 class ReportViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    //keyboard var
     @IBOutlet weak var c: NSLayoutConstraint!
     var keyboardDismissGesture: UITapGestureRecognizer?
     var constraintInitVal : CGFloat = 0
     var check = true
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +36,43 @@ class ReportViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: 건의사항 제출 액션
+    @IBAction func suggestAction(_ sender: UIButton) {
+        
+        if titleTextField.text == "" || contentTextView.text == "" {
+            
+            let alertView = UIAlertController(title: "제출 실패", message: "항목을 모두 입력헤주세요.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertView.addAction(ok)
+            self.present(alertView, animated: true, completion: nil)
+            
+        } else {
+            suggest(title: gsno(titleTextField.text), content: gsno(contentTextView.text))
+        }
+        
+    }
     
+    //MARK: 건의사항 - POST
+    func suggest(title: String, content: String) {
+        MyPageService.suggest(title: title, content: content) { (message) in
+            
+            if message == "success" {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            else {
+                
+                let alertView = UIAlertController(title: "서버 에러", message: "다시 한번 시도해주세요.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertView.addAction(ok)
+                self.present(alertView, animated: true, completion: nil)
+                
+            }
+            
+        }
+    }
     
+
 
 }
 

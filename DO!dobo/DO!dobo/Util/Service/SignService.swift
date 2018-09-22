@@ -12,8 +12,9 @@ import SwiftyJSON
 
 struct SignService: APIService {
 
-    //MARK: 회원가입 서비스
-    static func signUp(email: String, pwd: String, nick: String, avatar: UIImage, completion: @escaping (_ message: String) -> Void){
+    //TODO: 에러 처리 확인
+    //MARK: 회원가입
+    static func join(email: String, pwd: String, nick: String, avatar: UIImage, completion: @escaping (_ message: String) -> Void){
         
         let URL = url("/users/signup")
         
@@ -77,7 +78,8 @@ struct SignService: APIService {
         }
     }
     
-    //MARK: 로그인 서비스
+    //TODO: 없는 아이디 에러 처리 확인
+    //MARK: 로그인
     static func login(email: String, pwd: String, completion: @escaping (_ message: String) -> Void){
         
         let URL = url("/users/signin")
@@ -95,15 +97,22 @@ struct SignService: APIService {
                 
                 if let value = res.result.value{
                     
-                    if let message = JSON(value)["message"].string{
+                    
+                    
+                    if let message = JSON(value)["message"].string {
                         
                         let des = JSON(value)["description"].string
                         
                         UserDefaults.standard.set(JSON(value)["result"]["profile"]["email"].string, forKey: "id") //회원 아이디
-                        UserDefaults.standard.set(JSON(value)["result"]["token"].string, forKey: "token") //회원 아이디
                         
                         if message == "success"{ // 로그인 성공
                             print("로그인 : 성공")
+                            
+                            UserDefaults.standard.set(JSON(value)["result"]["token"].string, forKey: "token") //회원 토큰
+                            let token = UserDefaults.standard.string(forKey: "token")
+                            
+                            print("토큰 : \(token ?? "")")
+                        
                             completion("success")
                         }
                         
