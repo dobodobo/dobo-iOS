@@ -3686,7 +3686,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-kb-fOa">
                                             <rect key="frame" x="260" y="594" width="52" height="30"/>
@@ -3695,9 +3695,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                                 <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="3O6-Pv-1h3" kind="popoverPresentation" popoverAnchorView="x4q-kb-fOa" id="aCa-Cz-4fT">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <action selector="loginAction:" destination="nhP-aC-jHF" eventType="touchUpInside" id="mEK-j3-BA0"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -3739,8 +3737,10 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                     </view>
                     <connections>
                         <outlet property="c" destination="sEW-KN-Dbl" id="FT2-ef-KMC"/>
+                        <outlet property="idTextField" destination="jSh-jy-5QP" id="Xss-Re-wfr"/>
                         <outlet property="introStackView" destination="RqK-i8-hh7" id="g01-ro-MyC"/>
                         <outlet property="loginImageView" destination="JIC-u4-N3X" id="ere-OJ-c8R"/>
+                        <outlet property="pwdTextField" destination="FvX-vS-wKe" id="7pn-EX-mhY"/>
                         <outlet property="tableView" destination="ANX-Ed-gm8" id="fvj-nX-Frc"/>
                     </connections>
                 </viewController>
@@ -3766,7 +3766,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <!--Tab Bar Controller-->
         <scene sceneID="UNB-aW-9eJ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3O6-Pv-1h3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabVC" automaticallyAdjustsScrollViewInsets="NO" id="3O6-Pv-1h3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hWn-lG-1qC">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    //keyboard var
     @IBOutlet weak var c: NSLayoutConstraint!
     var keyboardDismissGesture: UITapGestureRecognizer?
     var constraintInitVal : CGFloat = 0
@@ -19,8 +20,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginImageView: UIImageView!
     @IBOutlet weak var introStackView: UIStackView!
+    
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwdTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.contentInset = UIEdgeInsets(top: -23, left: 0, bottom: 0, right: 0)
         
         setKeyboardSetting()
@@ -33,8 +39,58 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        
+        if idTextField.text == "" || pwdTextField.text == "" {
+            let alertView = UIAlertController(title: "로그인 실패", message: "모든 항목을 입력해주세요.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alertView.addAction(ok)
+            self.present(alertView, animated: true, completion: nil)
+        } else {
+            login()
+        }
+        
+        
+    }
+    
+    func login() {
+        SignService.login(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text)) { (message) in
+            if message == "success"{
+                let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabVC")
+                self.present(tabVC, animated: true, completion: nil)
+            }
+                
+            else if message == "not_match_email_or_pw" {
+                let alertView = UIAlertController(title: "로그인 실패", message: "아이디 또는 비밀번호가 일치하지 않습니다.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertView.addAction(ok)
+                self.present(alertView, animated: true, completion: nil)
+                
+            }
+            
+            else if message == "not_signin" {
+                
+                let alertView = UIAlertController(title: "로그인 실패", message: "아이디가 존재하지 않습니다.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertView.addAction(ok)
+                self.present(alertView, animated: true, completion: nil)
+                
+            }
+            else {
+                let alertView = UIAlertController(title: "로그인 실패", message: "다시 시도해주세요.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alertView.addAction(ok)
+                self.present(alertView, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
+    
+    
 }
 
+//MARK: keyboard setting extension
 extension LoginViewController {
     
     func setKeyboardSetting() {

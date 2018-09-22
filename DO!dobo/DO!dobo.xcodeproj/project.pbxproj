@@ -31,6 +31,10 @@
 		22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */; };
 		22A66FA92150A9E8003D896F /* IntroSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */; };
 		22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */; };
+		22B407DD2156667300FD9D44 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407DC2156667300FD9D44 /* signUp.swift */; };
+		22B407E22156671700FD9D44 /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E12156671700FD9D44 /* SignService.swift */; };
+		22B407E42156672100FD9D44 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E32156672100FD9D44 /* APIService.swift */; };
+		22B407E72156725400FD9D44 /* ExtensionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407E62156725400FD9D44 /* ExtensionControl.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
 		22C75726214E354300809616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75725214E354300809616 /* MainViewController.swift */; };
 		22C75729214E354300809616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C75727214E354300809616 /* Main.storyboard */; };
@@ -69,6 +73,10 @@
 		22A66FA5214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCourseCollectionViewCell.swift; sourceTree = "<group>"; };
 		22A66FA82150A9E8003D896F /* IntroSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulViewController.swift; sourceTree = "<group>"; };
 		22A66FAA2150F16D003D896F /* IntroSeoulightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSeoulightViewController.swift; sourceTree = "<group>"; };
+		22B407DC2156667300FD9D44 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
+		22B407E12156671700FD9D44 /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
+		22B407E32156672100FD9D44 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		22B407E62156725400FD9D44 /* ExtensionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionControl.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C75723214E354300809616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C75725214E354300809616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +254,31 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		22B407DB215665EE00FD9D44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22B407DC2156667300FD9D44 /* signUp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22B407E0215666FC00FD9D44 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				22B407E32156672100FD9D44 /* APIService.swift */,
+				22B407E12156671700FD9D44 /* SignService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		22B407E52156717500FD9D44 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				22B407E62156725400FD9D44 /* ExtensionControl.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
 		22C75717214E354200809616 = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +344,9 @@
 			isa = PBXGroup;
 			children = (
 				22F5FCED215653AC00D1750F /* APIKey.swift */,
+				22B407DB215665EE00FD9D44 /* Model */,
+				22B407E0215666FC00FD9D44 /* Service */,
+				22B407E52156717500FD9D44 /* Function */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -477,7 +513,9 @@
 			files = (
 				226C916A215379380029FFB7 /* SeoulightApplyViewController.swift in Sources */,
 				226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */,
+				22B407DD2156667300FD9D44 /* signUp.swift in Sources */,
 				22A66F9C214FB870003D896F /* SeoulDetailReviewTableViewCell.swift in Sources */,
+				22B407E42156672100FD9D44 /* APIService.swift in Sources */,
 				22A66F91214EC676003D896F /* SeoulightDetailReviewTableViewCell.swift in Sources */,
 				226C91662152D0680029FFB7 /* MyPageCollectionViewCell.swift in Sources */,
 				22F5FCE9215647A900D1750F /* LoginViewController.swift in Sources */,
@@ -488,6 +526,8 @@
 				22A66F93214EC8E0003D896F /* SeoulLightListTableViewCell.swift in Sources */,
 				22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */,
 				22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */,
+				22B407E72156725400FD9D44 /* ExtensionControl.swift in Sources */,
+				22B407E22156671700FD9D44 /* SignService.swift in Sources */,
 				22C75726214E354300809616 /* MainViewController.swift in Sources */,
 				226C917421552FA40029FFB7 /* SeoulightAddImageCollectionViewCell.swift in Sources */,
 				226C917221552F520029FFB7 /* SeoulightWriteTableViewController.swift in Sources */,
