@@ -3013,6 +3013,9 @@
                                                 <constraint firstAttribute="height" constant="31" id="k9U-XT-Luk"/>
                                             </constraints>
                                             <state key="normal" image="rectangle2Copy"/>
+                                            <connections>
+                                                <action selector="seoulightApplyAction:" destination="PmB-Oa-tNI" eventType="touchUpInside" id="y6y-cu-IrK"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신청 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLP-zO-A5i">
                                             <rect key="frame" x="164" y="509.5" width="45" height="14.5"/>
@@ -3071,7 +3074,12 @@
                     <connections>
                         <outlet property="birthTextField" destination="s1Z-02-z0N" id="0oD-ac-XAo"/>
                         <outlet property="c" destination="TNJ-it-2qc" id="mtH-fL-ZIK"/>
+                        <outlet property="introTextView" destination="2Vc-JF-gG4" id="o9Z-OI-ZC7"/>
+                        <outlet property="nameTextField" destination="ITI-jq-SOl" id="aJJ-FO-9VN"/>
                         <outlet property="orgButton" destination="lcX-vI-mA4" id="2uG-w8-OiP"/>
+                        <outlet property="orgTextField" destination="uID-LR-5Af" id="mpM-FV-Wkr"/>
+                        <outlet property="phoneTextField" destination="Kso-ia-pO8" id="uxa-Gb-3Dl"/>
+                        <outlet property="portTextField" destination="YQY-KH-Dsp" id="pwF-81-ObI"/>
                         <outlet property="singleButton" destination="cvV-LO-6J2" id="hSu-h2-oPm"/>
                     </connections>
                 </viewController>

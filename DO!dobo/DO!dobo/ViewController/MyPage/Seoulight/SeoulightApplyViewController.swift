@@ -19,12 +19,18 @@ class SeoulightApplyViewController: UIViewController {
     //toggle btn var
     @IBOutlet weak var singleButton: UIButton!
     @IBOutlet weak var orgButton: UIButton!
-    var single: String?
+    var single: Int?
     
     //pickerView var
     let datePicker = UIDatePicker()
 
+    
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var birthTextField: UITextField!
+    @IBOutlet weak var orgTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var portTextField: UITextField!
+    @IBOutlet weak var introTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,16 +54,52 @@ class SeoulightApplyViewController: UIViewController {
             singleButton.isSelected = !singleButton.isSelected
             singleButton.setImage(#imageLiteral(resourceName: "group23"), for: UIControlState.normal)
             orgButton.setImage(#imageLiteral(resourceName: "group4Copy"), for: UIControlState.normal)
-            single = "개인"
+            single = 0
         }
             
         else {
             orgButton.isSelected = !orgButton.isSelected
             orgButton.setImage(#imageLiteral(resourceName: "people"), for: UIControlState.normal)
             singleButton.setImage(#imageLiteral(resourceName: "group2Copy"), for: UIControlState.normal)
-            single = "단체"
+            single = 1
         }
     }
+    
+    //MARK: 서울라이트 신청하기 액션
+    @IBAction func seoulightApplyAction(_ sender: UIButton) {
+        if nameTextField.text == "" || single == nil || birthTextField.text == "" || orgTextField.text == "" || phoneTextField.text == "" || portTextField.text == "" {
+            
+        self.simpleAlert(title: "신청 실패", message: "필수 항목을 모두 입력해주세요.")
+            
+        } else {
+            applySeoulight(name: gsno(nameTextField.text), birth: gsno(birthTextField.text), organization: gsno(orgTextField.text), portfolio: gsno(portTextField.text), phone: gsno(phoneTextField.text), intro: gsno(introTextView.text))
+        }
+    }
+    
+    //TODO: 개인/단체 변수 추가(single)
+    //MARK: 서울라이트 신청하기 - POST
+    func applySeoulight(name: String, birth: String, organization: String, portfolio: String, phone: String, intro: String) {
+        MyPageService.applySeoulight(name: name, birth: birth, organization: organization, portfolio: portfolio, phone: phone, intro: intro) { (message) in
+            
+            if message == "success" {
+                
+                //FIXME: 알림 메시지 수정
+                self.simpleAlert(title: "신청 완료", message:
+                    """
+                    신청이 완료되었습니다.
+                    관리자 심사 후, 기재하신 번호를 통하여 추후 결과가 발표됩니다.
+                    """
+                )
+                
+            }
+            
+            else {
+                self.simpleAlert(title: "신청 실패" , message: "다시 시도해주세요.")
+            }
+            
+        }
+    }
+    
     
 }
 

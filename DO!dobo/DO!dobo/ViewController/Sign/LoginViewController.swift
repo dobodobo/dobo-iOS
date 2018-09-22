@@ -42,10 +42,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginAction(_ sender: UIButton) {
         
         if idTextField.text == "" || pwdTextField.text == "" {
-            let alertView = UIAlertController(title: "로그인 실패", message: "모든 항목을 입력해주세요.", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-            alertView.addAction(ok)
-            self.present(alertView, animated: true, completion: nil)
+            
+            self.simpleAlert(title: "로그인 실패", message: "모든 항목을 입력해주세요.")
+
         } else {
             login(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text))
         }
@@ -62,27 +61,21 @@ class LoginViewController: UIViewController {
             }
                 
             else if message == "not_match_email_or_pw" {
-                let alertView = UIAlertController(title: "로그인 실패", message: "아이디 또는 비밀번호가 일치하지 않습니다.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-                alertView.addAction(ok)
-                self.present(alertView, animated: true, completion: nil)
+                
+                self.simpleAlert(title: "로그인 실패", message: "아이디 또는 비밀번호가 일치하지 않습니다.")
                 
             }
             
             else if message == "not_signin" {
                 
-                let alertView = UIAlertController(title: "로그인 실패", message: "아이디가 존재하지 않습니다.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-                alertView.addAction(ok)
-                self.present(alertView, animated: true, completion: nil)
-                
+                self.simpleAlert(title: "로그인 실패", message: "아이디가 존재하지 않습니다.")
+
             }
                 
             else {
-                let alertView = UIAlertController(title: "로그인 실패", message: "다시 시도해주세요.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-                alertView.addAction(ok)
-                self.present(alertView, animated: true, completion: nil)
+                
+                self.simpleAlert(title: "로그인 실패", message: "다시 시도해주세요.")
+                
             }
             
         }

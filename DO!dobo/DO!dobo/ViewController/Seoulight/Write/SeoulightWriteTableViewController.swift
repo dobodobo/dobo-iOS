@@ -216,10 +216,8 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             }
             
             else if imageNum >= 5 {
-                let message = UIAlertController(title: "사진 개수 초과", message: "사진은 최대 5장까지 첨부 가능합니다.", preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
-                message.addAction(action)
-                self.present(message, animated: true,completion: nil)
+                
+                self.simpleAlert(title: "사진 개수 초과", message: "사진은 최대 5장까지 첨부 가능합니다.")
             }
         }
     }
