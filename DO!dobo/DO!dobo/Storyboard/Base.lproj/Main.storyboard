@@ -2646,7 +2646,7 @@
                                                     <rect key="frame" x="134.5" y="18.5" width="220.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2670,7 +2670,7 @@
                                                     <rect key="frame" x="134.5" y="19" width="220.5" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3716,8 +3716,16 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                             <state key="normal" title="가입하기">
                                                 <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1Z-7c-a1x">
+                                            <rect key="frame" x="136.5" y="591.5" width="102" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="IUN-4q-U66"/>
+                                                <constraint firstAttribute="width" secondItem="j1Z-7c-a1x" secondAttribute="height" multiplier="102:35" id="KtK-BP-v1c"/>
+                                            </constraints>
+                                            <state key="normal" image="loginBtn"/>
                                             <connections>
-                                                <action selector="loginAction:" destination="nhP-aC-jHF" eventType="touchUpInside" id="mEK-j3-BA0"/>
+                                                <action selector="loginAction:" destination="nhP-aC-jHF" eventType="touchUpInside" id="zCo-Xo-ULA"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -3734,6 +3742,8 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                         <constraint firstAttribute="trailing" secondItem="JIC-u4-N3X" secondAttribute="trailing" id="Xbm-KC-kZ6"/>
                                         <constraint firstItem="FvX-vS-wKe" firstAttribute="centerX" secondItem="1k0-IU-TqQ" secondAttribute="centerX" id="cQs-2e-a77"/>
                                         <constraint firstItem="JIC-u4-N3X" firstAttribute="leading" secondItem="doL-xe-K7V" secondAttribute="leading" id="dGb-8w-uJz"/>
+                                        <constraint firstItem="j1Z-7c-a1x" firstAttribute="centerY" secondItem="x4q-kb-fOa" secondAttribute="centerY" id="eHr-Ks-cWW"/>
+                                        <constraint firstItem="j1Z-7c-a1x" firstAttribute="centerX" secondItem="doL-xe-K7V" secondAttribute="centerX" id="gdN-GJ-hxN"/>
                                         <constraint firstItem="jSh-jy-5QP" firstAttribute="centerX" secondItem="IhP-dM-qVl" secondAttribute="centerX" id="gz6-vt-NuQ"/>
                                         <constraint firstItem="uPA-cO-tJz" firstAttribute="top" secondItem="IhP-dM-qVl" secondAttribute="bottom" constant="33" id="l1o-3E-5dS"/>
                                         <constraint firstItem="RqK-i8-hh7" firstAttribute="top" secondItem="doL-xe-K7V" secondAttribute="top" constant="147" id="o8A-sm-Yvh"/>
@@ -3898,6 +3908,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="icPhotoedit" width="48" height="48"/>
         <image name="icSetting" width="48" height="48"/>
         <image name="ic_translate" width="22" height="22"/>
+        <image name="loginBtn" width="102" height="35"/>
         <image name="loginFullGraphic" width="375" height="338"/>
         <image name="loginTextbox" width="249" height="35"/>
         <image name="questionBtn" width="85" height="30"/>

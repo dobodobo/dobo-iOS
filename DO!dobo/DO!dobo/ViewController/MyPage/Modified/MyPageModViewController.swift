@@ -64,31 +64,98 @@ class MyPageModViewController: UIViewController {
     //MARK: 프로필 수정 액션
     @IBAction func modifyAction(_ sender: UIButton) {
         
+//        //TODO: 팝업추가
+//        if let pImage = profileImageView.image {
+//
+//            //비밀번호 공백 검사 및 비밀번호 수정 성공
+//            if pwdModTextField.text != "" && pwdCheckTextField.text != "" {
+//                if pwdModTextField.text == pwdCheckTextField.text {
+//                    modpwd(pwd: gsno(pwdModTextField.text))
+//                    self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
+//                    let MyPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyPageViewController") as! MyPageViewController
+//
+//                    self.navigationController?.pushViewController(MyPageVC, animated: true)
+//                } else { // 비밀번호 수정 실패(수정 값, 확인 값 다를 때)
+////                    simpleAlert(title: "수정 실패", message: "비밀번호가 일치하지 않습니다.")
+//                    self.noticeError("수정 실패", autoClear: true, autoClearTime: 1)
+//                }
+//            }
+//
+//            //비밀번호 수정 값이나 확인 값만 들어있을 때
+//            else if (pwdModTextField.text != "" && pwdCheckTextField.text == "") ||
+//                (pwdModTextField.text == "" && pwdCheckTextField.text != "") {
+//                simpleAlertwithHandler(title: "비밀번호 수정", message:
+//            """
+//            비밀번호가 수정되지 않았습니다.
+//            수정하시겠습니까?
+//            """) { (cancelHandler) in
+//                self.navigationController?.popViewController(animated: true)
+//                }
+//            }
+//
+//            modProfileImage(avatar: pImage)
+//            self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
+//            self.navigationController?.popViewController(animated: true)
+//
+//        }
+        
         //TODO: 팝업추가
         if let pImage = profileImageView.image {
-            modProfileImage(avatar: pImage)
+            
+            //비밀번호 수정 값이나 확인 값만 들어있을 때
+            if (pwdModTextField.text != "" && pwdCheckTextField.text == "") ||
+                (pwdModTextField.text == "" && pwdCheckTextField.text != "")  {
+                simpleAlertwithHandler(title: "비밀번호 수정", message:
+            """
+            비밀번호가 수정되지 않았습니다.
+            수정하시겠습니까?
+            """) { (cancelHandler) in
+                self.navigationController?.popViewController(animated: true)
+                }
+            }
+            
+            //공백 검사
+            else if pwdModTextField.text != "" && pwdCheckTextField.text != "" {
+                
+                //동일성 체크 성공
+                if pwdModTextField.text == pwdCheckTextField.text {
+                    modProfileImage(avatar: pImage)
+                    modpwd(pwd: gsno(pwdModTextField.text))
+                    
+                }else {
+                    self.noticeError("수정 실패", autoClear: true, autoClearTime: 1)
+                }
+            }
+            
+            else {
+                modProfileImage(avatar: pImage)
+            }
+            
         } else {
             self.navigationController?.popViewController(animated: true)
         }
         
-        if pwdModTextField.text != "" && pwdCheckTextField.text != "" {
-            if pwdModTextField.text == pwdCheckTextField.text {
-                modpwd(pwd: gsno(pwdModTextField.text))
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                simpleAlert(title: "수정 실패", message: "비밀번호가 일치하지 않습니다.")
-            }
-        }
         
-        if pwdModTextField.text != "" || pwdCheckTextField.text != "" {
-            simpleAlertwithHandler(title: "비밀번호 수정", message:
-            """
-            비밀번호가 수정되지 않았습니다.
-            그대로 나가시겠습니까?
-            """) { (okHandler) in
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
+
+        
+//        if pwdModTextField.text != "" && pwdCheckTextField.text != "" {
+//            if pwdModTextField.text == pwdCheckTextField.text {
+//                modpwd(pwd: gsno(pwdModTextField.text))
+//                self.navigationController?.popViewController(animated: true)
+//            } else {
+//                simpleAlert(title: "수정 실패", message: "비밀번호가 일치하지 않습니다.")
+//            }
+//        }
+        
+//        if pwdModTextField.text != "" || pwdCheckTextField.text != "" {
+//            simpleAlertwithHandler(title: "비밀번호 수정", message:
+//            """
+//            비밀번호가 수정되지 않았습니다.
+//            그대로 나가시겠습니까?
+//            """) { (okHandler) in
+//                self.navigationController?.popViewController(animated: true)
+//            }
+//        }
         
     }
     
@@ -105,7 +172,9 @@ class MyPageModViewController: UIViewController {
         MyPageService.modProfileImage(avatar: avatar) { (message) in
             
             if message == "success" {
+                self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
                 self.navigationController?.popViewController(animated: true)
+
             }
             
             else if message == "internal_server_error" {
@@ -125,7 +194,8 @@ class MyPageModViewController: UIViewController {
             
             if message == "success" {
                 //TODO: 팝업 추가
-                self.navigationController?.popViewController(animated: true)
+                self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
+                
             }
                 
             else if message == "internal_server_error" {
