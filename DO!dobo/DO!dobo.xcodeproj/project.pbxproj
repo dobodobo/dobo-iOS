@@ -176,6 +176,7 @@
 				226C917121552F520029FFB7 /* SeoulightWriteTableViewController.swift */,
 				226C917321552FA40029FFB7 /* SeoulightAddImageCollectionViewCell.swift */,
 				226C917721552FDE0029FFB7 /* SeoulightAddCourseCollectionViewCell.swift */,
+				226C915E215268630029FFB7 /* MyPage */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -340,7 +341,6 @@
 				22A66FA72150A9BA003D896F /* Home */,
 				22A66F98214FB4D3003D896F /* Seoul */,
 				22A66F96214FB4B2003D896F /* Seoulight */,
-				226C915E215268630029FFB7 /* MyPage */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

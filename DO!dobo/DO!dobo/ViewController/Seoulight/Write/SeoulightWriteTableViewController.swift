@@ -36,8 +36,12 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     var categoryArr = [#imageLiteral(resourceName: "group2Copy.png"), #imageLiteral(resourceName: "group4Copy.png"), #imageLiteral(resourceName: "group23.png")]
     
     let imagePicker : UIImagePickerController = UIImagePickerController()
+    
     var imageArr: [UIImage] = [#imageLiteral(resourceName: "icAdImage")]
-    var imageNum = 0
+    var imageNum: Int = 0
+    
+    var courseArr: [String] = []
+    var courseNum: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +57,12 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        courseCollectionView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -132,7 +142,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
     }
     
-    
+    //MAKR: 코스 카테고리 피커뷰 액션
     @IBAction func categryIconAction(_ sender: UIButton) {
         
     }
@@ -159,20 +169,25 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         return 10
     }
     
-    //TODO: 코스 추가시 높이 복구, 초기 및 코스 없으면 0
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        var height = super.tableView(tableView, heightForRowAt: indexPath)
-//        if (indexPath.row == 8) {
-//            height = 0.0
-//        }
-//        return height
-//    }
+    //MARK: 코스 목록 창 유동적으로 보이기
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height = super.tableView(tableView, heightForRowAt: indexPath)
+
+        if courseNum == 0 {
+            if (indexPath.row == 8) {
+                height = 0.0
+
+            }
+        }
+
+        return height
+    }
     
     //MARK: CollectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == courseCollectionView {
-            return 6
+            return courseArr.count
         }
         
         else {
@@ -185,7 +200,9 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         if collectionView == courseCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightAddCourseCollectionViewCell", for: indexPath) as! SeoulightAddCourseCollectionViewCell
             
-            cell.nameLabel.text = "서울창조경제혁신센터"
+            cell.nameLabel.text = courseArr[indexPath.row]
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(deleteCourseFromButton(button:)), for: .touchUpInside)
             
             return cell
             
@@ -201,28 +218,36 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             
             cell.placeImageView.image = imageArr[indexPath.row]
             cell.deleteButton.tag = indexPath.row
-            cell.deleteButton.addTarget(self, action: #selector(deleteCellFromButton(button:)), for: .touchUpInside)
+            cell.deleteButton.addTarget(self, action: #selector(deleteImageFromButton(button:)), for: .touchUpInside)
             
             return cell
             
         }
     }
     
+    //MARK: 사진 갯수 제한
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
             if imageNum < 5 {
                 openGallery()
-            }
-            
-            else if imageNum >= 5 {
+            } else  {
                 
                 self.simpleAlert(title: "사진 개수 초과", message: "사진은 최대 5장까지 첨부 가능합니다.")
             }
         }
     }
     
-    @objc func deleteCellFromButton(button: UIButton) {
+    //MARK: 코스 삭제
+    @objc func deleteCourseFromButton(button: UIButton) {
+        
+        courseArr.remove(at: button.tag)
+        courseNum -= 1
+        courseCollectionView.reloadData()
+    }
+    
+    //MARK: 이미지 삭제
+    @objc func deleteImageFromButton(button: UIButton) {
         
         imageArr.remove(at: button.tag)
         imageNum -= 1
@@ -299,6 +324,9 @@ extension SeoulightWriteTableViewController: GMSAutocompleteViewControllerDelega
         // Get the place name from 'GMSAutocompleteViewController'
         // Then display the name in textField
         courseSearchTextField.text = place.name
+        
+        courseArr.append(gsno(courseSearchTextField.text))
+        courseNum += 1
         
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)

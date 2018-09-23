@@ -14,9 +14,6 @@ class SeoulightAddImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
     
-    
-    let imagePicker : UIImagePickerController = UIImagePickerController()
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

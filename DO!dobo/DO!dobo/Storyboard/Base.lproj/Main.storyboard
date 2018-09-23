@@ -1721,13 +1721,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="코스" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EG-eY-wEX">
-                                                    <rect key="frame" x="47" y="20" width="24.5" height="17"/>
+                                                    <rect key="frame" x="47" y="15" width="25" height="17"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                     <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-7S-uFR">
-                                                    <rect key="frame" x="141.5" y="13.5" width="30" height="30"/>
+                                                    <rect key="frame" x="137" y="13.5" width="30" height="30"/>
                                                     <color key="backgroundColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="JYf-ic-duf"/>
@@ -1737,8 +1737,8 @@
                                                         <action selector="categryIconAction:" destination="7wU-lq-gn8" eventType="touchUpInside" id="nx2-6c-YL2"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코스 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeP-t6-6jG">
-                                                    <rect key="frame" x="201.5" y="13" width="173.5" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코스 검색" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeP-t6-6jG">
+                                                    <rect key="frame" x="195" y="13.5" width="180" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="P6C-iE-tit"/>
                                                     </constraints>
@@ -1750,28 +1750,36 @@
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgi-FZ-4PN">
-                                                    <rect key="frame" x="180.5" y="24" width="9" height="9"/>
+                                                    <rect key="frame" x="176" y="23.5" width="9" height="9"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Mgi-FZ-4PN" secondAttribute="height" multiplier="1:1" id="LSs-N3-EoZ"/>
                                                         <constraint firstAttribute="height" constant="9" id="SLe-wk-5St"/>
                                                     </constraints>
                                                     <state key="normal" image="triangle"/>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(최소 2개)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5F-vb-b9x">
+                                                    <rect key="frame" x="35" y="34" width="48" height="15"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                    <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zeP-t6-6jG" secondAttribute="trailing" id="3EW-MP-ztE"/>
                                                 <constraint firstItem="Mgi-FZ-4PN" firstAttribute="leading" secondItem="UfB-7S-uFR" secondAttribute="trailing" constant="9" id="5Ed-XJ-CmI"/>
-                                                <constraint firstItem="zeP-t6-6jG" firstAttribute="leading" secondItem="Mgi-FZ-4PN" secondAttribute="trailing" constant="12" id="7De-AD-rC6"/>
-                                                <constraint firstItem="UfB-7S-uFR" firstAttribute="centerY" secondItem="9EG-eY-wEX" secondAttribute="centerY" id="MGQ-t4-Ezc"/>
-                                                <constraint firstAttribute="trailing" secondItem="zeP-t6-6jG" secondAttribute="trailing" id="NSp-uW-uo2"/>
-                                                <constraint firstItem="UfB-7S-uFR" firstAttribute="leading" secondItem="9EG-eY-wEX" secondAttribute="trailing" constant="70" id="Q6s-cQ-O0Q"/>
-                                                <constraint firstItem="9EG-eY-wEX" firstAttribute="centerY" secondItem="mMr-SA-FCc" secondAttribute="centerY" id="W6f-o8-igt"/>
+                                                <constraint firstItem="v5F-vb-b9x" firstAttribute="top" secondItem="9EG-eY-wEX" secondAttribute="bottom" constant="2" id="MA2-VE-G4O"/>
+                                                <constraint firstItem="UfB-7S-uFR" firstAttribute="centerY" secondItem="mMr-SA-FCc" secondAttribute="centerY" id="MA7-wh-MO1"/>
+                                                <constraint firstItem="UfB-7S-uFR" firstAttribute="leading" secondItem="9EG-eY-wEX" secondAttribute="trailing" constant="65" id="Q6s-cQ-O0Q"/>
+                                                <constraint firstItem="9EG-eY-wEX" firstAttribute="centerY" secondItem="mMr-SA-FCc" secondAttribute="centerY" constant="-5" id="W6f-o8-igt"/>
+                                                <constraint firstItem="v5F-vb-b9x" firstAttribute="centerX" secondItem="9EG-eY-wEX" secondAttribute="centerX" id="an3-Pg-6Zf"/>
+                                                <constraint firstItem="zeP-t6-6jG" firstAttribute="leading" secondItem="Mgi-FZ-4PN" secondAttribute="trailing" constant="10" id="pOx-FR-GTY"/>
                                                 <constraint firstItem="9EG-eY-wEX" firstAttribute="leading" secondItem="mMr-SA-FCc" secondAttribute="leading" constant="47" id="ssR-Pg-wvY"/>
                                                 <constraint firstItem="Mgi-FZ-4PN" firstAttribute="centerY" secondItem="UfB-7S-uFR" secondAttribute="centerY" id="ujR-s7-tG0"/>
                                                 <constraint firstItem="zeP-t6-6jG" firstAttribute="centerY" secondItem="UfB-7S-uFR" secondAttribute="centerY" id="vsJ-L2-0FB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="sDI-zt-zRR">
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ccc" rowHeight="60" id="sDI-zt-zRR">
                                         <rect key="frame" x="0.0" y="610" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDI-zt-zRR" id="DiX-De-VDl">
@@ -1829,6 +1837,7 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="backImageView" destination="ij6-fR-2o1" id="cJR-1f-vuB"/>
+                                                                <outlet property="deleteButton" destination="i3R-5K-NKi" id="e8D-sL-dbv"/>
                                                                 <outlet property="nameLabel" destination="P3l-rQ-vfH" id="rxe-Zx-g2N"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -1902,6 +1911,7 @@
                                                             </view>
                                                             <constraints>
                                                                 <constraint firstItem="bts-Gj-jOA" firstAttribute="leading" secondItem="Lq6-Xj-GQo" secondAttribute="leading" id="0Qt-EK-uhB"/>
+                                                                <constraint firstItem="bts-Gj-jOA" firstAttribute="top" secondItem="Lq6-Xj-GQo" secondAttribute="top" constant="9.5" id="JIg-Dv-zgW"/>
                                                                 <constraint firstAttribute="bottom" secondItem="bts-Gj-jOA" secondAttribute="bottom" constant="9.5" id="JWA-H9-fGA"/>
                                                                 <constraint firstItem="bts-Gj-jOA" firstAttribute="centerY" secondItem="Lq6-Xj-GQo" secondAttribute="centerY" id="Nt7-Or-1OU"/>
                                                                 <constraint firstItem="iSM-wX-d2h" firstAttribute="leading" secondItem="bts-Gj-jOA" secondAttribute="trailing" constant="-15" id="fJJ-tJ-NAK"/>

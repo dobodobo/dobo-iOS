@@ -12,6 +12,7 @@ class SeoulightAddCourseCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
