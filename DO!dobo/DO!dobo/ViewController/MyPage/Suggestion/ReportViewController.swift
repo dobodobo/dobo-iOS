@@ -63,7 +63,7 @@ class ReportViewController: UIViewController {
             
             else {
                 
-                let alertView = UIAlertController(title: "서버 에러", message: "다시 한번 시도해주세요.", preferredStyle: .alert)
+                let alertView = UIAlertController(title: "서버 에러", message: "서버 상태가 불안정합니다.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
                 alertView.addAction(ok)
                 self.present(alertView, animated: true, completion: nil)

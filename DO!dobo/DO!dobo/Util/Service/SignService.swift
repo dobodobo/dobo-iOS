@@ -133,12 +133,20 @@ struct SignService: APIService {
                             
                         }
                         
-                        else if message == "expired_token" {
-                            print(des ?? "")
-                            completion("expired_token")
+                        else {
+                            if message == "expired_token" {
+                                print(des ?? "")
+                                
+                            }
                             
+                            if message == "internal_server_error" {
+                                print(des ?? "")
+                            }
+                            
+                            completion("server_error")
                         }
                     }
+
                 }
                 
                 break

@@ -47,6 +47,8 @@ class LoginViewController: UIViewController {
         
         if idTextField.text == "" || pwdTextField.text == "" {
             
+            self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
+            self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
             self.simpleAlert(title: "로그인 실패", message: "모든 항목을 입력해주세요.")
 
         } else {
@@ -62,7 +64,10 @@ class LoginViewController: UIViewController {
         SignService.login(email: email, pwd: pwd) { (message) in
             
             if message == "success"{
+                
+                self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
                 self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
+                
                 let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainTabVC")
             
                 self.present(tabVC, animated: true, completion: nil)
@@ -70,21 +75,27 @@ class LoginViewController: UIViewController {
                 
             else if message == "not_match_email_or_pw" {
                 
+                
+                self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
                 self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
                 self.simpleAlert(title: "로그인 실패", message: "아이디 또는 비밀번호가 일치하지 않습니다.")
                 
             }
             
             else if message == "not_signin" {
-                
+
                 self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextboxError")
+                self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
                 self.simpleAlert(title: "로그인 실패", message: "아이디가 존재하지 않습니다.")
-                
+
             }
                 
             else {
                 
-                self.simpleAlert(title: "로그인 실패", message: "다시 시도해주세요.")
+                self.idTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
+                self.pwdTextBoxImageView.image = #imageLiteral(resourceName: "loginTextbox")
+                
+                self.simpleAlert(title: "서버 에러", message: "서버 상태가 불안정합니다.")
                 
             }
             
