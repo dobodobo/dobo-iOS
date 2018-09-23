@@ -171,7 +171,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0C-tq-xmV">
                                                     <rect key="frame" x="0.0" y="0.0" width="351" height="77"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                    <state key="normal" title="서울도보관광이란?">
+                                                    <state key="normal" title="&quot;서울 도보관광&quot;이란?">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
@@ -181,7 +181,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da6-l6-21L">
                                                     <rect key="frame" x="0.0" y="78" width="351" height="70"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                    <state key="normal" title="Seoulight란?">
+                                                    <state key="normal" title="&quot;Seoulight&quot;란?">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
@@ -243,7 +243,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518" y="-712"/>
+            <point key="canvasLocation" x="2710" y="-747"/>
+        </scene>
+        <!--서울 도보관광-->
+        <scene sceneID="r6F-qD-AQX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="97j-mK-Yu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SeoulCategoryViewController" id="08d-YO-Mtk" customClass="SeoulCategoryViewController" customModule="DO_dobo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c6d-3M-Jb5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-zW-7bX">
+                                <rect key="frame" x="134" y="83" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="sp2-Kw-N2F"/>
+                                </constraints>
+                                <state key="normal" image="icAll"/>
+                                <connections>
+                                    <segue destination="yUe-pb-1y5" kind="push" id="ope-cb-NFI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGP-fY-52m">
+                                <rect key="frame" x="16" y="211" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="oSY-VW-JPA"/>
+                                </constraints>
+                                <state key="normal" image="icHandicapedPeople"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnN-ez-QEN">
+                                <rect key="frame" x="16" y="345" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="c9O-vD-7CR"/>
+                                </constraints>
+                                <state key="normal" image="icSeoullo7017"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQy-15-yLI">
+                                <rect key="frame" x="134" y="345" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="c5X-Wn-K5B"/>
+                                </constraints>
+                                <state key="normal" image="icHistoricSite"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ser-ho-xQ7">
+                                <rect key="frame" x="252" y="345" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="Qa6-dh-NbE"/>
+                                </constraints>
+                                <state key="normal" image="icPilgrimageRoad"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDJ-TN-nft">
+                                <rect key="frame" x="134" y="211" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="lrg-Ke-0s1"/>
+                                </constraints>
+                                <state key="normal" image="icSeoulCityHall"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvW-OH-6nQ">
+                                <rect key="frame" x="252" y="211" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="RV8-SK-87a"/>
+                                </constraints>
+                                <state key="normal" image="icLake"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-W8-1Pz">
+                                <rect key="frame" x="134" y="473" width="107" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QRc-W8-1Pz" secondAttribute="height" multiplier="1:1" id="4QT-bu-Moa"/>
+                                    <constraint firstAttribute="height" constant="107" id="Lbo-1X-mUA"/>
+                                </constraints>
+                                <state key="normal" image="icEtc"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="centerY" secondItem="HvW-OH-6nQ" secondAttribute="centerY" id="0VD-L2-CZP"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="centerX" secondItem="oDJ-TN-nft" secondAttribute="centerX" id="1wf-vA-8DT"/>
+                            <constraint firstItem="ser-ho-xQ7" firstAttribute="width" secondItem="ser-ho-xQ7" secondAttribute="height" multiplier="1:1" id="6OB-ST-4ck"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="leading" secondItem="gGP-fY-52m" secondAttribute="trailing" constant="11" id="6xf-VM-cXY"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="centerX" secondItem="Ami-zW-7bX" secondAttribute="centerX" id="AEI-Qm-3n5"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="top" secondItem="oDJ-TN-nft" secondAttribute="bottom" constant="27" id="CZM-ww-ChF"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="centerY" secondItem="lnN-ez-QEN" secondAttribute="centerY" id="HVy-wZ-CCe"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="centerY" secondItem="ser-ho-xQ7" secondAttribute="centerY" id="IyH-A6-oJT"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="width" secondItem="oDJ-TN-nft" secondAttribute="height" multiplier="1:1" id="JdF-CY-GRj"/>
+                            <constraint firstItem="gGP-fY-52m" firstAttribute="width" secondItem="gGP-fY-52m" secondAttribute="height" multiplier="1:1" id="Mf3-5w-Q4k"/>
+                            <constraint firstItem="lnN-ez-QEN" firstAttribute="width" secondItem="lnN-ez-QEN" secondAttribute="height" multiplier="1:1" id="OkV-I6-CmT"/>
+                            <constraint firstItem="Ami-zW-7bX" firstAttribute="top" secondItem="d5k-8e-6FO" secondAttribute="top" constant="19" id="UFp-ru-iIA"/>
+                            <constraint firstItem="lnN-ez-QEN" firstAttribute="centerX" secondItem="gGP-fY-52m" secondAttribute="centerX" id="V0e-AX-ktl"/>
+                            <constraint firstItem="HvW-OH-6nQ" firstAttribute="width" secondItem="HvW-OH-6nQ" secondAttribute="height" multiplier="1:1" id="WRm-RC-bPU"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="centerY" secondItem="gGP-fY-52m" secondAttribute="centerY" id="he9-Ei-oHR"/>
+                            <constraint firstItem="QRc-W8-1Pz" firstAttribute="top" secondItem="HQy-15-yLI" secondAttribute="bottom" constant="21" id="lxo-Ev-gL1"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="top" secondItem="Ami-zW-7bX" secondAttribute="bottom" constant="21" id="pY7-1F-WNH"/>
+                            <constraint firstItem="Ami-zW-7bX" firstAttribute="width" secondItem="Ami-zW-7bX" secondAttribute="height" multiplier="1:1" id="qEf-2i-og2"/>
+                            <constraint firstItem="Ami-zW-7bX" firstAttribute="centerX" secondItem="d5k-8e-6FO" secondAttribute="centerX" id="qIe-pt-Cah"/>
+                            <constraint firstItem="ser-ho-xQ7" firstAttribute="centerX" secondItem="HvW-OH-6nQ" secondAttribute="centerX" id="s2x-OM-2H9"/>
+                            <constraint firstItem="HvW-OH-6nQ" firstAttribute="leading" secondItem="oDJ-TN-nft" secondAttribute="trailing" constant="11" id="tIg-m5-CsV"/>
+                            <constraint firstItem="QRc-W8-1Pz" firstAttribute="centerX" secondItem="HQy-15-yLI" secondAttribute="centerX" id="vNn-6S-cAn"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="width" secondItem="HQy-15-yLI" secondAttribute="height" multiplier="1:1" id="y8T-dQ-ymI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d5k-8e-6FO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gyh-92-djr"/>
+                    <navigationItem key="navigationItem" title="서울 도보관광" id="hK5-mW-ufW"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2662" y="785"/>
         </scene>
         <!--서울 소개-->
         <scene sceneID="cei-H0-LCs">
@@ -488,7 +592,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMp-bc-qS7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="서울도보관광이란?" id="IVn-iR-aGW">
+                    <navigationItem key="navigationItem" title="&quot;서울 도보관광&quot;이란?" id="IVn-iR-aGW">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="udC-GL-AH0">
                             <color key="tintColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -887,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGf-f8-QEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="835"/>
+            <point key="canvasLocation" x="3681" y="785"/>
         </scene>
         <!--서울라이트 상세보기-->
         <scene sceneID="YiS-3k-OUj">
@@ -2249,7 +2353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fd9-IO-XAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4508" y="451.12443778110946"/>
+            <point key="canvasLocation" x="5622" y="454"/>
         </scene>
         <!--Seoul Web View Controller-->
         <scene sceneID="BkH-iR-Ro3">
@@ -2280,7 +2384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p49-Mo-zJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5273" y="70"/>
+            <point key="canvasLocation" x="6378" y="70"/>
         </scene>
         <!--마이 페이지-->
         <scene sceneID="XOb-w6-mOq">
@@ -2421,6 +2525,13 @@
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
+                                                    <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="리스트가 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RI1-Qh-Nqa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="MyPageCollectionViewCell" id="oFJ-qI-PkV" customClass="MyPageCollectionViewCell" customModule="DO_dobo" customModuleProvider="target">
                                                             <rect key="frame" x="25" y="7" width="251" height="111"/>
@@ -2436,7 +2547,7 @@
                                                                             <constraint firstAttribute="width" constant="249" id="p7g-8a-w70"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a" translatesAutoresizingMaskIntoConstraints="NO" id="VeH-dt-x5P">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VeH-dt-x5P">
                                                                         <rect key="frame" x="0.5" y="1" width="249" height="108"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="249" id="XbB-Fk-EGu"/>
@@ -2483,6 +2594,7 @@
                                         <connections>
                                             <outlet property="collectionView" destination="gq9-Wy-83v" id="Dcm-kZ-l52"/>
                                             <outlet property="listNameLabel" destination="jQ8-I4-VhX" id="uiy-PE-0ww"/>
+                                            <outlet property="listNoneLabel" destination="RI1-Qh-Nqa" id="HBs-Xd-WvP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3286,12 +3398,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="yUe-pb-1y5" kind="relationship" relationship="rootViewController" id="Qrf-Qs-mJP"/>
+                        <segue destination="08d-YO-Mtk" kind="relationship" relationship="rootViewController" id="W8M-p1-C4H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dyh-dM-KyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="836"/>
+            <point key="canvasLocation" x="1860" y="785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xFA-Rh-0aV">
@@ -3307,7 +3419,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOz-M2-13P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3681" y="834"/>
+            <point key="canvasLocation" x="4772" y="785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kUr-79-Sa8">
@@ -3531,7 +3643,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1EW-U5-SMB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="서울도보관광이란?" id="Jpi-Zt-HwL">
+                    <navigationItem key="navigationItem" title="&quot;Seoulight&quot;란" id="Jpi-Zt-HwL">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gBd-yN-0Ma">
                             <color key="tintColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -3809,10 +3921,10 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                         <color key="selectedImageTintColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2Bl-2S-uVq" kind="relationship" relationship="viewControllers" id="tYP-ed-WEB"/>
-                        <segue destination="Ih9-p3-7FY" kind="relationship" relationship="viewControllers" id="d3l-C7-Vd4"/>
-                        <segue destination="uK8-Qn-De4" kind="relationship" relationship="viewControllers" id="S4f-Lf-cGI"/>
-                        <segue destination="edn-Uh-y59" kind="relationship" relationship="viewControllers" id="kEy-JV-8Ht"/>
+                        <segue destination="2Bl-2S-uVq" kind="relationship" relationship="viewControllers" id="JiA-W2-mhp"/>
+                        <segue destination="Ih9-p3-7FY" kind="relationship" relationship="viewControllers" id="48b-Pu-v8W"/>
+                        <segue destination="uK8-Qn-De4" kind="relationship" relationship="viewControllers" id="OEy-t9-9pC"/>
+                        <segue destination="edn-Uh-y59" kind="relationship" relationship="viewControllers" id="Ij9-aN-PxZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mg1-5C-FBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3870,7 +3982,6 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         </scene>
     </scenes>
     <resources>
-        <image name="a" width="539" height="250"/>
         <image name="activityGray" width="82" height="32"/>
         <image name="combinedShape" width="375" height="235"/>
         <image name="cultureGray" width="82" height="32"/>
@@ -3903,9 +4014,15 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="icFestival" width="94" height="94"/>
         <image name="icFilter" width="18" height="12"/>
         <image name="icFood" width="94" height="94"/>
+        <image name="icHandicapedPeople" width="94" height="94"/>
+        <image name="icHistoricSite" width="94" height="94"/>
         <image name="icHistory" width="94" height="94"/>
+        <image name="icLake" width="94" height="94"/>
         <image name="icPerson" width="11" height="13"/>
         <image name="icPhotoedit" width="48" height="48"/>
+        <image name="icPilgrimageRoad" width="94" height="94"/>
+        <image name="icSeoulCityHall" width="94" height="94"/>
+        <image name="icSeoullo7017" width="94" height="94"/>
         <image name="icSetting" width="48" height="48"/>
         <image name="ic_translate" width="22" height="22"/>
         <image name="loginBtn" width="102" height="35"/>

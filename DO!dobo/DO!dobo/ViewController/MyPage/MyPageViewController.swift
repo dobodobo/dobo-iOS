@@ -26,6 +26,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var role = UserDefaults.standard.string(forKey: "role")
     
+    
     var myPage: MyPage?
     
     override func viewWillAppear(_ animated: Bool) {

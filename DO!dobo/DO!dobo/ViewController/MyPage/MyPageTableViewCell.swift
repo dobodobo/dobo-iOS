@@ -12,6 +12,7 @@ import Kingfisher
 class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var listNameLabel: UILabel!
+    @IBOutlet weak var listNoneLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var myPages: MyPage?
@@ -40,16 +41,21 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         if tag == 0 { //신청 리스트
             
             if gino(myPages?.askTourList.count) == 0 {
-                return 1
-            } else {
-                return gino(myPages?.askTourList.count)
+               listNoneLabel.isHidden = false
+            }else {
+                listNoneLabel.isHidden = true
             }
+            
+            return gino(myPages?.askTourList.count)
+
         } else { //개설 리스트
             if gino(myPages?.askTourList.count) == 0 {
-                return 1
+               listNoneLabel.isHidden = false
             } else {
-                return gino(myPages?.madeTourList.count)
+                listNoneLabel.isHidden = true
             }
+            
+            return gino(myPages?.madeTourList.count)
         }
     }
     
@@ -59,13 +65,9 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
             
             if let cell : MyPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPageCollectionViewCell", for: indexPath) as? MyPageCollectionViewCell {
                 
-                if gino(myPages?.askTourList.count) == 0 { //기본 이미지 설정
-                    cell.placeImageView.image = #imageLiteral(resourceName: "loginFullGraphic")
-                    cell.nameLabel.text = ""
-                } else {
                     cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.askTourList[indexPath.row].image)), placeholder: UIImage())
                     cell.nameLabel.text = myPages?.askTourList[indexPath.row].title
-                }
+
 
                 return cell
             }
@@ -73,16 +75,10 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         } else { //개설 리스트
             
             if let cell : MyPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPageCollectionViewCell", for: indexPath) as? MyPageCollectionViewCell {
-            
-                
-                if gino(myPages?.madeTourList.count) == 0 { //기본 이미지 설정
-                    cell.placeImageView.image = #imageLiteral(resourceName: "loginFullGraphic")
-                    cell.nameLabel.text = ""
-                } else {
+
                     cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.madeTourList[indexPath.row].image)), placeholder: UIImage())
                     cell.nameLabel.text = myPages?.madeTourList[indexPath.row].title
-                }
-                
+              
                 return cell
             }
             return UICollectionViewCell()

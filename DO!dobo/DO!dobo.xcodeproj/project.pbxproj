@@ -39,6 +39,7 @@
 		22B407F32156A31600FD9D44 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F22156A31600FD9D44 /* MyPage.swift */; };
 		22B407F52156A3D400FD9D44 /* TourList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F42156A3D400FD9D44 /* TourList.swift */; };
 		22B407FA215774DE00FD9D44 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F9215774DE00FD9D44 /* SwiftNotice.swift */; };
+		22B407FC2157E02F00FD9D44 /* SeoulCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407FB2157E02F00FD9D44 /* SeoulCategoryViewController.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
 		22C75726214E354300809616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75725214E354300809616 /* MainViewController.swift */; };
 		22C75729214E354300809616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C75727214E354300809616 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		22B407F22156A31600FD9D44 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		22B407F42156A3D400FD9D44 /* TourList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourList.swift; sourceTree = "<group>"; };
 		22B407F9215774DE00FD9D44 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		22B407FB2157E02F00FD9D44 /* SeoulCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCategoryViewController.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C75723214E354300809616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C75725214E354300809616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				22A66F94214FB3F5003D896F /* SeoulListViewController.swift */,
 				22A66F99214FB506003D896F /* SeoulListTableViewCell.swift */,
+				22B407FB2157E02F00FD9D44 /* SeoulCategoryViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				22A66F95214FB3F5003D896F /* SeoulListViewController.swift in Sources */,
 				22A66FA6214FD5DA003D896F /* SeoulCourseCollectionViewCell.swift in Sources */,
 				22A66F9E214FB88C003D896F /* SeoulDetailViewController.swift in Sources */,
+				22B407FC2157E02F00FD9D44 /* SeoulCategoryViewController.swift in Sources */,
 				22C7573C214E8B4200809616 /* SeoulightListViewController.swift in Sources */,
 				22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */,
 				22B407F32156A31600FD9D44 /* MyPage.swift in Sources */,

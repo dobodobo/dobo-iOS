@@ -167,9 +167,9 @@ extension SeoulightApplyViewController  {
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy.MM.dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        guard let date = dateFormatter.date(from: "1996.01.29") else {
+        guard let date = dateFormatter.date(from: "1996-01-29") else {
             fatalError("포맷과 맞지 않아 데이터 변환이 실패했습니다")
         }
         
@@ -204,7 +204,7 @@ extension SeoulightApplyViewController  {
     @objc func selectedDatePicker(){
         
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy.MM.dd"
+        dateformatter.dateFormat = "yyyy-MM-dd"
         
         let date = dateformatter.string(from: datePicker.date)
         
