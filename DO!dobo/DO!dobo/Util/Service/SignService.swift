@@ -56,7 +56,7 @@ struct SignService: APIService {
                                 completion("exist_id")
                             }
                         
-                            else if message == "internal_server_error" {
+                            else {
                                 print("서버 에러")
                                 completion("internal_server_error")
                                 

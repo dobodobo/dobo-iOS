@@ -36,7 +36,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
     
-    @IBOutlet weak var seoulightView: UIView!
     @IBOutlet weak var seoulightImageView: UIImageView!
     @IBOutlet weak var seoulightNameLabel: UILabel!
     @IBOutlet weak var seoulightCompanyLabel: UILabel!
@@ -65,11 +64,10 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         setNavigationBar()
         
         //imageView Circle
-        seoulightView.layer.masksToBounds = true
-        seoulightView.layer.cornerRadius = seoulightImageView.layer.frame.width/2
-        
         seoulightImageView.layer.masksToBounds = true
         seoulightImageView.layer.cornerRadius = seoulightImageView.layer.frame.width/2
+        seoulightImageView.layer.borderWidth = 2
+        seoulightImageView.layer.borderColor = #colorLiteral(red: 0.537254902, green: 0.768627451, blue: 0.7647058824, alpha: 1)
         
         languageImageView.layer.masksToBounds = true
         languageImageView.layer.cornerRadius = 4
@@ -207,7 +205,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         return cell
     }
     
-    //MARK: CollectionView method
+    //MARK: collectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
             return 6

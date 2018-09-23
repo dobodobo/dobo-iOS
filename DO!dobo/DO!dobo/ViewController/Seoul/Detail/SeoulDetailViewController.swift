@@ -148,6 +148,23 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
+    //MARK: 리뷰 댓글 삭제
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            print("Delete tapped")
+            
+            // remove the item from the data model
+            //            self.model.remove(at: indexPath.row)
+            
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        })
+        deleteAction.backgroundColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
+        
+        return [deleteAction]
+    }
+    
     //MARK: CollectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
