@@ -16,11 +16,12 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //pop swipe
+        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        
         //TableView
         tabelView.delegate = self
         tabelView.dataSource = self
-        
-        
 
         // Do any additional setup after loading the view.
     }

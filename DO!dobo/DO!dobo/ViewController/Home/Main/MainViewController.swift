@@ -13,8 +13,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var doboImageView: UIImageView!
     @IBOutlet weak var doboNameTextView: UITextView!
-    @IBOutlet weak var doboDateLabel: UILabel!
-    @IBOutlet weak var doboPeopleLabel: UILabel!
     
     @IBOutlet weak var seoulightImageView: UIImageView!
     @IBOutlet weak var seoulightNameTextView: UITextView!

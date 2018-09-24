@@ -260,7 +260,7 @@
                                 </constraints>
                                 <state key="normal" image="icAll"/>
                                 <connections>
-                                    <segue destination="yUe-pb-1y5" kind="push" id="ope-cb-NFI"/>
+                                    <action selector="allAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="ucq-ID-8to"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGP-fY-52m">
@@ -269,6 +269,9 @@
                                     <constraint firstAttribute="height" constant="107" id="oSY-VW-JPA"/>
                                 </constraints>
                                 <state key="normal" image="icHandicapedPeople"/>
+                                <connections>
+                                    <action selector="handiAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="MB5-yN-hQv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnN-ez-QEN">
                                 <rect key="frame" x="16" y="345" width="107" height="107"/>
@@ -276,6 +279,9 @@
                                     <constraint firstAttribute="height" constant="107" id="c9O-vD-7CR"/>
                                 </constraints>
                                 <state key="normal" image="icSeoullo7017"/>
+                                <connections>
+                                    <action selector="seoulloAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="To3-jk-TKT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQy-15-yLI">
                                 <rect key="frame" x="134" y="345" width="107" height="107"/>
@@ -283,6 +289,9 @@
                                     <constraint firstAttribute="height" constant="107" id="c5X-Wn-K5B"/>
                                 </constraints>
                                 <state key="normal" image="icHistoricSite"/>
+                                <connections>
+                                    <action selector="historyAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="Vo8-AF-2Fn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ser-ho-xQ7">
                                 <rect key="frame" x="252" y="345" width="107" height="107"/>
@@ -290,6 +299,9 @@
                                     <constraint firstAttribute="height" constant="107" id="Qa6-dh-NbE"/>
                                 </constraints>
                                 <state key="normal" image="icPilgrimageRoad"/>
+                                <connections>
+                                    <action selector="wayAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="olv-Dj-YjT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDJ-TN-nft">
                                 <rect key="frame" x="134" y="211" width="107" height="107"/>
@@ -297,6 +309,9 @@
                                     <constraint firstAttribute="height" constant="107" id="lrg-Ke-0s1"/>
                                 </constraints>
                                 <state key="normal" image="icSeoulCityHall"/>
+                                <connections>
+                                    <action selector="cityHallAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="efI-PQ-y5a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvW-OH-6nQ">
                                 <rect key="frame" x="252" y="211" width="107" height="107"/>
@@ -304,6 +319,9 @@
                                     <constraint firstAttribute="height" constant="107" id="RV8-SK-87a"/>
                                 </constraints>
                                 <state key="normal" image="icLake"/>
+                                <connections>
+                                    <action selector="riverAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="Kzg-Fk-wVO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-W8-1Pz">
                                 <rect key="frame" x="134" y="473" width="107" height="107"/>
@@ -312,6 +330,9 @@
                                     <constraint firstAttribute="height" constant="107" id="Lbo-1X-mUA"/>
                                 </constraints>
                                 <state key="normal" image="icEtc"/>
+                                <connections>
+                                    <action selector="etcAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="d2r-kI-Lmg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -897,7 +918,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fhw-D5-SfN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="60G-28-Ec8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="12"/>
@@ -929,8 +950,8 @@
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="간략한 소개" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-Eh-fAn">
-                                                            <rect key="frame" x="140" y="30" width="191" height="38"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="간략한 소개" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F80-Eh-fAn">
+                                                            <rect key="frame" x="140" y="30" width="191" height="49"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="11"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -940,7 +961,7 @@
                                                     <constraints>
                                                         <constraint firstItem="U90-hb-cz6" firstAttribute="leading" secondItem="zmy-ph-gOU" secondAttribute="leading" id="4Tw-M2-Fp6"/>
                                                         <constraint firstItem="F80-Eh-fAn" firstAttribute="leading" secondItem="8Nb-ci-fU0" secondAttribute="leading" id="5kD-nl-L9L"/>
-                                                        <constraint firstAttribute="bottom" secondItem="F80-Eh-fAn" secondAttribute="bottom" constant="31" id="D5n-aU-RXd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="F80-Eh-fAn" secondAttribute="bottom" constant="20" id="D5n-aU-RXd"/>
                                                         <constraint firstAttribute="bottom" secondItem="U90-hb-cz6" secondAttribute="bottom" id="JVw-z6-LtZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="F80-Eh-fAn" secondAttribute="trailing" constant="28" id="LR8-WY-TDu"/>
                                                         <constraint firstItem="F80-Eh-fAn" firstAttribute="top" secondItem="8Nb-ci-fU0" secondAttribute="bottom" id="ZtL-1b-hy3"/>
@@ -1811,7 +1832,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3l-rQ-vfH">
-                                                                        <rect key="frame" x="78" y="23" width="27" height="15"/>
+                                                                        <rect key="frame" x="78" y="22.5" width="27" height="15"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -2361,7 +2382,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvO-Oj-GQX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
