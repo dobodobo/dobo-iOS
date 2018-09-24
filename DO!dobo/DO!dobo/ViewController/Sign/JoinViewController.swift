@@ -10,6 +10,7 @@ import UIKit
 
 class JoinViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var idTextField: UITextField!
@@ -27,6 +28,8 @@ class JoinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.contentInset = UIEdgeInsets(top: -23, left: 0, bottom: 0, right: 0)
         
         isNullCheck()
         setKeyboardSetting()
@@ -71,6 +74,13 @@ class JoinViewController: UIViewController {
 
     }
     
+    //MARK: dismiss 액션
+    @IBAction func dismissAction(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func join(email: String, pwd: String, name: String, profileImage: UIImage) {
         
         SignService.join(email: email, pwd: pwd, nick: name, avatar: profileImage) { (message) in
@@ -90,7 +100,7 @@ class JoinViewController: UIViewController {
         }
     }
         
-    
+    //TODO: 예외처리하기
     func isNullCheck() {
         if idTextField.text != "" && pwdTextField.text != "" && pwdCheckTextField.text != "" {
             saveButton.setImage(#imageLiteral(resourceName: "finishBtnFill"), for: .normal)

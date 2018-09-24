@@ -186,6 +186,13 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     //TODO: 모달로 띄워서 리뷰 등록
     //MARK: 리뷰 등록하기
     @IBAction func reviewAction(_ sender: UIButton) {
+        let reviewPopUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightReviewPopUpViewController") as! SeoulightReviewPopUpViewController
+        
+        self.addChildViewController(reviewPopUp)
+        reviewPopUp.view.frame = self.view.frame
+        self.view.addSubview(reviewPopUp.view)
+        
+        reviewPopUp.didMove(toParentViewController: self)
     }
     
     
