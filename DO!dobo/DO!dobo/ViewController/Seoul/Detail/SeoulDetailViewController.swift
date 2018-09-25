@@ -33,6 +33,8 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var placeCollectionView: UICollectionView!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     
+    var idx: Int = 0 
+    
     
     //    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
     //    let alamofireSource = [AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
@@ -41,7 +43,7 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(idx)
         setBackBtn(color: .white)
         
         //TableView
@@ -63,10 +65,10 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         placeImageSlide.pageIndicator = pageControl
         placeImageSlide.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
         
-        placeImageSlide.currentPageChanged = { page in
-            print("current page:", page)
-        }
-        
+//        placeImageSlide.currentPageChanged = { page in
+//            print("current page:", page)
+//        }
+//        
         placeImageSlide.setImageInputs(kingfisherSource)
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(SeoulightDetailViewController.didTap))
@@ -210,6 +212,10 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func reviewAction(_ sender: UIButton) {
         let reviewPopUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulReviewPopUpViewController") as! SeoulReviewPopUpViewController
         
+        reviewPopUp.idx = self.idx
+        print("dd\(self.idx)")
+        
+        
         self.addChildViewController(reviewPopUp)
         reviewPopUp.view.frame = self.view.frame
         self.view.addSubview(reviewPopUp.view)
@@ -226,15 +232,4 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 }
 
-//extension UIViewController {
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        silentDidScroll()
-//    }
-//
-//    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-//        showNavigationBar()
-//        return true
-//    }
-//}
 

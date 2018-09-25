@@ -54,10 +54,10 @@ class SeoulListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //TODO: 다음 뷰 인텐트로 넘기기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let datailVC = storyboard?.instantiateViewController(withIdentifier: MarketDetailViewController.reuseIdentifier) as! MarketDetailViewController
-//        datailVC.store_name = lists[indexPath.row].store_name
-//        datailVC.store_idx = lists[indexPath.row].store_idx
-//        self.navigationController?.pushViewController(datailVC, animated: true)
+        let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "SeoulDetailViewController") as! SeoulDetailViewController
+        datailVC.idx = seouls[indexPath.row].idx
+        self.navigationController?.pushViewController(datailVC, animated: true)
     }
     
     

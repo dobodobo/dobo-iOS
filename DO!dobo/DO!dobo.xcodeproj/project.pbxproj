@@ -12,6 +12,10 @@
 		2227E96A2158B9C800F5ACC3 /* Seoul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E9692158B9C800F5ACC3 /* Seoul.swift */; };
 		2227E96C2158CD3500F5ACC3 /* SeoulReviewPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E96B2158CD3500F5ACC3 /* SeoulReviewPopUpViewController.swift */; };
 		2227E96E2158D55100F5ACC3 /* SeoulightReviewPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E96D2158D55100F5ACC3 /* SeoulightReviewPopUpViewController.swift */; };
+		2227E972215A440B00F5ACC3 /* SeoulDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E971215A440B00F5ACC3 /* SeoulDetailData.swift */; };
+		2227E974215A44AC00F5ACC3 /* SeoulDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E973215A44AC00F5ACC3 /* SeoulDetail.swift */; };
+		2227E976215A44CE00F5ACC3 /* SeoulReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E975215A44CE00F5ACC3 /* SeoulReview.swift */; };
+		2227E979215A556200F5ACC3 /* Seoulight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E978215A556200F5ACC3 /* Seoulight.swift */; };
 		226C915D2151075A0029FFB7 /* WebSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */; };
 		226C9160215268820029FFB7 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915F215268820029FFB7 /* ReportViewController.swift */; };
 		226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91612152CFA90029FFB7 /* MyPageViewController.swift */; };
@@ -64,6 +68,10 @@
 		2227E9692158B9C800F5ACC3 /* Seoul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seoul.swift; sourceTree = "<group>"; };
 		2227E96B2158CD3500F5ACC3 /* SeoulReviewPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulReviewPopUpViewController.swift; sourceTree = "<group>"; };
 		2227E96D2158D55100F5ACC3 /* SeoulightReviewPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightReviewPopUpViewController.swift; sourceTree = "<group>"; };
+		2227E971215A440B00F5ACC3 /* SeoulDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetailData.swift; sourceTree = "<group>"; };
+		2227E973215A44AC00F5ACC3 /* SeoulDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulDetail.swift; sourceTree = "<group>"; };
+		2227E975215A44CE00F5ACC3 /* SeoulReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulReview.swift; sourceTree = "<group>"; };
+		2227E978215A556200F5ACC3 /* Seoulight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seoulight.swift; sourceTree = "<group>"; };
 		226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeoulViewController.swift; sourceTree = "<group>"; };
 		226C915F215268820029FFB7 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		226C91612152CFA90029FFB7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -129,8 +137,19 @@
 			children = (
 				2227E9672158B99C00F5ACC3 /* SeoulData.swift */,
 				2227E9692158B9C800F5ACC3 /* Seoul.swift */,
+				2227E971215A440B00F5ACC3 /* SeoulDetailData.swift */,
+				2227E973215A44AC00F5ACC3 /* SeoulDetail.swift */,
+				2227E975215A44CE00F5ACC3 /* SeoulReview.swift */,
 			);
 			path = Seoul;
+			sourceTree = "<group>";
+		};
+		2227E977215A552E00F5ACC3 /* Seoulight */ = {
+			isa = PBXGroup;
+			children = (
+				2227E978215A556200F5ACC3 /* Seoulight.swift */,
+			);
+			path = Seoulight;
 			sourceTree = "<group>";
 		};
 		226C915E215268630029FFB7 /* MyPage */ = {
@@ -291,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				2227E9662158B96900F5ACC3 /* Seoul */,
+				2227E977215A552E00F5ACC3 /* Seoulight */,
 				22B407F62156A4C200FD9D44 /* MyPage */,
 			);
 			path = Model;
@@ -567,7 +587,9 @@
 				226C91662152D0680029FFB7 /* MyPageCollectionViewCell.swift in Sources */,
 				22F5FCE9215647A900D1750F /* LoginViewController.swift in Sources */,
 				22A66FA92150A9E8003D896F /* IntroSeoulViewController.swift in Sources */,
+				2227E976215A44CE00F5ACC3 /* SeoulReview.swift in Sources */,
 				226C915D2151075A0029FFB7 /* WebSeoulViewController.swift in Sources */,
+				2227E974215A44AC00F5ACC3 /* SeoulDetail.swift in Sources */,
 				226C91642152D0570029FFB7 /* MyPageTableViewCell.swift in Sources */,
 				2227E96E2158D55100F5ACC3 /* SeoulightReviewPopUpViewController.swift in Sources */,
 				226C916821536E830029FFB7 /* MyPageModViewController.swift in Sources */,
@@ -576,6 +598,7 @@
 				22A66F8F214EC0CB003D896F /* SeoulightDetailViewController.swift in Sources */,
 				22A66FA0214FC000003D896F /* SeoulPlaceCollectionViewCell.swift in Sources */,
 				22B407E72156725400FD9D44 /* ExtensionControl.swift in Sources */,
+				2227E972215A440B00F5ACC3 /* SeoulDetailData.swift in Sources */,
 				22B407E22156671700FD9D44 /* SignService.swift in Sources */,
 				22C75726214E354300809616 /* MainViewController.swift in Sources */,
 				226C917421552FA40029FFB7 /* SeoulightAddImageCollectionViewCell.swift in Sources */,
@@ -600,6 +623,7 @@
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
 				22F5FCEC215647C500D1750F /* JoinViewController.swift in Sources */,
 				2227E9652158B90F00F5ACC3 /* SeoulService.swift in Sources */,
+				2227E979215A556200F5ACC3 /* Seoulight.swift in Sources */,
 				22C75724214E354300809616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

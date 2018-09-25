@@ -1001,9 +1001,6 @@
                     <navigationItem key="navigationItem" title="서울 도보관광" id="iUh-mC-wWU">
                         <barButtonItem key="leftBarButtonItem" image="ic_translate" id="u8l-zE-RYb">
                             <color key="tintColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="VO4-MA-AEO" kind="push" id="Hul-wg-8HG"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
