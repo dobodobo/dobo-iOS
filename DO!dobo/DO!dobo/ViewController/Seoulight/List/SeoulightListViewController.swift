@@ -40,8 +40,6 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         dueSeoulightInit(category: category)
     }
     
-    
-    
     //MARK: 서울라이트 리스트 조회 - GET
     func seoulightInit(category: String) {
         

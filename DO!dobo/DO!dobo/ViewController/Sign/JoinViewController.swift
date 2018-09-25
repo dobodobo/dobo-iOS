@@ -95,7 +95,7 @@ class JoinViewController: UIViewController {
             }
             
             else {
-                self.simpleAlert(title: "회원가입 실패", message: "서버가 불안정합니다.")
+                self.simpleAlert(title: "회원가입 실패", message: "다시 시도해주세요.")
             }
         }
     }

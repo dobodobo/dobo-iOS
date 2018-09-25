@@ -174,6 +174,47 @@ struct SeoulightService: APIService {
         }
     }
     
+    //MARK: 서울라이트 도보관광 예약하기 - POST
+    static func bookSeoulight(idx: Int, completion: @escaping (_ message: String) -> Void) {
+        
+        let URL = url("/seoulite/\(idx)/reserve")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        Alamofire.request(URL, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: token_header).responseData() { res in
+            switch res.result {
+            case .success:
+                
+                print("서울라이트 예약: 접근")
+                
+                if let value = res.result.value {
+                    
+                    let message = JSON(value)["message"].string
+                    
+                    if message == "success" {
+                        print("서울라이트 예약: 성공")
+                        completion("success")
+                    }
+                        
+                    else {
+                        print("서울라이트 예약: 실패")
+                        completion("fail")
+                    }
+                }
+                
+                break
+                
+            case .failure(let err):
+                
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    
     
     //MARK: 서울라이트 도보관광 리뷰 작성 - POST
     static func seoulightReview(idx: Int, content: String, completion: @escaping (_ message: String) -> Void) {
@@ -192,19 +233,19 @@ struct SeoulightService: APIService {
             switch res.result {
             case .success:
                 
-                print("서울라이트 리뷰 : 접근")
+                print("서울라이트 리뷰: 접근")
                 
                 if let value = res.result.value {
                     
                     let message = JSON(value)["message"].string
                     
                     if message == "success" {
-                        print("서울라이트 리뷰 : 성공")
+                        print("서울라이트 리뷰: 성공")
                         completion("success")
                     }
                         
                     else {
-                        print("서울라이트 리뷰 : 실패")
+                        print("서울라이트 리뷰: 실패")
                         completion("fail")
                     }
                 }

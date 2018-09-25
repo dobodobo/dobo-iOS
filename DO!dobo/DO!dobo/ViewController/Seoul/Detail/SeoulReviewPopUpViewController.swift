@@ -61,8 +61,7 @@ class SeoulReviewPopUpViewController: UIViewController {
                 self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
                 self.removeAnimate()
             } else {
-                self.simpleAlert(title: "서버 에러", message: "서버가 불안정합니다.")
-                self.removeAnimate()
+                self.simpleAlert(title: "리뷰 등록 실패", message: "다시 시도해주세요.")
             }
         }
     }
