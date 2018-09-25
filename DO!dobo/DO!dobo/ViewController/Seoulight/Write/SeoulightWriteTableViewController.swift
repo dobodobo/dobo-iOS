@@ -22,13 +22,15 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBOutlet weak var languageTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
-    @IBOutlet weak var peopleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var finishTextField: UITextField!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var courseSearchTextField: UITextField!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    
+    @IBOutlet weak var minPeopleTextField: UITextField!
+    @IBOutlet weak var maxPeopleTextField: UITextField!
     
     var datePicker = UIDatePicker()
     

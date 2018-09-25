@@ -16,9 +16,10 @@ class SeoulightReviewPopUpViewController: UIViewController {
     var constraintInitVal : CGFloat = 0
     var check = true
     
-    
     @IBOutlet weak var reviewView: UIView!
     @IBOutlet weak var reviewTextView: UITextView!
+    
+    var idx: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,28 @@ class SeoulightReviewPopUpViewController: UIViewController {
     
     //MARK: 댓글 등록액션
     @IBAction func saveAction(_ sender: Any) {
-        self.removeAnimate()
+        if reviewTextView.text == "" {
+            simpleAlert(title: "등록 실패", message: "모든 항목을 입력해주세요.")
+        } else {
+            saveReview(content: reviewTextView.text)
+        }
+
     }
+    
+    //MARK: 리뷰 등록 - POST
+    func saveReview(content: String) {
+        SeoulightService.seoulightReview(idx: idx, content: content) { (message) in
+            print("dd\(self.idx)")
+            if message == "success" {
+                self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
+                self.removeAnimate()
+            } else {
+                self.simpleAlert(title: "서버 에러", message: "서버가 불안정합니다.")
+                self.removeAnimate()
+            }
+        }
+    }
+    
     
     
 }

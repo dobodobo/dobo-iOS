@@ -17,8 +17,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var seoulightImageView: UIImageView!
     @IBOutlet weak var seoulightNameTextView: UITextView!
     @IBOutlet weak var seoulightDateLabel: UILabel!
-    @IBOutlet weak var seoulightPeopleLabel: UILabel!
-    
+    @IBOutlet weak var seoulightminPeopleLabel: UILabel!
+    @IBOutlet weak var seoulightmaxPeopleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

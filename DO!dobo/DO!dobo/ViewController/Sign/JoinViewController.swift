@@ -29,7 +29,7 @@ class JoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.contentInset = UIEdgeInsets(top: -23, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         
         isNullCheck()
         setKeyboardSetting()

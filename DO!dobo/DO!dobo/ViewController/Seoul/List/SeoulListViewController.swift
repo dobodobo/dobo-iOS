@@ -52,7 +52,6 @@ class SeoulListViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    //TODO: 다음 뷰 인텐트로 넘기기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "SeoulDetailViewController") as! SeoulDetailViewController

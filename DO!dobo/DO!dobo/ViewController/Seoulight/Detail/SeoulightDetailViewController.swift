@@ -32,7 +32,8 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var minPeopleLabel: UILabel!
+    @IBOutlet weak var maxPeopleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
     
@@ -42,6 +43,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var languageImageView: UIImageView!
+    
+    
+    var idx: Int = 0
     
 
 //    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
@@ -84,9 +88,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         placeImageSlide.pageIndicator = pageControl
         placeImageSlide.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
         
-        placeImageSlide.currentPageChanged = { page in
-            print("current page:", page)
-        }
+//        placeImageSlide.currentPageChanged = { page in
+//            print("current page:", page)
+//        }
             
         placeImageSlide.setImageInputs(kingfisherSource)
             
@@ -175,7 +179,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBAction func reservationAction(_ sender: UIButton) {
     }
     
-    //TODO: 메일 보내기 연결
     //MARK: 문의하기
     @IBAction func mailAction(_ sender: UIButton) {
         
@@ -183,10 +186,11 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         
     }
     
-    //TODO: 모달로 띄워서 리뷰 등록
     //MARK: 리뷰 등록하기
     @IBAction func reviewAction(_ sender: UIButton) {
         let reviewPopUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightReviewPopUpViewController") as! SeoulightReviewPopUpViewController
+        
+        reviewPopUp.idx = self.idx
         
         self.addChildViewController(reviewPopUp)
         reviewPopUp.view.frame = self.view.frame

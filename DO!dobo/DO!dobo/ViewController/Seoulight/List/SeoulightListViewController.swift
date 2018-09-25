@@ -11,10 +11,14 @@ import UIKit
 class SeoulightListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tabelView: UITableView!
-    @IBOutlet weak var languageImageView: UIImageView!
+    
+    var category: String = "0"
+    var seoulights: [Seoulight] = [Seoulight]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        seoulightInit(category: category)
         
         //pop swipe
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
@@ -26,45 +30,43 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
     }
     
+    //MARK: 서울라이트 리스트 조회 - GET
+    func seoulightInit(category: String) {
+        
+        SeoulightService.SeoulightInit(category: category) { (seoulightData) in
+            self.seoulights = seoulightData
+            self.tabelView.reloadData()
+        }
+        
+    }
+    
     
     //MARK: TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return seoulights.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeoulLightListTableViewCell") as! SeoulLightListTableViewCell
         
-        cell.placeImageView.image = #imageLiteral(resourceName: "rectangle5.png")
-        cell.titleLabel.text = "수원 화성"
-        cell.dateLabel.text = "2019.10.01"
-        cell.peopleLabel.text = "3~6명"
-        cell.languageLabel.text = "영어"
-        
+        cell.placeImageView.kf.setImage(with: URL(string: gsno(seoulights[indexPath.row].image)), placeholder: UIImage())
+        cell.titleLabel.text = seoulights[indexPath.row].title
+        cell.dateLabel.text = seoulights[indexPath.row].due_date
+        cell.minPeopleLabel.text = String(seoulights[indexPath.row].min_people)
+        cell.maxPeopleLabel.text = String(seoulights[indexPath.row].max_people)
+        cell.languageLabel.text = seoulights[indexPath.row].lang
         
         return cell
     }
     
-
-//    // Set the spacing between sections
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 12
-//    }
-//    
-//    // Make the background color show through
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor.clear
-//        return headerView
-//    }
-//    
-
+    //TODO: 다음 뷰 인텐트로 넘기기
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "SeoulightDetailViewController") as! SeoulightDetailViewController
+        datailVC.idx = seoulights[indexPath.row].idx
+        self.navigationController?.pushViewController(datailVC, animated: true)
+    }
     
-    
-    
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
