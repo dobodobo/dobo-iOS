@@ -20,21 +20,10 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        myPageInit()
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         // Initialization code
-    }
-    
-    //MARK: 마이페이지 조회 - GET
-    func myPageInit() {
-        MyPageService.myPageInit{ (myPage) in
-            self.myPages = myPage
-            self.collectionView.reloadData()
-
-        }
     }
     
     //MARK: CollectionView method

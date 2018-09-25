@@ -30,7 +30,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var myPage: MyPage?
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        
         myPageInit()
     }
     
@@ -77,6 +77,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             cell.listNameLabel.text = "신청 리스트"
             cell.collectionView.reloadData()
+            cell.myPages = self.myPage
             cell.tag = 0
 
 
@@ -86,6 +87,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.listNameLabel.text = "개설 리스트"
             cell.collectionView.reloadData()
+            cell.myPages = self.myPage
             cell.tag = 1
         
             return cell
@@ -110,6 +112,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.profileImageView.kf.setImage(with: URL(string: self.gsno(myPage.avatar)), placeholder: UIImage())
             self.isRole()
             
+            self.myPage = myPage
             self.tableView.reloadData()
 
         }
