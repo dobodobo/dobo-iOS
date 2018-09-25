@@ -26,6 +26,7 @@ struct Dobo: Codable {
     let end_date: String
     let due_date: String
     let status: String
+    let isReserved: Bool
     let seoulite: Seoulite
     let bgi: [String]
     let course: [Course]

@@ -50,6 +50,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     var imgCount: Int = 0
     var status: String = ""
     var statusChk: Int = 0
+    var resChk: Bool = false
     var seoulightDetails: SeoulightDetail?
     
     var imageArr = [InputSource]()
@@ -182,14 +183,27 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     //MARK: 예약 상태 활성화 / 비활성화 체크 함수
     func setResBtn() {
         print(status)
+        print("dd\(resChk)")
         
         if status == "WAITING" { //진행 중
-            reservationButton.setImage(#imageLiteral(resourceName: "reservationBtn") ,for: .normal)
-            statusChk = 1
+            
+            if resChk == true { //예약함
+                reservationButton.setImage(#imageLiteral(resourceName: "reservationBtn") ,for: .normal)
+                statusChk = 3
+            } else {
+                reservationButton.setImage(#imageLiteral(resourceName: "rrr") ,for: .normal)
+                statusChk = 1
+            }
             
         } else { //마감
-            reservationButton.setImage(#imageLiteral(resourceName: "finishedBtn") ,for: .normal)
-            statusChk = 0
+            
+            if resChk == true { //예약함
+                reservationButton.setImage(#imageLiteral(resourceName: "reservationBtn") ,for: .normal)
+                statusChk = 3
+            } else {
+                reservationButton.setImage(#imageLiteral(resourceName: "finishedBtn") ,for: .normal)
+                statusChk = 0
+            }
         }
     }
     
@@ -198,8 +212,36 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         if statusChk == 0 {
             noticeInfo("예약 마감", autoClear: true, autoClearTime: 1)
             
+        } else if statusChk == 3{
+            cancelSeoulight(idx: idx)
+            self.navigationController?.popViewController(animated: true)
+            
         } else {
             bookSeoulight(idx: idx)
+        }
+    }
+    
+    //MARK: 서울라이트 예약하기 - POST
+    func bookSeoulight(idx: Int) {
+        SeoulightService.bookSeoulight(idx: idx) { (message) in
+            
+            if message == "success" {
+                self.noticeSuccess("예약 완료", autoClear: true, autoClearTime: 1)
+            } else {
+                self.simpleAlert(title: "예약 실패", message: "다시 시도해주세요.")
+            }
+        }
+    }
+    
+    //MARK: 서울라이트 예약 취소 - DELETE
+    func cancelSeoulight(idx: Int) {
+        SeoulightService.cancelSeoulight(idx: idx) { (message) in
+            
+            if message == "success" {
+                self.noticeSuccess("예약 취소", autoClear: true, autoClearTime: 1)
+            } else {
+                self.simpleAlert(title: "취소 실패", message: "다시 시도해주세요.")
+            }
         }
     }
 
@@ -228,6 +270,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         SeoulightService.seoulightDetailInit(idx: idx) { (seoulightDetailData) in
             
             self.status = seoulightDetailData.dobo.status
+            self.resChk = seoulightDetailData.dobo.isReserved
             self.imgCount = seoulightDetailData.dobo.bgi.count
             self.titleLabel.text = seoulightDetailData.dobo.title
             self.dateLabel.text = seoulightDetailData.dobo.due_date
@@ -253,18 +296,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             self.seoulightDetails = seoulightDetailData
             self.tableView.reloadData()
             self.courseCollectionView.reloadData()
-        }
-    }
-    
-    //MARK: 서울라이트 예약하기 - POST
-    func bookSeoulight(idx: Int) {
-        SeoulightService.bookSeoulight(idx: idx) { (message) in
-            
-            if message == "success" {
-                self.noticeSuccess("예약 완료", autoClear: true, autoClearTime: 1)
-            } else {
-                self.simpleAlert(title: "예약 실패", message: "다시 시도해주세요.")
-            }
         }
     }
     

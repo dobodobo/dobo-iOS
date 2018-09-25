@@ -132,8 +132,6 @@ struct SeoulightService: APIService {
         }
     }
     
-    
-    
     //MARK: 서울라이트 상세보기 - GET
     static func seoulightDetailInit(idx: Int, completion: @escaping (SeoulightDetail) -> Void) {
         let URL = url("/seoulite/\(idx)/detail")
@@ -200,6 +198,46 @@ struct SeoulightService: APIService {
                         
                     else {
                         print("서울라이트 예약: 실패")
+                        completion("fail")
+                    }
+                }
+                
+                break
+                
+            case .failure(let err):
+                
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    //MARK: 서울라이트 도보관광 예약 취소 - DELETE
+    static func cancelSeoulight(idx: Int, completion: @escaping (_ message: String) -> Void) {
+        
+        let URL = url("/seoulite/\(idx)/reserve")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        Alamofire.request(URL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: token_header).responseData() { res in
+            switch res.result {
+            case .success:
+                
+                print("서울라이트 취소: 접근")
+                
+                if let value = res.result.value {
+                    
+                    let message = JSON(value)["message"].string
+                    
+                    if message == "success" {
+                        print("서울라이트 취소: 성공")
+                        completion("success")
+                    }
+                        
+                    else {
+                        print("서울라이트 취소: 실패")
                         completion("fail")
                     }
                 }

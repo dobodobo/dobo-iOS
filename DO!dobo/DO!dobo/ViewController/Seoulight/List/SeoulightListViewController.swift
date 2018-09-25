@@ -91,6 +91,7 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "SeoulightDetailViewController") as! SeoulightDetailViewController
         datailVC.idx = seoulights[indexPath.row].idx
+        print(seoulights[indexPath.row].idx)
         self.navigationController?.pushViewController(datailVC, animated: true)
     }
     
