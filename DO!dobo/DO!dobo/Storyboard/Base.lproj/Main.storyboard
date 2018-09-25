@@ -3992,23 +3992,27 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mis-Mb-lBi">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgy-BC-DcG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hL1-0v-Wub" firstAttribute="bottom" secondItem="mis-Mb-lBi" secondAttribute="bottom" id="eEm-W3-gdm"/>
-                            <constraint firstItem="mis-Mb-lBi" firstAttribute="top" secondItem="hL1-0v-Wub" secondAttribute="top" id="i8Y-7e-JjN"/>
-                            <constraint firstItem="mis-Mb-lBi" firstAttribute="leading" secondItem="hL1-0v-Wub" secondAttribute="leading" id="oXW-UP-fw9"/>
-                            <constraint firstItem="hL1-0v-Wub" firstAttribute="trailing" secondItem="mis-Mb-lBi" secondAttribute="trailing" id="wsS-8g-Lxl"/>
+                            <constraint firstItem="hL1-0v-Wub" firstAttribute="bottom" secondItem="jgy-BC-DcG" secondAttribute="bottom" id="AJL-MM-ylx"/>
+                            <constraint firstItem="jgy-BC-DcG" firstAttribute="top" secondItem="OBv-NI-tAX" secondAttribute="top" id="KZ8-vq-xsK"/>
+                            <constraint firstItem="jgy-BC-DcG" firstAttribute="leading" secondItem="hL1-0v-Wub" secondAttribute="leading" id="gNG-jz-l23"/>
+                            <constraint firstItem="hL1-0v-Wub" firstAttribute="trailing" secondItem="jgy-BC-DcG" secondAttribute="trailing" id="nGE-7D-Z2u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hL1-0v-Wub"/>
                     </view>
                     <navigationItem key="navigationItem" id="10v-sS-v36"/>
                     <connections>
-                        <outlet property="webView" destination="mis-Mb-lBi" id="spZ-qT-WLC"/>
+                        <outlet property="webView" destination="jgy-BC-DcG" id="RX3-nj-lUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzb-jQ-hKm" userLabel="First Responder" sceneMemberID="firstResponder"/>

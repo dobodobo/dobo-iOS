@@ -8,6 +8,7 @@
 
 import UIKit
 import SilentScrolly
+import WebKit
 
 class WebSeoulViewController: UIViewController, SilentScrollable {
     
@@ -18,16 +19,20 @@ class WebSeoulViewController: UIViewController, SilentScrollable {
     
     var silentScrolly: SilentScrolly?
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView! {
+        didSet {
+            webView.navigationDelegate = self
+            webView.scrollView.delegate = self
+            let url = URL (string: "http://korean.visitseoul.net/walkingtour/%EB%8F%84%EB%B3%B4%EA%B4%80%EA%B4%91%EC%9D%B4%EB%9E%80_/15020")
+            let requestObj = URLRequest(url: url!)
+            webView.load(requestObj)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackBtn()
-        
-        let url = URL (string: "http://korean.visitseoul.net/walkingtour/%EB%8F%84%EB%B3%B4%EA%B4%80%EA%B4%91%EC%9D%B4%EB%9E%80_/15020")
-        let requestObj = URLRequest(url: url!)
-        webView.loadRequest(requestObj)
 
         // Do any additional setup after loading the view.
     }
@@ -72,6 +77,25 @@ class WebSeoulViewController: UIViewController, SilentScrollable {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension WebSeoulViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScrolld(_ scrollView: UIScrollView) {
+        silentDidScroll()
+    }
+    
+    func scrollViewShouldScrollToTopd(_ scrollView: UIScrollView) -> Bool {
+        showNavigationBar()
+        return true
+    }
+}
+
+extension WebSeoulViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showNavigationBar()
+    }
 }
 
 extension UIViewController {
