@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import SilentScrolly
 
 extension UIViewController {
+    
     func gsno(_ value: String?) -> String { //String 옵셔널 벗기기
         return value ?? ""
     }

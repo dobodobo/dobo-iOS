@@ -10,6 +10,7 @@ import Foundation
 
 struct SeoulightDetail: Codable {
     let dobo: Dobo
+    let review: [SeoulightReview]?
 
 }
 
@@ -27,7 +28,6 @@ struct Dobo: Codable {
     let status: String
     let seoulite: Seoulite
     let bgi: [String]
-    let tourlist: [DetailTourList]
     let course: [Course]
 }
 
@@ -36,13 +36,9 @@ struct Seoulite: Codable {
     let user_idx: Int
     let name: String
     let avatar: String?
-    let email: String
-    let intro: String
-}
-
-struct DetailTourList: Codable {
-    let name: String
-    let image: String
+    let email: String?
+    let intro: String?
+    let organization: String?
 }
 
 struct Course: Codable {

@@ -53,10 +53,10 @@ class SeoulReviewPopUpViewController: UIViewController {
         }
     }
     
-    //MARK: 리뷰 등록 - POST
+    //MARK: 서울 리뷰 등록 - POST
     func saveReview(content: String) {
         SeoulService.seoulReview(idx: gino(idx), content: content) { (message) in
-            print("dd\(self.idx)")
+
             if message == "success" {
                 self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
                 self.removeAnimate()
@@ -84,7 +84,6 @@ extension SeoulReviewPopUpViewController {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
             if check {
-
                 
                 constraintInitVal = c.constant
                 c.constant += keyboardSize.height

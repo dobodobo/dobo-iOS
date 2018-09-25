@@ -11,6 +11,5 @@ import Foundation
 struct SeoulightDetailData: Codable {
     let status: Int
     let message: String
-    let result: Seoulight
-    let review: [SeoulightReview]
+    let result: SeoulightDetail
 }

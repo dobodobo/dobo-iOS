@@ -42,7 +42,7 @@ class SeoulightReviewPopUpViewController: UIViewController {
         self.removeAnimate()
     }
     
-    //MARK: 댓글 등록액션
+    //MARK: 댓글 등록 액션
     @IBAction func saveAction(_ sender: Any) {
         if reviewTextView.text == "" {
             simpleAlert(title: "등록 실패", message: "모든 항목을 입력해주세요.")
@@ -52,7 +52,7 @@ class SeoulightReviewPopUpViewController: UIViewController {
 
     }
     
-    //MARK: 리뷰 등록 - POST
+    //MARK: 서울라이트 리뷰 등록 - POST
     func saveReview(content: String) {
         SeoulightService.seoulightReview(idx: idx, content: content) { (message) in
             print("dd\(self.idx)")

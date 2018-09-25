@@ -52,6 +52,47 @@ struct SeoulightService: APIService {
         }
     }
     
+    //MARK: 서울라이트 상세보기 - GET
+    static func seoulightDetailInit(idx: Int, completion: @escaping (SeoulightDetail) -> Void) {
+        let URL = url("/seoulite/\(idx)/detail")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token_header).responseData() { res in
+            
+            switch res.result {
+            case .success:
+                
+                if let value = res.result.value {
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let seoulightDetailData = try decoder.decode(SeoulightDetailData.self, from: value)
+                        
+                        if seoulightDetailData.message == "success" {
+                            print("서울라이트 상세보기: 성공")
+                            completion(seoulightDetailData.result)
+                        } else {
+                            print("서울라이트 상세보기: 서버 에러")
+                        }
+                        
+                    } catch {
+                        print("서울라이트 상세보기: 변수 문제")
+                    }
+                }
+                
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    
     //MARK: 서울라이트 도보관광 리뷰 작성 - POST
     static func seoulightReview(idx: Int, content: String, completion: @escaping (_ message: String) -> Void) {
         

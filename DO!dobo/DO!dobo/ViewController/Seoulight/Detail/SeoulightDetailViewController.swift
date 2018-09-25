@@ -43,19 +43,24 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var languageImageView: UIImageView!
-    
+    @IBOutlet weak var langLabel: UILabel!
     
     var idx: Int = 0
+    var imgCount: Int = 0
+    var seoulightDetail: SeoulightDetail?
+
+//    let kingfisherSource = [KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
     
+    var imageArr = [InputSource]()
 
-//    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
-//    let alamofireSource = [AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
-
-    let kingfisherSource = [KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        seoulightDetailInit(idx: idx)
         
         setBackBtn(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         
@@ -91,16 +96,22 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
 //        placeImageSlide.currentPageChanged = { page in
 //            print("current page:", page)
 //        }
-            
-        placeImageSlide.setImageInputs(kingfisherSource)
-            
+        
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(SeoulightDetailViewController.didTap))
             placeImageSlide.addGestureRecognizer(recognizer)
         
         //CollectionView
         courseCollectionView.delegate = self
-        courseCollectionView.dataSource = self
+        courseCollectionView.dataSource = self        
     
+    }
+    
+    func image() {
+        for i in 0 ..< imgCount {
+//            imageArr.append(KingfisherSource(urlString: gsno(seoulightDetail?.dobo.bgi[i]))!)
+            print(gsno(seoulightDetail?.dobo.bgi[i]))
+            
+        }
     }
     
     //MARK: silentscrolly
@@ -166,7 +177,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["rkdthd1234@naver.com"]) //해설자 이메일 받기
+            mail.setToRecipients([gsno(seoulightDetail?.dobo.seoulite.email)]) //해설자 이메일 받기
             
             present(mail, animated: true)
         } else {
@@ -186,7 +197,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         
     }
     
-    //MARK: 리뷰 등록하기
+    //MARK: 서울라이트 리뷰 등록하기 팝업
     @IBAction func reviewAction(_ sender: UIButton) {
         let reviewPopUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightReviewPopUpViewController") as! SeoulightReviewPopUpViewController
         
@@ -199,19 +210,48 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         reviewPopUp.didMove(toParentViewController: self)
     }
     
+    //MARK: 서울라이트 상세보기 - GET
+    func seoulightDetailInit(idx: Int) {
+        SeoulightService.seoulightDetailInit(idx: idx) { (seoulightDetailData) in
+            
+            self.imgCount = seoulightDetailData.dobo.bgi.count
+            self.titleLabel.text = seoulightDetailData.dobo.title
+            self.dateLabel.text = seoulightDetailData.dobo.due_date
+            self.timeLabel.text = seoulightDetailData.dobo.end_date
+            self.minPeopleLabel.text = String(seoulightDetailData.dobo.min_people)
+            self.maxPeopleLabel.text = String(seoulightDetailData.dobo.max_people)
+            self.contentLabel.text = seoulightDetailData.dobo.content
+            self.seoulightImageView.kf.setImage(with: URL(string: self.gsno(seoulightDetailData.dobo.seoulite.avatar)), placeholder: UIImage())
+            self.seoulightNameLabel.text = seoulightDetailData.dobo.seoulite.name
+            self.seoulightCompanyLabel.text = seoulightDetailData.dobo.seoulite.organization
+            self.langLabel.text = seoulightDetailData.dobo.lang
+            
+            for i in 0 ..< self.imgCount {
+                self.imageArr.append(KingfisherSource(urlString: seoulightDetailData.dobo.bgi[i])!)
+                print(seoulightDetailData.dobo.bgi[i])
+                
+            }
+            
+            self.placeImageSlide.setImageInputs(self.imageArr)
+            
+            self.seoulightDetail = seoulightDetailData
+            self.tableView.reloadData()
+            self.courseCollectionView.reloadData()
+        }
+    }
     
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return gino(seoulightDetail?.review!.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeoulightDetailReviewTableViewCell") as! SeoulightDetailReviewTableViewCell
         
-        cell.nameLabel.text = "김예은"
-        cell.dateLabel.text = "2018.09.20"
-        cell.contentLabel.text = "정말 좋은 경험이었습니다."
+        cell.nameLabel.text = seoulightDetail?.review![indexPath.row].nick
+        cell.dateLabel.text = seoulightDetail?.review![indexPath.row].created
+        cell.contentLabel.text = seoulightDetail?.review![indexPath.row].content
         
         return cell
     }
@@ -236,15 +276,18 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     //MARK: collectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-            return 6
+        
+        return gino(seoulightDetail?.dobo.course.count)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightCourseCollectionViewCell", for: indexPath) as! SeoulightCourseCollectionViewCell
-            
+        
+            //카테고리로 이미지 넣기
             cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
-            cell.nameTextView.text = "오설록"
+            cell.nameTextView.text = seoulightDetail?.dobo.course[indexPath.row].name
             
             return cell
     }

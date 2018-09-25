@@ -1495,6 +1495,7 @@
                         <outlet property="contentLabel" destination="HmM-Qr-5Ca" id="Ouj-ZV-XCI"/>
                         <outlet property="courseCollectionView" destination="D6K-Yd-37j" id="2z8-EU-w7N"/>
                         <outlet property="dateLabel" destination="vx0-cN-fdP" id="oR5-1h-w4p"/>
+                        <outlet property="langLabel" destination="bAC-EA-czq" id="ZGp-yu-LES"/>
                         <outlet property="languageImageView" destination="hjq-wA-EzS" id="NYB-N1-lWs"/>
                         <outlet property="maxPeopleLabel" destination="glP-hE-gB1" id="OdF-yB-BIE"/>
                         <outlet property="minPeopleLabel" destination="byL-iR-2yu" id="xDm-MJ-fbk"/>
