@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class SeoulightWriteTableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SeoulightWriteTableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var cultureButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
@@ -255,57 +255,6 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         imageNum -= 1
         imageCollectionView.reloadData()
     }
-    
-    //1 - 피커뷰의 컴포넌트 수 설정
-    //피커뷰에게 컴포넌터의 수를 정수 값으로 넘겨주는 델리게이트 메서드이다.
-    //피커뷰의 컴포넌트는 피커 부에 표시되는 열의 개수를 의미 한다.
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        //1
-        return 1
-    }
-    
-    //1-2 피커뷰의 높이 설정
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 50
-    }
-    
-    //2 - 피커뷰의 개수 설정
-    // 피커뷰에게 컴포넌트의 열의 개수를 정수 값으로 넘겨줍니다. 이 값은 피커 뷰의 해당 열에서 선택할 수 있는 행의 개수(데이터개수)를 의미한다.
-    // 여기에서는 배열의 개수 값인 4를 넘겨준다.
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return categoryArr.count
-    }
-    
-    //3 - 피커뷰의 각 row의 타이틀 설정
-    //titleForRow 인수를 가지는 델리게이트 메서드입니다. 피커 뷰에게 컴포넌트의 각 열의 타이틀을 문자열 값으로 넘겨준다.
-    //여기서는 파일명을 넘겨 준다.
-    //func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    //  return imageFileName[row]
-    //}
-    
-    
-    //4 피커뷰의 각 row의 view 설정
-    //롤렛에 문자대신 이미지 넣기
-    //피커뷰에게 컴포넌트의 각 열의 뷰를 uiview타입의 값으로 넘겨준다.
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
-        let imageView = UIImageView(image:categoryArr[row])//선택된 row에 해당하는 이미지를 imageArray에서 가져 온다.
-        imageView.frame = CGRect(x: 0, y: 0, width:30, height: 30)
-        
-        return imageView
-    }
-    
-    //5 - 피거뷰가 선택되었을 때 설정
-    //사용자가 피커뷰의 롤렛에서 선택한 row값을 사용하여 배열에서 row값에 해당하는 문자열을 가지고 온다.
-    //그리고 가져운 문자열을 레이블의 아울렛변수에 저장한다.
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        //피커뷰의 롤렛이 선택되었을 때 동작하는 didselectrow 인수가 포함된 델리게이트 메서드의 맨 아랫 부분에
-        //선택한 이미지를 이미지뷰에 나타내주는 코드를 추가한다.ㅇ
-        
-        categoryButton.setImage(categoryArr[row], for: .normal)
-    }
-    
 
 }
 

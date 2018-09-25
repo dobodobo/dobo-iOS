@@ -11,7 +11,7 @@ import Foundation
 struct SeoulDetail: Codable {
     
     let dobo: SeoulDobo
-    let review: [SeoulReview]
+    let review: [SeoulReview]?
 }
 
 struct SeoulDobo: Codable {

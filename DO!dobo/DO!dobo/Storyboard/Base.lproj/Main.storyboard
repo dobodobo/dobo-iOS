@@ -1397,6 +1397,39 @@
                                         <constraint firstItem="s3G-Iq-e2m" firstAttribute="top" secondItem="sSO-gB-ekw" secondAttribute="bottom" constant="14" id="zW5-wm-JcP"/>
                                     </constraints>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Drc-L9-b3X">
+                                    <rect key="frame" x="0.0" y="1009" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="r3W-be-4he">
+                                            <rect key="frame" x="162" y="8" width="51" height="28"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjj-KP-azh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="28"/>
+                                                    <state key="normal" image="icMore"/>
+                                                    <connections>
+                                                        <action selector="moreReviewAcion:" destination="tS6-AT-INZ" eventType="touchUpInside" id="ZFL-1e-7Sh"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wB-xV-4h7">
+                                                    <rect key="frame" x="17" y="0.0" width="34" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                    <state key="normal" title="더보기">
+                                                        <color key="titleColor" red="0.53333333333333333" green="0.75686274509803919" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="moreReviewAcion:" destination="tS6-AT-INZ" eventType="touchUpInside" id="3nn-jE-B9a"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="r3W-be-4he" firstAttribute="centerY" secondItem="Drc-L9-b3X" secondAttribute="centerY" id="58i-PD-F9M"/>
+                                        <constraint firstItem="r3W-be-4he" firstAttribute="centerX" secondItem="Drc-L9-b3X" secondAttribute="centerX" id="SVe-Yc-Hw7"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SeoulightDetailReviewTableViewCell" rowHeight="160" id="Awi-BS-hcq" customClass="SeoulightDetailReviewTableViewCell" customModule="DO_dobo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="849" width="375" height="160"/>
@@ -1504,6 +1537,9 @@
                         <outlet property="languageImageView" destination="hjq-wA-EzS" id="NYB-N1-lWs"/>
                         <outlet property="maxPeopleLabel" destination="glP-hE-gB1" id="OdF-yB-BIE"/>
                         <outlet property="minPeopleLabel" destination="byL-iR-2yu" id="xDm-MJ-fbk"/>
+                        <outlet property="moreButton" destination="9wB-xV-4h7" id="8om-Eq-h9e"/>
+                        <outlet property="moreIconButton" destination="Rjj-KP-azh" id="w6c-Tk-IQg"/>
+                        <outlet property="moreView" destination="Drc-L9-b3X" id="mIE-wo-tUN"/>
                         <outlet property="placeImageSlide" destination="sSO-gB-ekw" id="tFe-MV-tWq"/>
                         <outlet property="reservationButton" destination="LDC-C1-9EU" id="lPW-AP-bUo"/>
                         <outlet property="seoulightCompanyLabel" destination="aug-VD-Abi" id="9kH-CZ-5gs"/>
@@ -1866,6 +1902,7 @@
                                                     </constraints>
                                                     <connections>
                                                         <action selector="categryIconAction:" destination="7wU-lq-gn8" eventType="touchUpInside" id="nx2-6c-YL2"/>
+                                                        <segue destination="rEH-w2-O3C" kind="presentation" id="Oez-1s-mHs"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="코스 검색" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeP-t6-6jG">
@@ -2106,7 +2143,7 @@
                         <outlet property="historyButton" destination="nse-ix-5qw" id="zB8-hl-g5f"/>
                         <outlet property="imageCollectionView" destination="PFH-yz-KOV" id="WbF-0i-K6e"/>
                         <outlet property="languageTextField" destination="Nbo-iT-DSa" id="eeS-13-CBk"/>
-                        <outlet property="maxPeopleTextField" destination="8zT-HJ-0QR" id="fID-Ex-x2P"/>
+                        <outlet property="maxPeopleTextField" destination="8zT-HJ-0QR" id="VRY-RR-Bhx"/>
                         <outlet property="minPeopleTextField" destination="ZdR-VD-YJZ" id="qIL-L7-dLN"/>
                         <outlet property="titleTextField" destination="UgN-KR-2uo" id="NAO-ZT-yEy"/>
                     </connections>
@@ -2114,6 +2151,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wan-GY-YjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7324" y="1531.9340329835084"/>
+        </scene>
+        <!--Course Category Picker View Controller-->
+        <scene sceneID="g7b-jj-TcO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sga-kf-2s4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CourseCategoryPickerViewController" id="rEH-w2-O3C" customClass="CourseCategoryPickerViewController" customModule="DO_dobo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IuQ-RF-CNj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kZ6-bm-52b"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="8113" y="1382"/>
         </scene>
         <!--서울 상세보기-->
         <scene sceneID="Rsh-zc-02P">
@@ -2149,7 +2201,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IGC-ju-eoz" secondAttribute="height" multiplier="102:31" id="GyY-N0-Ket"/>
                                             </constraints>
-                                            <state key="normal" image="reservationBtn"/>
+                                            <state key="normal" image="rrr"/>
                                             <connections>
                                                 <action selector="reservationAction:" destination="VO4-MA-AEO" eventType="touchUpInside" id="yLG-ag-isD"/>
                                                 <segue destination="lOf-xF-E2d" kind="push" id="cKH-6b-b8u"/>
@@ -2364,6 +2416,39 @@
                                         <constraint firstItem="aTn-nx-ZMD" firstAttribute="top" secondItem="DZK-Tg-j3o" secondAttribute="bottom" constant="100" id="zMe-sc-V5W"/>
                                     </constraints>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="LAH-ou-GZZ">
+                                    <rect key="frame" x="0.0" y="1078" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sea-G0-zqb">
+                                            <rect key="frame" x="162" y="8" width="51" height="28"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-f3-lwm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="28"/>
+                                                    <state key="normal" image="icMore"/>
+                                                    <connections>
+                                                        <action selector="moreReviewAcion:" destination="VO4-MA-AEO" eventType="touchUpInside" id="UBp-Uw-8nq"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvQ-Ty-7z9">
+                                                    <rect key="frame" x="17" y="0.0" width="34" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                                    <state key="normal" title="더보기">
+                                                        <color key="titleColor" red="0.53333333329999999" green="0.75686274509999996" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="moreReviewAcion:" destination="VO4-MA-AEO" eventType="touchUpInside" id="gAX-vY-mhb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Sea-G0-zqb" firstAttribute="centerY" secondItem="LAH-ou-GZZ" secondAttribute="centerY" id="QuO-pK-1JQ"/>
+                                        <constraint firstItem="Sea-G0-zqb" firstAttribute="centerX" secondItem="LAH-ou-GZZ" secondAttribute="centerX" id="V4U-bm-NeR"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SeoulDetailReviewTableViewCell" rowHeight="160" id="LgP-lD-vEG" customClass="SeoulDetailReviewTableViewCell" customModule="DO_dobo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="918" width="375" height="160"/>
@@ -2466,6 +2551,8 @@
                     <connections>
                         <outlet property="contentTextView" destination="fCp-Id-BeI" id="hu0-1a-uzr"/>
                         <outlet property="courseCollectionView" destination="3Xc-uM-BcH" id="Bpc-Jg-HmF"/>
+                        <outlet property="moreButton" destination="gvQ-Ty-7z9" id="9Hj-t4-qEJ"/>
+                        <outlet property="moreIconButton" destination="vw3-f3-lwm" id="P7u-Ce-Oj4"/>
                         <outlet property="placeCollectionView" destination="Cd9-Zc-dmI" id="aLS-vJ-5Nq"/>
                         <outlet property="placeImageSlide" destination="7dK-Qn-371" id="Luh-e0-VPt"/>
                         <outlet property="reservationButton" destination="IGC-ju-eoz" id="3hL-GQ-qIM"/>
@@ -4573,6 +4660,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="icHistoricSite" width="94" height="94"/>
         <image name="icHistory" width="94" height="94"/>
         <image name="icLake" width="94" height="94"/>
+        <image name="icMore" width="12" height="5"/>
         <image name="icPerson" width="11" height="13"/>
         <image name="icPhotoedit" width="48" height="48"/>
         <image name="icPilgrimageRoad" width="94" height="94"/>
@@ -4590,6 +4678,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="rectangle16Copy4" width="126" height="20"/>
         <image name="rectangle2Copy" width="102" height="31"/>
         <image name="reservationBtn" width="102" height="31"/>
+        <image name="rrr" width="102" height="31"/>
         <image name="star2" width="4" height="4"/>
         <image name="tapbarHome" width="48" height="49"/>
         <image name="tapbarMypage" width="48" height="49"/>

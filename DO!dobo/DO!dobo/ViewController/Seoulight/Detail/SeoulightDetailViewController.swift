@@ -46,12 +46,17 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var langLabel: UILabel!
     
+    @IBOutlet weak var moreView: UIView!
+    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var moreIconButton: UIButton!
+    
     var idx: Int = 0
     var imgCount: Int = 0
     var status: String = ""
     var statusChk: Int = 0
     var resChk: Bool = false
     var seoulightDetails: SeoulightDetail?
+    var reviewCnt: Int = 3
     
     var imageArr = [InputSource]()
 
@@ -269,6 +274,12 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     func seoulightDetailInit(idx: Int) {
         SeoulightService.seoulightDetailInit(idx: idx) { (seoulightDetailData) in
             
+            if seoulightDetailData.review?.count == 0 {
+                self.moreIconButton.isHidden = true
+                self.moreButton.setTitle("리뷰가 없습니다.", for: .normal)
+                self.moreButton.isUserInteractionEnabled = false
+            }
+            
             self.status = seoulightDetailData.dobo.status
             self.resChk = seoulightDetailData.dobo.isReserved
             self.imgCount = seoulightDetailData.dobo.bgi.count
@@ -301,7 +312,13 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gino(seoulightDetails?.review!.count)
+        
+        if gino(seoulightDetails?.review?.count) >= 3 {
+            return reviewCnt
+        } else {
+            return gino(seoulightDetails?.review?.count)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -313,6 +330,32 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         cell.contentLabel.text = seoulightDetails?.review![indexPath.row].content
         
         return cell
+    }
+    
+    //MARK: 리뷰 더보기 액션
+    @IBAction func moreReviewAcion(_ sender: UIButton) {
+        if reviewCnt < gino(seoulightDetails?.review?.count) {
+            print(reviewCnt)
+            let num = gino(seoulightDetails?.review?.count) - reviewCnt
+            
+            if num % 3 >= 0 {
+                
+                if num >= 3 {
+                    reviewCnt += 3
+                    self.tableView.reloadData()
+                } else {
+                    reviewCnt += num
+                    self.tableView.reloadData()
+                }
+            } else  {
+                reviewCnt += num
+                self.tableView.reloadData()
+            }
+
+        } else {
+            noticeInfo("리뷰 없음", autoClear: true, autoClearTime: 1)
+
+        }
     }
     
     //MARK: collectionView method

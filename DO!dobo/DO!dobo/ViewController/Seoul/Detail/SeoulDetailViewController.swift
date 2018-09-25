@@ -33,14 +33,19 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var placeCollectionView: UICollectionView!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     
+    @IBOutlet weak var moreIconButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
+    
+    
     var idx: Int = 0
     var imgCount: Int = 0
     var seoulDetails: SeoulDetail?
+    var reviewCnt: Int = 3
     
     var imageArr = [InputSource]()
     
     override func viewWillAppear(_ animated: Bool) {
-        seoulightDetailInit(idx: idx)
+
         self.tableView.reloadData()
         self.courseCollectionView.reloadData()
         self.placeCollectionView.reloadData()
@@ -51,7 +56,7 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         print(idx)
         
-        seoulightDetailInit(idx: idx)
+        seoulDetailInit(idx: idx)
         setBackBtn(color: .white)
         
         //TableView
@@ -67,11 +72,11 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         placeImageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         placeImageSlide.contentScaleMode = UIViewContentMode.scaleToFill
         
-        let pageControl = UIPageControl()
-        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
-        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
-        placeImageSlide.pageIndicator = pageControl
-        placeImageSlide.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
+//        let pageControl = UIPageControl()
+//        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
+//        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+//        placeImageSlide.pageIndicator = pageControl
+//        placeImageSlide.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
         
 //        placeImageSlide.currentPageChanged = { page in
 //            print("current page:", page)
@@ -143,18 +148,48 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gino(seoulDetails?.review.count)
+        if gino(seoulDetails?.review?.count) >= 3 {
+            return reviewCnt
+        } else {
+            return gino(seoulDetails?.review?.count)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeoulDetailReviewTableViewCell") as! SeoulDetailReviewTableViewCell
         
-        cell.nameLabel.text = seoulDetails?.review[indexPath.row].nick
-        cell.dateLabel.text = seoulDetails?.review[indexPath.row].created
-        cell.contentTextView.text = seoulDetails?.review[indexPath.row].content
+        cell.nameLabel.text = seoulDetails?.review![indexPath.row].nick
+        cell.dateLabel.text = seoulDetails?.review![indexPath.row].created
+        cell.contentTextView.text = seoulDetails?.review![indexPath.row].content
         
         return cell
+    }
+    
+    //MARK: 리뷰 더보기 액션
+    @IBAction func moreReviewAcion(_ sender: UIButton) {
+        if reviewCnt < gino(seoulDetails?.review?.count) {
+            print(reviewCnt)
+            let num = gino(seoulDetails?.review?.count) - reviewCnt
+            
+            if num % 3 >= 0 {
+                
+                if num >= 3 {
+                    reviewCnt += 3
+                    self.tableView.reloadData()
+                } else {
+                    reviewCnt += num
+                    self.tableView.reloadData()
+                }
+            } else  {
+                reviewCnt += num
+                self.tableView.reloadData()
+            }
+            
+        } else {
+            noticeInfo("리뷰 없음", autoClear: true, autoClearTime: 1)
+            
+        }
     }
     
     //MARK: CollectionView method
@@ -210,9 +245,15 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
-    //MARK: 서울라이트 상세보기 - GET
-    func seoulightDetailInit(idx: Int) {
+    //MARK: 서울 상세보기 - GET
+    func seoulDetailInit(idx: Int) {
         SeoulService.seoulDetailInit(idx: idx) { (seoulDetailData) in
+            
+            if seoulDetailData.review?.count == 0 {
+                self.moreIconButton.isHidden = true
+                self.moreButton.setTitle("리뷰가 없습니다.", for: .normal)
+                self.moreButton.isUserInteractionEnabled = false
+            }
         
             self.titleLabel.text = seoulDetailData.dobo.title
             self.contentTextView.text = seoulDetailData.dobo.content
