@@ -18,13 +18,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         //imageView shadow
-        placeView.dropShadow(color: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), opacity: 3, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
-        
-//        placeImageView.layer.shadowColor = UIColor.purple.cgColor
-//        placeImageView.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        placeImageView.layer.shadowOpacity = 1
-//        placeImageView.layer.shadowRadius = 1.0
-//       placeImageView.clipsToBounds = false
+        placeView.dropShadow(color: #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1), opacity: 1, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
         
         //imageView circle
         placeImageView.layer.masksToBounds = true

@@ -12,6 +12,6 @@ struct TourList: Codable {
     let dIdx: Int                
     let title: String
     let content: String
-    let image: String
+    let image: String?
     let status: String
 }

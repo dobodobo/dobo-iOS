@@ -35,6 +35,10 @@ class MainViewController: UIViewController {
         꽃 시장 탐방 코스
         """
         
+        //imageView shadow
+        
+        doboImageView.dropShadow(color: #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1), opacity: 5, offSet: CGSize(width: -3, height: 10), radius: 5, scale: true)
+        seoulightImageView.dropShadow(color: #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1), opacity: 5, offSet: CGSize(width: -3, height: 10), radius: 5, scale: true)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
