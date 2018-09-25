@@ -685,6 +685,9 @@
                                             <state key="normal" title="인기순">
                                                 <color key="titleColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="hitAction:" destination="eNc-ZL-gTx" eventType="touchUpInside" id="xRD-dl-51I"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-lm-wXu">
                                             <rect key="frame" x="102" y="14.5" width="39" height="17"/>
@@ -695,6 +698,9 @@
                                             <state key="normal" title="마감순">
                                                 <color key="titleColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="dueAction:" destination="eNc-ZL-gTx" eventType="touchUpInside" id="Ub6-H6-X2B"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

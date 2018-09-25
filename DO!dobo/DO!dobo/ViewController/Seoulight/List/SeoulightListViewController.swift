@@ -30,6 +30,18 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
     }
     
+    //MARK: 인기순 액션
+    @IBAction func hitAction(_ sender: UIButton) {
+        hitSeoulightInit(category: category)
+    }
+    
+    //MARK: 마감순 액션
+    @IBAction func dueAction(_ sender: UIButton) {
+        dueSeoulightInit(category: category)
+    }
+    
+    
+    
     //MARK: 서울라이트 리스트 조회 - GET
     func seoulightInit(category: String) {
         
@@ -37,7 +49,24 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
             self.seoulights = seoulightData
             self.tabelView.reloadData()
         }
+    }
+    
+    //MARK: 서울라이트 인기순 조회 - GET
+    func hitSeoulightInit(category: String) {
         
+        SeoulightService.SeoulightInitHit(category: category) { (seoulightData) in
+            self.seoulights = seoulightData
+            self.tabelView.reloadData()
+        }
+    }
+    
+    //MARK: 서울라이트 마감순 조회 - GET
+    func dueSeoulightInit(category: String) {
+        
+        SeoulightService.SeoulightInitDue(category: category) { (seoulightData) in
+            self.seoulights = seoulightData
+            self.tabelView.reloadData()
+        }
     }
     
     
