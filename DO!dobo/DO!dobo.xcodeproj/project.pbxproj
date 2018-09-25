@@ -21,7 +21,6 @@
 		2227E97F215A75EE00F5ACC3 /* SeoulightDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E97E215A75EE00F5ACC3 /* SeoulightDetailData.swift */; };
 		2227E981215A75F900F5ACC3 /* SeoulightDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E980215A75F900F5ACC3 /* SeoulightDetail.swift */; };
 		2227E983215A788A00F5ACC3 /* SeoulightReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E982215A788A00F5ACC3 /* SeoulightReview.swift */; };
-		2227E987215AD7E000F5ACC3 /* CourseCategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227E986215AD7E000F5ACC3 /* CourseCategoryPickerViewController.swift */; };
 		226C915D2151075A0029FFB7 /* WebSeoulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */; };
 		226C9160215268820029FFB7 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C915F215268820029FFB7 /* ReportViewController.swift */; };
 		226C91622152CFA90029FFB7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C91612152CFA90029FFB7 /* MyPageViewController.swift */; };
@@ -83,7 +82,6 @@
 		2227E97E215A75EE00F5ACC3 /* SeoulightDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetailData.swift; sourceTree = "<group>"; };
 		2227E980215A75F900F5ACC3 /* SeoulightDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightDetail.swift; sourceTree = "<group>"; };
 		2227E982215A788A00F5ACC3 /* SeoulightReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulightReview.swift; sourceTree = "<group>"; };
-		2227E986215AD7E000F5ACC3 /* CourseCategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCategoryPickerViewController.swift; sourceTree = "<group>"; };
 		226C915C2151075A0029FFB7 /* WebSeoulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeoulViewController.swift; sourceTree = "<group>"; };
 		226C915F215268820029FFB7 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		226C91612152CFA90029FFB7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				226C917121552F520029FFB7 /* SeoulightWriteTableViewController.swift */,
 				226C917321552FA40029FFB7 /* SeoulightAddImageCollectionViewCell.swift */,
 				226C917721552FDE0029FFB7 /* SeoulightAddCourseCollectionViewCell.swift */,
-				2227E986215AD7E000F5ACC3 /* CourseCategoryPickerViewController.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -644,7 +641,6 @@
 				22B407EB21567F1000FD9D44 /* MyPageService.swift in Sources */,
 				22F5FCEE215653AC00D1750F /* APIKey.swift in Sources */,
 				22A66F9A214FB506003D896F /* SeoulListTableViewCell.swift in Sources */,
-				2227E987215AD7E000F5ACC3 /* CourseCategoryPickerViewController.swift in Sources */,
 				22F5FCEC215647C500D1750F /* JoinViewController.swift in Sources */,
 				2227E9652158B90F00F5ACC3 /* SeoulService.swift in Sources */,
 				2227E979215A556200F5ACC3 /* Seoulight.swift in Sources */,

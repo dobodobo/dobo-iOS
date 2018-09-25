@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         // Set the Google Place API's autocomplete UI control
         GMSPlacesClient.provideAPIKey(googlePlacesKey)
-        
         // Customize the UI of GMSAutocompleteViewController
         // Set some colors (colorLiteral is convenient)
         let barColor: UIColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = barColor
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
         // Color and font of typed text in the search bar.
-        var searchBarTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: textColor, NSAttributedStringKey.font.rawValue: UIFont(name: "Apple SD Gothic Neo", size: 16)]
+        let searchBarTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: textColor, NSAttributedStringKey.font.rawValue: UIFont(name: "Apple SD Gothic Neo", size: 16)]
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes
         // Color of the placeholder text in the search bar prior to text entry.
-        var placeholderAttributes = [NSAttributedStringKey.foregroundColor: backgroundColor, NSAttributedStringKey.font: UIFont(name: "Apple SD Gothic Neo", size: 15)]
+        let placeholderAttributes = [NSAttributedStringKey.foregroundColor: backgroundColor, NSAttributedStringKey.font: UIFont(name: "Apple SD Gothic Neo", size: 15)]
         // Color of the default search text.
         var attributedPlaceholder = NSAttributedString(string: "코스 검색", attributes: placeholderAttributes)
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedPlaceholder

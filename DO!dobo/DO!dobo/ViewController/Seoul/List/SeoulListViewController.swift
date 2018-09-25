@@ -23,8 +23,7 @@ class SeoulListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
         seoulInit(category: category)
-        
-    //self.navigationController?.navigationBar.setBottomBorderColor(color: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), height: 0.5)
+
         
         //TableView
         tableView.delegate = self
@@ -35,8 +34,15 @@ class SeoulListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         seoulInit(category: category)
+        
+        //네비게이션바 복구
+        self.navigationController!.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController!.navigationBar.backgroundColor = UIColor.clear
     }
     
+
     //MARK: TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return seouls.count
