@@ -33,17 +33,25 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var placeCollectionView: UICollectionView!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     
-    var idx: Int = 0 
+    var idx: Int = 0
+    var imgCount: Int = 0
+    var seoulDetails: SeoulDetail?
     
+    var imageArr = [InputSource]()
     
-    //    let localSource = [ImageSource(imageString: "sad_cloud_dark.png")!, ImageSource(imageString: "sad_cloud.png")!, ImageSource(imageString: "powered-by-google-light.png")!, ImageSource(imageString: "powered-by-google-dark.png")!]
-    //    let alamofireSource = [AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, AlamofireSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
-    
-    let kingfisherSource = [KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
+    override func viewWillAppear(_ animated: Bool) {
+        seoulightDetailInit(idx: idx)
+        self.tableView.reloadData()
+        self.courseCollectionView.reloadData()
+        self.placeCollectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print(idx)
+        
+        seoulightDetailInit(idx: idx)
         setBackBtn(color: .white)
         
         //TableView
@@ -68,8 +76,7 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
 //        placeImageSlide.currentPageChanged = { page in
 //            print("current page:", page)
 //        }
-//        
-        placeImageSlide.setImageInputs(kingfisherSource)
+//
         
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(SeoulightDetailViewController.didTap))
         placeImageSlide.addGestureRecognizer(recognizer)
@@ -136,44 +143,27 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return gino(seoulDetails?.review.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeoulDetailReviewTableViewCell") as! SeoulDetailReviewTableViewCell
         
-        cell.nameLabel.text = "김예은"
-        cell.dateLabel.text = "2018.09.20"
-        cell.contentTextView.text = "정말 좋은 경험이었습니다."
+        cell.nameLabel.text = seoulDetails?.review[indexPath.row].nick
+        cell.dateLabel.text = seoulDetails?.review[indexPath.row].created
+        cell.contentTextView.text = seoulDetails?.review[indexPath.row].content
         
         return cell
-    }
-    
-    //MARK: 리뷰 댓글 삭제
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            print("Delete tapped")
-            
-            // remove the item from the data model
-            //            self.model.remove(at: indexPath.row)
-            
-            // delete the table view row
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        })
-        deleteAction.backgroundColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
-        
-        return [deleteAction]
     }
     
     //MARK: CollectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == placeCollectionView {
-                return 5
+                return gino(seoulDetails?.dobo.tourlist.count)
         } else {
-            return 6
+            return gino(seoulDetails?.dobo.course!.count)
         }
     }
     
@@ -182,16 +172,16 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if collectionView == placeCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulPlaceCollectionViewCell", for: indexPath) as! SeoulPlaceCollectionViewCell
             
-            cell.placeImageView.image = #imageLiteral(resourceName: "group16.png")
-            cell.nameLabel.text = "오설록"
-            cell.categoryLabel.text = "음식점"
+            cell.placeImageView.kf.setImage(with: URL(string: gsno(seoulDetails?.dobo.tourlist[indexPath.row].image)), placeholder: UIImage())
+            cell.nameLabel.text = seoulDetails?.dobo.tourlist[indexPath.row].name
             
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulCourseCollectionViewCell", for: indexPath) as! SeoulCourseCollectionViewCell
             
+            //TODO: 카테고리에 맞춰서 이미지 넣기
             cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
-            cell.nameTextView.text = "오설록"
+            cell.nameTextView.text = seoulDetails?.dobo.course![indexPath.row].name
             
             return cell
         }
@@ -211,8 +201,6 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let reviewPopUp = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulReviewPopUpViewController") as! SeoulReviewPopUpViewController
         
         reviewPopUp.idx = self.idx
-        print("dd\(self.idx)")
-        
         
         self.addChildViewController(reviewPopUp)
         reviewPopUp.view.frame = self.view.frame
@@ -220,6 +208,23 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         reviewPopUp.didMove(toParentViewController: self)
         
+    }
+    
+    //MARK: 서울라이트 상세보기 - GET
+    func seoulightDetailInit(idx: Int) {
+        SeoulService.seoulDetailInit(idx: idx) { (seoulDetailData) in
+        
+            self.titleLabel.text = seoulDetailData.dobo.title
+            self.contentTextView.text = seoulDetailData.dobo.content
+    
+            self.imageArr.append(KingfisherSource(urlString: seoulDetailData.dobo.image)!)
+            self.placeImageSlide.setImageInputs(self.imageArr)
+            
+            self.seoulDetails = seoulDetailData
+            self.tableView.reloadData()
+            self.courseCollectionView.reloadData()
+            self.placeCollectionView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {

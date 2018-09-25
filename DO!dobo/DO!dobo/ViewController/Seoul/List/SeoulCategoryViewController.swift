@@ -25,7 +25,7 @@ class SeoulCategoryViewController: UIViewController {
     @IBAction func allAction(_ sender: UIButton) {
         let seoulVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulListViewController") as! SeoulListViewController
         
-        seoulVC.category = 6
+        seoulVC.category = 7
         
         self.navigationController?.pushViewController(seoulVC, animated: true)
     }
@@ -88,7 +88,7 @@ class SeoulCategoryViewController: UIViewController {
     @IBAction func etcAction(_ sender: UIButton) {
         let seoulVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulListViewController") as! SeoulListViewController
         
-        seoulVC.category = 7
+        seoulVC.category = 6
         
         self.navigationController?.pushViewController(seoulVC, animated: true)
     }

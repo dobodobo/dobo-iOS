@@ -9,15 +9,27 @@
 import Foundation
 
 struct SeoulDetail: Codable {
+    
+    let dobo: SeoulDobo
+    let review: [SeoulReview]
+}
+
+struct SeoulDobo: Codable {
     let idx: Int
     let title: String
     let intro: String
     let content: String
     let image: String
-    let course: String
-    let bgi: String
-    let tourlist: String
-    let review: [SeoulReview]
+    let course: [Course]?
+    let bgi: String?
+    let tourlist: [SeoulTourList]
 }
+
+struct SeoulTourList: Codable {
+    let name: String
+    let image: String
+}
+
+
 
 

@@ -12,8 +12,7 @@ class SeoulPlaceCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var placeView: UIView!
     @IBOutlet weak var placeImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var nameLabel: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

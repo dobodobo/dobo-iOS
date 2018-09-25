@@ -50,9 +50,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     var imgCount: Int = 0
     var status: String = ""
     var statusChk: Int = 0
-    var seoulightDetail: SeoulightDetail?
-
-//    let kingfisherSource = [KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!, KingfisherSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
+    var seoulightDetails: SeoulightDetail?
     
     var imageArr = [InputSource]()
 
@@ -108,14 +106,6 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         courseCollectionView.delegate = self
         courseCollectionView.dataSource = self        
     
-    }
-    
-    func image() {
-        for i in 0 ..< imgCount {
-//            imageArr.append(KingfisherSource(urlString: gsno(seoulightDetail?.dobo.bgi[i]))!)
-            print(gsno(seoulightDetail?.dobo.bgi[i]))
-            
-        }
     }
     
     //MARK: silentscrolly
@@ -181,7 +171,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients([gsno(seoulightDetail?.dobo.seoulite.email)]) //해설자 이메일 받기
+            mail.setToRecipients([gsno(seoulightDetails?.dobo.seoulite.email)]) //해설자 이메일 받기
             
             present(mail, animated: true)
         } else {
@@ -260,7 +250,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             
             self.setResBtn()
             
-            self.seoulightDetail = seoulightDetailData
+            self.seoulightDetails = seoulightDetailData
             self.tableView.reloadData()
             self.courseCollectionView.reloadData()
         }
@@ -280,42 +270,25 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
     
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gino(seoulightDetail?.review!.count)
+        return gino(seoulightDetails?.review!.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeoulightDetailReviewTableViewCell") as! SeoulightDetailReviewTableViewCell
         
-        cell.nameLabel.text = seoulightDetail?.review![indexPath.row].nick
-        cell.dateLabel.text = seoulightDetail?.review![indexPath.row].created
-        cell.contentLabel.text = seoulightDetail?.review![indexPath.row].content
+        cell.nameLabel.text = seoulightDetails?.review![indexPath.row].nick
+        cell.dateLabel.text = seoulightDetails?.review![indexPath.row].created
+        cell.contentLabel.text = seoulightDetails?.review![indexPath.row].content
         
         return cell
-    }
-    
-    //MARK: 리뷰 댓글 삭제
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            print("Delete tapped")
-            
-            // remove the item from the data model
-            //            self.model.remove(at: indexPath.row)
-            
-            // delete the table view row
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        })
-        deleteAction.backgroundColor = #colorLiteral(red: 0.4705882353, green: 0.7843137255, blue: 0.7764705882, alpha: 1)
-        
-        return [deleteAction]
     }
     
     //MARK: collectionView method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        return gino(seoulightDetail?.dobo.course.count)
+        return gino(seoulightDetails?.dobo.course.count)
         
     }
     
@@ -325,7 +298,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         
             //카테고리로 이미지 넣기
             cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
-            cell.nameTextView.text = seoulightDetail?.dobo.course[indexPath.row].name
+            cell.nameTextView.text = seoulightDetails?.dobo.course[indexPath.row].name
             
             return cell
     }

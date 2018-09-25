@@ -59,6 +59,14 @@ class SeoulightReviewPopUpViewController: UIViewController {
             if message == "success" {
                 self.noticeSuccess("성공", autoClear: true, autoClearTime: 1)
                 self.removeAnimate()
+                self.navigationController?.popViewController(animated: true)
+                
+                let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightDetailViewController") as! SeoulightDetailViewController
+                
+                detailVC.idx = self.idx
+                
+                self.navigationController?.pushViewController(detailVC, animated: true)
+                
             } else {
                 self.simpleAlert(title: "리뷰 등록 실패", message: "다시 시도해주세요.")
             }

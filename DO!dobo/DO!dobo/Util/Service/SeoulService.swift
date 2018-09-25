@@ -53,7 +53,44 @@ struct SeoulService: APIService {
     }
     
     //MARK: 서울 도보 관광 상세보기 - GET
-    
+    static func seoulDetailInit(idx: Int, completion: @escaping (SeoulDetail) -> Void) {
+        let URL = url("/seoul/\(idx)/detail")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: token_header).responseData() { res in
+            
+            switch res.result {
+            case .success:
+                
+                if let value = res.result.value {
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let seoulDetailData = try decoder.decode(SeoulDetailData.self, from: value)
+                        
+                        if seoulDetailData.message == "success" {
+                            print("서울 상세보기: 성공")
+                            completion(seoulDetailData.result)
+                        } else {
+                            print("서울 상세보기: 서버 에러")
+                        }
+                        
+                    } catch {
+                        print("서울 상세보기: 변수 문제")
+                    }
+                }
+                
+                break
+            case .failure(let err):
+                print(err.localizedDescription)
+                break
+            }
+        }
+    }
     
     //MARK: 서울 도보관광 리뷰 작성 - POST
     static func seoulReview(idx: Int, content: String, completion: @escaping (_ message: String) -> Void) {

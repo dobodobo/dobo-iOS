@@ -20,6 +20,8 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        myPageInit()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         

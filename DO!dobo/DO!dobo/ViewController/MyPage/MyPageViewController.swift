@@ -109,6 +109,8 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.role = myPage.role
             self.profileImageView.kf.setImage(with: URL(string: self.gsno(myPage.avatar)), placeholder: UIImage())
             self.isRole()
+            
+            self.tableView.reloadData()
 
         }
     }

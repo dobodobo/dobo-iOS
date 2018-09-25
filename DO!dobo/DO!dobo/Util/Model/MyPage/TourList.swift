@@ -9,6 +9,7 @@
 import Foundation
 
 struct TourList: Codable {
+    let dIdx: Int                
     let title: String
     let content: String
     let image: String
