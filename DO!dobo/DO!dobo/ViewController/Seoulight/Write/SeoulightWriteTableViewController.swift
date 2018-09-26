@@ -45,6 +45,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     var courseArr: [String] = []
     var courseNum: Int = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,8 +59,17 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        
+        //keyboard method
+        NotificationCenter.default.addObserver(self, selector: #selector(SeoulightWriteTableViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SeoulightWriteTableViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
 
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -420,4 +430,22 @@ extension SeoulightWriteTableViewController {
         view.endEditing(true)
     }
     
+}
+
+//MARK: tableVC keyboard setting extension
+extension SeoulightWriteTableViewController {
+
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardHeight = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            // For some reason adding inset in keyboardWillShow is animated by itself but removing is not, that's why we have to use animateWithDuration here
+            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        })
+    }
 }

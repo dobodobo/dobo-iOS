@@ -166,9 +166,10 @@
                                                 <constraint firstItem="yQp-hU-bnP" firstAttribute="leading" secondItem="IVL-Wf-GvL" secondAttribute="leading" constant="16" id="GGE-Kp-bqj"/>
                                                 <constraint firstItem="wSD-ia-iCI" firstAttribute="leading" secondItem="0jb-Pf-ZU0" secondAttribute="trailing" constant="4" id="GnT-QT-61d"/>
                                                 <constraint firstItem="acn-Xy-Tcq" firstAttribute="top" secondItem="TiA-Bg-YtX" secondAttribute="bottom" constant="12" id="NuI-rI-5ou"/>
-                                                <constraint firstItem="erg-jK-ZPk" firstAttribute="leading" secondItem="IM7-Ex-fIw" secondAttribute="trailing" constant="11" id="PKE-tV-D3O"/>
+                                                <constraint firstItem="erg-jK-ZPk" firstAttribute="leading" secondItem="IM7-Ex-fIw" secondAttribute="trailing" priority="250" constant="11" id="PKE-tV-D3O"/>
                                                 <constraint firstItem="2e8-tG-Rt3" firstAttribute="leading" secondItem="yig-bM-bgs" secondAttribute="trailing" constant="4" id="PvS-R9-Ykt"/>
                                                 <constraint firstItem="4Rr-I1-JdO" firstAttribute="leading" secondItem="IVL-Wf-GvL" secondAttribute="leading" constant="43" id="RU9-Il-kyd"/>
+                                                <constraint firstItem="0jb-Pf-ZU0" firstAttribute="leading" secondItem="IVL-Wf-GvL" secondAttribute="leading" constant="35" id="ZO9-gE-Y9m"/>
                                                 <constraint firstItem="TiA-Bg-YtX" firstAttribute="top" secondItem="IVL-Wf-GvL" secondAttribute="top" constant="14" id="cQl-rB-8Md"/>
                                                 <constraint firstItem="l8j-64-mwV" firstAttribute="centerY" secondItem="ADi-l7-qxx" secondAttribute="centerY" id="clT-87-b8p"/>
                                                 <constraint firstItem="Pcx-oi-Pev" firstAttribute="top" secondItem="acn-Xy-Tcq" secondAttribute="bottom" constant="39" id="fns-np-pBS"/>
@@ -315,80 +316,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-zW-7bX">
-                                <rect key="frame" x="134" y="83" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="sp2-Kw-N2F"/>
-                                </constraints>
+                                <rect key="frame" x="134" y="84" width="107" height="107"/>
                                 <state key="normal" image="icAll"/>
                                 <connections>
                                     <action selector="allAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="ucq-ID-8to"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGP-fY-52m">
-                                <rect key="frame" x="16" y="211" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="oSY-VW-JPA"/>
-                                </constraints>
+                                <rect key="frame" x="36.5" y="211" width="94" height="94"/>
                                 <state key="normal" image="icHandicapedPeople"/>
                                 <connections>
                                     <action selector="handiAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="MB5-yN-hQv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnN-ez-QEN">
-                                <rect key="frame" x="16" y="345" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="c9O-vD-7CR"/>
-                                </constraints>
+                                <rect key="frame" x="36.5" y="325" width="94" height="94"/>
                                 <state key="normal" image="icSeoullo7017"/>
                                 <connections>
                                     <action selector="seoulloAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="To3-jk-TKT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQy-15-yLI">
-                                <rect key="frame" x="134" y="345" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="c5X-Wn-K5B"/>
-                                </constraints>
+                                <rect key="frame" x="140.5" y="325" width="94" height="94"/>
                                 <state key="normal" image="icHistoricSite"/>
                                 <connections>
                                     <action selector="historyAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="Vo8-AF-2Fn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ser-ho-xQ7">
-                                <rect key="frame" x="252" y="345" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="Qa6-dh-NbE"/>
-                                </constraints>
+                                <rect key="frame" x="244.5" y="325" width="94" height="94"/>
                                 <state key="normal" image="icPilgrimageRoad"/>
                                 <connections>
                                     <action selector="wayAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="olv-Dj-YjT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDJ-TN-nft">
-                                <rect key="frame" x="134" y="211" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="lrg-Ke-0s1"/>
-                                </constraints>
+                                <rect key="frame" x="140.5" y="211" width="94" height="94"/>
                                 <state key="normal" image="icSeoulCityHall"/>
                                 <connections>
                                     <action selector="cityHallAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="efI-PQ-y5a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvW-OH-6nQ">
-                                <rect key="frame" x="252" y="211" width="107" height="107"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="RV8-SK-87a"/>
-                                </constraints>
+                                <rect key="frame" x="244.5" y="211" width="94" height="94"/>
                                 <state key="normal" image="icLake"/>
                                 <connections>
                                     <action selector="riverAction:" destination="08d-YO-Mtk" eventType="touchUpInside" id="Kzg-Fk-wVO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRc-W8-1Pz">
-                                <rect key="frame" x="134" y="473" width="107" height="107"/>
+                                <rect key="frame" x="140.5" y="439" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QRc-W8-1Pz" secondAttribute="height" multiplier="1:1" id="4QT-bu-Moa"/>
-                                    <constraint firstAttribute="height" constant="107" id="Lbo-1X-mUA"/>
                                 </constraints>
                                 <state key="normal" image="icEtc"/>
                                 <connections>
@@ -401,24 +380,24 @@
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="centerY" secondItem="HvW-OH-6nQ" secondAttribute="centerY" id="0VD-L2-CZP"/>
                             <constraint firstItem="HQy-15-yLI" firstAttribute="centerX" secondItem="oDJ-TN-nft" secondAttribute="centerX" id="1wf-vA-8DT"/>
                             <constraint firstItem="ser-ho-xQ7" firstAttribute="width" secondItem="ser-ho-xQ7" secondAttribute="height" multiplier="1:1" id="6OB-ST-4ck"/>
-                            <constraint firstItem="oDJ-TN-nft" firstAttribute="leading" secondItem="gGP-fY-52m" secondAttribute="trailing" constant="11" id="6xf-VM-cXY"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="leading" secondItem="gGP-fY-52m" secondAttribute="trailing" constant="10" id="6xf-VM-cXY"/>
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="centerX" secondItem="Ami-zW-7bX" secondAttribute="centerX" id="AEI-Qm-3n5"/>
-                            <constraint firstItem="HQy-15-yLI" firstAttribute="top" secondItem="oDJ-TN-nft" secondAttribute="bottom" constant="27" id="CZM-ww-ChF"/>
+                            <constraint firstItem="HQy-15-yLI" firstAttribute="top" secondItem="oDJ-TN-nft" secondAttribute="bottom" constant="20" id="CZM-ww-ChF"/>
                             <constraint firstItem="HQy-15-yLI" firstAttribute="centerY" secondItem="lnN-ez-QEN" secondAttribute="centerY" id="HVy-wZ-CCe"/>
                             <constraint firstItem="HQy-15-yLI" firstAttribute="centerY" secondItem="ser-ho-xQ7" secondAttribute="centerY" id="IyH-A6-oJT"/>
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="width" secondItem="oDJ-TN-nft" secondAttribute="height" multiplier="1:1" id="JdF-CY-GRj"/>
                             <constraint firstItem="gGP-fY-52m" firstAttribute="width" secondItem="gGP-fY-52m" secondAttribute="height" multiplier="1:1" id="Mf3-5w-Q4k"/>
                             <constraint firstItem="lnN-ez-QEN" firstAttribute="width" secondItem="lnN-ez-QEN" secondAttribute="height" multiplier="1:1" id="OkV-I6-CmT"/>
-                            <constraint firstItem="Ami-zW-7bX" firstAttribute="top" secondItem="d5k-8e-6FO" secondAttribute="top" constant="19" id="UFp-ru-iIA"/>
                             <constraint firstItem="lnN-ez-QEN" firstAttribute="centerX" secondItem="gGP-fY-52m" secondAttribute="centerX" id="V0e-AX-ktl"/>
                             <constraint firstItem="HvW-OH-6nQ" firstAttribute="width" secondItem="HvW-OH-6nQ" secondAttribute="height" multiplier="1:1" id="WRm-RC-bPU"/>
+                            <constraint firstItem="Ami-zW-7bX" firstAttribute="top" secondItem="d5k-8e-6FO" secondAttribute="top" constant="20" id="YKV-8K-OQU"/>
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="centerY" secondItem="gGP-fY-52m" secondAttribute="centerY" id="he9-Ei-oHR"/>
-                            <constraint firstItem="QRc-W8-1Pz" firstAttribute="top" secondItem="HQy-15-yLI" secondAttribute="bottom" constant="21" id="lxo-Ev-gL1"/>
-                            <constraint firstItem="oDJ-TN-nft" firstAttribute="top" secondItem="Ami-zW-7bX" secondAttribute="bottom" constant="21" id="pY7-1F-WNH"/>
+                            <constraint firstItem="QRc-W8-1Pz" firstAttribute="top" secondItem="HQy-15-yLI" secondAttribute="bottom" constant="20" id="lxo-Ev-gL1"/>
+                            <constraint firstItem="oDJ-TN-nft" firstAttribute="top" secondItem="Ami-zW-7bX" secondAttribute="bottom" constant="20" id="pY7-1F-WNH"/>
                             <constraint firstItem="Ami-zW-7bX" firstAttribute="width" secondItem="Ami-zW-7bX" secondAttribute="height" multiplier="1:1" id="qEf-2i-og2"/>
                             <constraint firstItem="Ami-zW-7bX" firstAttribute="centerX" secondItem="d5k-8e-6FO" secondAttribute="centerX" id="qIe-pt-Cah"/>
                             <constraint firstItem="ser-ho-xQ7" firstAttribute="centerX" secondItem="HvW-OH-6nQ" secondAttribute="centerX" id="s2x-OM-2H9"/>
-                            <constraint firstItem="HvW-OH-6nQ" firstAttribute="leading" secondItem="oDJ-TN-nft" secondAttribute="trailing" constant="11" id="tIg-m5-CsV"/>
+                            <constraint firstItem="HvW-OH-6nQ" firstAttribute="leading" secondItem="oDJ-TN-nft" secondAttribute="trailing" constant="10" id="tIg-m5-CsV"/>
                             <constraint firstItem="QRc-W8-1Pz" firstAttribute="centerX" secondItem="HQy-15-yLI" secondAttribute="centerX" id="vNn-6S-cAn"/>
                             <constraint firstItem="HQy-15-yLI" firstAttribute="width" secondItem="HQy-15-yLI" secondAttribute="height" multiplier="1:1" id="y8T-dQ-ymI"/>
                         </constraints>
@@ -429,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97j-mK-Yu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="785"/>
+            <point key="canvasLocation" x="2661.5999999999999" y="784.85757121439292"/>
         </scene>
         <!--서울 소개-->
         <scene sceneID="cei-H0-LCs">
