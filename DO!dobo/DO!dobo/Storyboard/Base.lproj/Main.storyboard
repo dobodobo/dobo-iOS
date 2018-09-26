@@ -2155,7 +2155,6 @@
         <!--Course Category Picker View Controller-->
         <scene sceneID="g7b-jj-TcO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sga-kf-2s4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CourseCategoryPickerViewController" id="rEH-w2-O3C" customClass="CourseCategoryPickerViewController" customModule="DO_dobo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IuQ-RF-CNj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2164,6 +2163,7 @@
                         <viewLayoutGuide key="safeArea" id="kZ6-bm-52b"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sga-kf-2s4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8113" y="1382"/>
         </scene>
@@ -2189,7 +2189,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCp-Id-BeI">
-                                            <rect key="frame" x="40" y="249" width="295" height="171"/>
+                                            <rect key="frame" x="40" y="249" width="295" height="159"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2197,14 +2197,14 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGC-ju-eoz">
-                                            <rect key="frame" x="137" y="435" width="102" height="31"/>
+                                            <rect key="frame" x="137" y="423" width="102" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IGC-ju-eoz" secondAttribute="height" multiplier="102:31" id="GyY-N0-Ket"/>
                                             </constraints>
                                             <state key="normal" image="rrr"/>
                                             <connections>
+                                                <action selector="resAction:" destination="VO4-MA-AEO" eventType="touchUpInside" id="DZh-Uv-5iz"/>
                                                 <action selector="reservationAction:" destination="VO4-MA-AEO" eventType="touchUpInside" id="yLG-ag-isD"/>
-                                                <segue destination="lOf-xF-E2d" kind="push" id="cKH-6b-b8u"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-Eb-cOe">
@@ -2382,7 +2382,7 @@
                                         <constraint firstItem="fCp-Id-BeI" firstAttribute="top" secondItem="lWh-FB-kHK" secondAttribute="bottom" constant="15" id="1YN-iv-aID"/>
                                         <constraint firstAttribute="trailing" secondItem="fCp-Id-BeI" secondAttribute="trailing" constant="40" id="2A0-TC-Kbc"/>
                                         <constraint firstItem="aTn-nx-ZMD" firstAttribute="top" secondItem="3Xc-uM-BcH" secondAttribute="bottom" constant="9" id="2NB-88-f1J"/>
-                                        <constraint firstItem="c2P-Eb-cOe" firstAttribute="top" secondItem="IGC-ju-eoz" secondAttribute="bottom" constant="13" id="3L5-GR-UO8"/>
+                                        <constraint firstItem="c2P-Eb-cOe" firstAttribute="top" secondItem="IGC-ju-eoz" secondAttribute="bottom" constant="25" id="3L5-GR-UO8"/>
                                         <constraint firstItem="Cd9-Zc-dmI" firstAttribute="leading" secondItem="dJV-lr-9dN" secondAttribute="leading" id="6Ly-xe-LCk"/>
                                         <constraint firstAttribute="trailing" secondItem="Cd9-Zc-dmI" secondAttribute="trailing" id="6QO-RV-sdC"/>
                                         <constraint firstItem="Cd9-Zc-dmI" firstAttribute="top" secondItem="1NL-IM-XB6" secondAttribute="bottom" constant="11" id="7Hg-Fj-zPD"/>
@@ -2572,23 +2572,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvO-Oj-GQX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-B7-359">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="G49-lS-0vp" firstAttribute="bottom" secondItem="gvO-Oj-GQX" secondAttribute="bottom" id="5bX-Mo-jDJ"/>
-                            <constraint firstItem="G49-lS-0vp" firstAttribute="trailing" secondItem="gvO-Oj-GQX" secondAttribute="trailing" id="6Sy-ge-Kjg"/>
-                            <constraint firstItem="gvO-Oj-GQX" firstAttribute="leading" secondItem="G49-lS-0vp" secondAttribute="leading" id="iiH-dr-520"/>
-                            <constraint firstItem="gvO-Oj-GQX" firstAttribute="top" secondItem="G49-lS-0vp" secondAttribute="top" id="rOV-KF-ChY"/>
+                            <constraint firstItem="RXS-B7-359" firstAttribute="leading" secondItem="G49-lS-0vp" secondAttribute="leading" id="2p2-j0-xgu"/>
+                            <constraint firstItem="RXS-B7-359" firstAttribute="bottom" secondItem="vmS-jX-Fgz" secondAttribute="bottom" id="XYr-DU-p9u"/>
+                            <constraint firstItem="G49-lS-0vp" firstAttribute="trailing" secondItem="RXS-B7-359" secondAttribute="trailing" id="aV2-sn-Qcs"/>
+                            <constraint firstItem="RXS-B7-359" firstAttribute="top" secondItem="vmS-jX-Fgz" secondAttribute="top" id="pBo-6l-HMc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G49-lS-0vp"/>
                     </view>
                     <navigationItem key="navigationItem" id="U3Z-Hr-2m0"/>
                     <connections>
-                        <outlet property="webView" destination="gvO-Oj-GQX" id="Db3-Fu-tIm"/>
+                        <outlet property="webView" destination="RXS-B7-359" id="IJ3-us-2Fq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p49-Mo-zJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3683,24 +3687,6 @@
             <point key="canvasLocation" x="1860" y="1567"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="U5N-hg-54m">
-            <objects>
-                <navigationController storyboardIdentifier="SeoulightDetailNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="fMD-LY-xXh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bZk-GD-Z5k">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tS6-AT-INZ" kind="relationship" relationship="rootViewController" id="Zhf-A9-Y9S"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a3e-ig-h6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4772" y="1567"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="OWQ-in-HGJ">
             <objects>
                 <navigationController storyboardIdentifier="SeoulListNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="Ih9-p3-7FY" sceneMemberID="viewController">
@@ -3725,22 +3711,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dyh-dM-KyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860" y="785"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xFA-Rh-0aV">
-            <objects>
-                <navigationController storyboardIdentifier="SeoulDetailNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="SPb-bj-du2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="GLM-61-7Bq"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kQV-NO-XYO">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OOz-M2-13P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4772" y="785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kUr-79-Sa8">

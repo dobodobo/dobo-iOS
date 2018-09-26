@@ -20,6 +20,7 @@ struct SeoulDobo: Codable {
     let intro: String
     let content: String
     let image: String
+    let cos_url: String
     let course: [Course]?
     let bgi: String?
     let tourlist: [SeoulTourList]

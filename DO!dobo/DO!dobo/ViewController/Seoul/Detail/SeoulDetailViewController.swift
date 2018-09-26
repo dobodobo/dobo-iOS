@@ -146,6 +146,18 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
+    //MARK: 서울 예약하기 액션
+    @IBAction func resAction(_ sender: UIButton) {
+        
+        let webVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulWebViewController") as! SeoulWebViewController
+        
+        webVC.cosUrl = gsno(seoulDetails?.dobo.cos_url)
+        
+        self.navigationController?.pushViewController(webVC, animated: true)
+        
+    }
+    
+    
     //MARK: TableView method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if gino(seoulDetails?.review?.count) >= 3 {
