@@ -39,6 +39,31 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: 신고 팝업
+    func simpleActionSheetWithHandler(title: String, message: String) {
+
+        let actionSheet = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "욕설 및 비방", style: .default, handler: { result in
+            self.noticeSuccess("신고 접수", autoClear: true, autoClearTime: 1)
+
+        }))
+        actionSheet.addAction(UIAlertAction(title: "같은 내용의 반복 게시(도배)", style: .default, handler: { result in
+            self.noticeSuccess("신고 접수", autoClear: true, autoClearTime: 1)
+
+        }))
+        actionSheet.addAction(UIAlertAction(title: "음란성/선정성", style: .default, handler: { result in
+            self.noticeSuccess("신고 접수", autoClear: true, autoClearTime: 1)
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "기타", style: .default, handler: { result in
+            self.noticeSuccess("신고 접수", autoClear: true, autoClearTime: 1)
+            
+        }))
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    
     //팝업 띄우기
     func showAnimate()
     {
@@ -74,6 +99,8 @@ extension UITableViewCell {
     func gino(_ value: Int?) -> Int { //Int 옵셔널 벗기기
         return value ?? 0
     }
+    
+    
 }
 
 extension NSObject {

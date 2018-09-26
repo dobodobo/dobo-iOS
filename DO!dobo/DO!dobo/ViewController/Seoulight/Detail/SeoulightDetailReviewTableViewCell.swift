@@ -14,7 +14,10 @@ class SeoulightDetailReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentLabel: UITextView!
-    @IBOutlet weak var reportButton: UIImageView!
+    @IBOutlet weak var reportButton: UIButton!
+    
+     var actionClosure : (()->Void)? = nil
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +31,12 @@ class SeoulightDetailReviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    //MARK: 댓글 신고 기능
+    @IBAction func reportAction(_ sender: UIButton) {
+        self.actionClosure?()
+    }
+    
 
 }
 

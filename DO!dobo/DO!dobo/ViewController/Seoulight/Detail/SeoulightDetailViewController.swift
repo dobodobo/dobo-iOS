@@ -328,6 +328,9 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
         cell.nameLabel.text = seoulightDetails?.review![indexPath.row].nick
         cell.dateLabel.text = seoulightDetails?.review![indexPath.row].created
         cell.contentLabel.text = seoulightDetails?.review![indexPath.row].content
+        cell.actionClosure = { [weak self] in
+            self?.simpleActionSheetWithHandler(title: "댓글 신고", message: "해당 댓글의 신고 사유를 선택해주세요.")
+        }
         
         return cell
     }

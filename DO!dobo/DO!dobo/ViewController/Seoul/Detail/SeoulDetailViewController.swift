@@ -174,6 +174,9 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
         cell.nameLabel.text = seoulDetails?.review![indexPath.row].nick
         cell.dateLabel.text = seoulDetails?.review![indexPath.row].created
         cell.contentTextView.text = seoulDetails?.review![indexPath.row].content
+        cell.actionClosure = { [weak self] in
+            self?.simpleActionSheetWithHandler(title: "댓글 신고", message: "해당 댓글의 신고 사유를 선택해주세요.")
+        }
         
         return cell
     }
