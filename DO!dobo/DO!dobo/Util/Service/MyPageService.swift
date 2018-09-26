@@ -32,12 +32,17 @@ struct MyPageService: APIService {
                     
                     let decoder = JSONDecoder()
                     
+                    
+                    let message = JSON(value)["status"].int
+                    print(message)
+                    
                     do {
                         let myPageData = try decoder.decode(MyPageData.self, from: value)
                         
                         if myPageData.status == 200 {
                 
                             let message = JSON(value)["message"].string
+                            print(message)
  
                             if myPageData.message == "success" {
                                  print("마이페이지 : 성공")

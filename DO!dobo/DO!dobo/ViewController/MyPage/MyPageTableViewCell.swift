@@ -31,22 +31,22 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         
         if tag == 0 { //신청 리스트
             
-            if gino(myPages?.askTourList.count) == 0 {
+            if gino(myPages?.askTourList?.count) == 0 {
                listNoneLabel.isHidden = false
             }else {
                 listNoneLabel.isHidden = true
             }
             
-            return gino(myPages?.askTourList.count)
+            return gino(myPages?.askTourList!.count)
 
         } else { //개설 리스트
-            if gino(myPages?.askTourList.count) == 0 {
+            if gino(myPages?.askTourList?.count) == 0 {
                listNoneLabel.isHidden = false
             } else {
                 listNoneLabel.isHidden = true
             }
             
-            return gino(myPages?.madeTourList.count)
+            return gino(myPages?.madeTourList!.count)
         }
     }
     
@@ -56,8 +56,8 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
             
             if let cell : MyPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPageCollectionViewCell", for: indexPath) as? MyPageCollectionViewCell {
                 
-                    cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.askTourList[indexPath.row].image)), placeholder: UIImage())
-                    cell.nameLabel.text = myPages?.askTourList[indexPath.row].title
+                cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.askTourList![indexPath.row].image)), placeholder: UIImage())
+                cell.nameLabel.text = myPages?.askTourList![indexPath.row].title
 
 
                 return cell
@@ -67,8 +67,8 @@ class MyPageTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
             
             if let cell : MyPageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyPageCollectionViewCell", for: indexPath) as? MyPageCollectionViewCell {
 
-                    cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.madeTourList[indexPath.row].image)), placeholder: UIImage())
-                    cell.nameLabel.text = myPages?.madeTourList[indexPath.row].title
+                cell.placeImageView.kf.setImage(with: URL(string: gsno(myPages?.madeTourList![indexPath.row].image)), placeholder: UIImage())
+                cell.nameLabel.text = myPages?.madeTourList![indexPath.row].title
               
                 return cell
             }

@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var idTextBoxImageView: UIImageView!
     @IBOutlet weak var pwdTextBoxImageView: UIImageView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +36,21 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func joinAction(_ sender: UIButton) {
+        let joinVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "JoinViewController") as! JoinViewController
+        
+        idTextField.text = ""
+        pwdTextField.text = ""
+        
+        self.present(joinVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func loginAction(_ sender: UIButton) {
         
@@ -54,7 +63,6 @@ class LoginViewController: UIViewController {
         } else {
             login(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text))
         }
-        
         
     }
     

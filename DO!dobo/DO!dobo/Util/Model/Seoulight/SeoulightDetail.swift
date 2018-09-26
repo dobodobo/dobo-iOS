@@ -23,7 +23,7 @@ struct Dobo: Codable {
     let category: String
     let lang: String?
     let start_date: String
-    let end_date: String
+    let end_date: String?
     let due_date: String
     let status: String
     let isReserved: Bool

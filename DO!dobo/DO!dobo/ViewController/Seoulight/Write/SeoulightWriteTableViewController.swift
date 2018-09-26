@@ -17,7 +17,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBOutlet weak var eatButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
     @IBOutlet weak var etcButton: UIButton!
-    var category: String?
+    var category: Int = 0
     
     @IBOutlet weak var languageTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
@@ -40,10 +40,12 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     let imagePicker : UIImagePickerController = UIImagePickerController()
     
     var imageArr: [UIImage] = [#imageLiteral(resourceName: "icAdImage")]
+    var orimageArr: [UIImage] = []
     var imageNum: Int = 0
     
     var courseArr: [String] = []
     var courseNum: Int = 0
+    var allDic : [[String : String]] = []
     
     
     override func viewDidLoad() {
@@ -93,7 +95,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGray"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGray"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGray"), for: UIControlState.normal)
-            category = "문화"
+            category = 1
         } else if sender == historyButton {
             historyButton.isSelected = !historyButton.isSelected
             cultureButton.setImage(#imageLiteral(resourceName: "cultureGray"), for: UIControlState.normal)
@@ -102,7 +104,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGray"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGray"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGray"), for: UIControlState.normal)
-            category = "역사"
+            category = 3
         } else if sender == festButton {
             festButton.isSelected = !festButton.isSelected
             cultureButton.setImage(#imageLiteral(resourceName: "cultureGray"), for: UIControlState.normal)
@@ -111,7 +113,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGray"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGray"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGray"), for: UIControlState.normal)
-            category = "축제"
+            category = 5
         } else if sender == eatButton {
             eatButton.isSelected = !eatButton.isSelected
             cultureButton.setImage(#imageLiteral(resourceName: "cultureGray"), for: UIControlState.normal)
@@ -120,7 +122,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGreen"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGray"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGray"), for: UIControlState.normal)
-            category = "먹방"
+            category = 4
         } else if sender == activityButton {
             activityButton.isSelected = !activityButton.isSelected
             cultureButton.setImage(#imageLiteral(resourceName: "cultureGray"), for: UIControlState.normal)
@@ -129,7 +131,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGray"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGreen"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGray"), for: UIControlState.normal)
-            category = "액티비티"
+            category = 2
         } else {
             etcButton.isSelected = !etcButton.isSelected
             cultureButton.setImage(#imageLiteral(resourceName: "cultureGray"), for: UIControlState.normal)
@@ -138,12 +140,11 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
             eatButton.setImage(#imageLiteral(resourceName: "foodGray"), for: UIControlState.normal)
             activityButton.setImage(#imageLiteral(resourceName: "activityGray"), for: UIControlState.normal)
             etcButton.setImage(#imageLiteral(resourceName: "etcGreen"), for: UIControlState.normal)
-            category = "기타"
+            category = 6
         
         }
         
     }
-    
     
     //MARK: dismiss
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
@@ -152,6 +153,54 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     
     //MARK: 글 등록 액션
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
+        
+        if courseNum >= 2 && imageNum >= 2 && category != 0 && languageTextField.text != "" && titleTextField.text != "" && contentTextView.text != "" && minPeopleTextField.text != "" && maxPeopleTextField.text != "" && dateTextField.text != "" && finishTextField.text != "" {
+            
+            writeSeoulightCourse()
+        } else {
+            
+            if courseNum == 0 || imageNum == 0 || category == 0 || languageTextField.text == "" || titleTextField.text == "" || contentTextView.text == "" || minPeopleTextField.text == "" || maxPeopleTextField.text == "" || dateTextField.text == "" || finishTextField.text == "" {
+                simpleAlert(title: "글 등록 실패", message: "모든 항목을 입력해주세요.")
+            }
+            
+            if courseNum < 2 && imageNum < 2 {
+                simpleAlert(title: "글 등록 실패", message: "최소 2개의 코스와 사진을 등록하셔야 합니다.")
+            } else {
+                if courseNum < 2 {
+                    simpleAlert(title: "글 등록 실패", message: "최소 2개의 코스를 등록하셔야 합니다.")
+                }
+                
+                if imageNum < 2 {
+                    simpleAlert(title: "글 등록 실패", message: "최소 2개의 사진을 첨부하셔야 합니다.")
+                }
+            }
+        }
+    }
+    
+    //MARK: 서울라이트 글등록 - POST
+    func writeSeoulightCourse() {
+        
+        for i in 0 ... courseNum - 1 {
+
+            let sample : [String: String] = ["category" : "1", "name":  courseArr[i]]
+            
+            allDic.append(sample)
+        }
+        
+        for i in 1 ... imageNum {
+            
+            orimageArr.append(imageArr[i])
+        }
+        
+        SeoulightService.writeSeoulightCourse(category: String(category), lang: gsno(languageTextField.text), title: gsno(titleTextField.text), content: contentTextView.text, min_people: gsno(minPeopleTextField.text), max_people: gsno(maxPeopleTextField.text), start_date: gsno(dateTextField.text), due_date: gsno(finishTextField.text), bgi: orimageArr, course: ["course" : allDic]) { (message) in
+            
+            if message == "success" {
+                self.noticeSuccess("등록 성공", autoClear: true, autoClearTime: 1)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.simpleAlert(title: "등록 실패", message: "다시 시도해주세요.")
+            }
+        }
     }
     
     //MAKR: 코스 카테고리 피커뷰 액션
@@ -356,13 +405,19 @@ extension SeoulightWriteTableViewController {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        guard let date = dateFormatter.date(from: "1996.01.29") else {
+        datePicker.minimumDate = Date()
+        
+        guard let date = datePicker.minimumDate else {
             fatalError("포맷과 맞지 않아 데이터 변환이 실패했습니다")
         }
         
-        datePicker.date = date
+//        datePicker.date = date
         
-        datePicker.maximumDate = Date()
+        var yearfromNow: Date {
+            return (Calendar.current as NSCalendar).date(byAdding: .year, value: 1, to: Date(), options: [])!
+        }
+        
+        datePicker.maximumDate = yearfromNow
         
         setTextfieldView(textField: dateTextField, selector: #selector(selectedDatePicker1), inputView: datePicker)
     }

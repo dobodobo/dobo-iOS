@@ -51,7 +51,6 @@
 		22B407EB21567F1000FD9D44 /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407EA21567F1000FD9D44 /* MyPageService.swift */; };
 		22B407F12156A30900FD9D44 /* MyPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F02156A30900FD9D44 /* MyPageData.swift */; };
 		22B407F32156A31600FD9D44 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F22156A31600FD9D44 /* MyPage.swift */; };
-		22B407F52156A3D400FD9D44 /* TourList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F42156A3D400FD9D44 /* TourList.swift */; };
 		22B407FA215774DE00FD9D44 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407F9215774DE00FD9D44 /* SwiftNotice.swift */; };
 		22B407FC2157E02F00FD9D44 /* SeoulCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B407FB2157E02F00FD9D44 /* SeoulCategoryViewController.swift */; };
 		22C75724214E354300809616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C75723214E354300809616 /* AppDelegate.swift */; };
@@ -112,7 +111,6 @@
 		22B407EA21567F1000FD9D44 /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
 		22B407F02156A30900FD9D44 /* MyPageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageData.swift; sourceTree = "<group>"; };
 		22B407F22156A31600FD9D44 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
-		22B407F42156A3D400FD9D44 /* TourList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourList.swift; sourceTree = "<group>"; };
 		22B407F9215774DE00FD9D44 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		22B407FB2157E02F00FD9D44 /* SeoulCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeoulCategoryViewController.swift; sourceTree = "<group>"; };
 		22C75720214E354200809616 /* DO!dobo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DO!dobo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,7 +353,6 @@
 			children = (
 				22B407F02156A30900FD9D44 /* MyPageData.swift */,
 				22B407F22156A31600FD9D44 /* MyPage.swift */,
-				22B407F42156A3D400FD9D44 /* TourList.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -634,7 +631,6 @@
 				22A66FAB2150F16D003D896F /* IntroSeoulightViewController.swift in Sources */,
 				22B407F32156A31600FD9D44 /* MyPage.swift in Sources */,
 				226C9160215268820029FFB7 /* ReportViewController.swift in Sources */,
-				22B407F52156A3D400FD9D44 /* TourList.swift in Sources */,
 				226C917E215531BD0029FFB7 /* SeoulightCourseCollectionViewCell.swift in Sources */,
 				226C916C2153BDD60029FFB7 /* SeoulWebViewController.swift in Sources */,
 				226C916E21550E500029FFB7 /* SeoulightCategoryViewController.swift in Sources */,

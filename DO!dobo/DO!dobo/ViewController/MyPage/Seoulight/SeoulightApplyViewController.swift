@@ -90,7 +90,7 @@ class SeoulightApplyViewController: UIViewController {
                     결과가 발표됩니다.
                     """
                 )
-                
+                self.navigationController?.popViewController(animated: true)
             }
             
             else {

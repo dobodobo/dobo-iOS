@@ -388,9 +388,9 @@
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="width" secondItem="oDJ-TN-nft" secondAttribute="height" multiplier="1:1" id="JdF-CY-GRj"/>
                             <constraint firstItem="gGP-fY-52m" firstAttribute="width" secondItem="gGP-fY-52m" secondAttribute="height" multiplier="1:1" id="Mf3-5w-Q4k"/>
                             <constraint firstItem="lnN-ez-QEN" firstAttribute="width" secondItem="lnN-ez-QEN" secondAttribute="height" multiplier="1:1" id="OkV-I6-CmT"/>
+                            <constraint firstItem="Ami-zW-7bX" firstAttribute="top" secondItem="d5k-8e-6FO" secondAttribute="top" constant="20" id="T6g-Ey-n4h"/>
                             <constraint firstItem="lnN-ez-QEN" firstAttribute="centerX" secondItem="gGP-fY-52m" secondAttribute="centerX" id="V0e-AX-ktl"/>
                             <constraint firstItem="HvW-OH-6nQ" firstAttribute="width" secondItem="HvW-OH-6nQ" secondAttribute="height" multiplier="1:1" id="WRm-RC-bPU"/>
-                            <constraint firstItem="Ami-zW-7bX" firstAttribute="top" secondItem="d5k-8e-6FO" secondAttribute="top" constant="20" id="YKV-8K-OQU"/>
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="centerY" secondItem="gGP-fY-52m" secondAttribute="centerY" id="he9-Ei-oHR"/>
                             <constraint firstItem="QRc-W8-1Pz" firstAttribute="top" secondItem="HQy-15-yLI" secondAttribute="bottom" constant="20" id="lxo-Ev-gL1"/>
                             <constraint firstItem="oDJ-TN-nft" firstAttribute="top" secondItem="Ami-zW-7bX" secondAttribute="bottom" constant="20" id="pY7-1F-WNH"/>
@@ -2150,6 +2150,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="activityButton" destination="fjY-i1-WVZ" id="PMV-Qx-jUa"/>
+                        <outlet property="c" destination="El7-wO-gnJ" id="TmM-ux-EVW"/>
                         <outlet property="categoryButton" destination="UfB-7S-uFR" id="gDQ-jp-r3L"/>
                         <outlet property="contentTextView" destination="PYD-ON-fRN" id="GFS-vj-fT3"/>
                         <outlet property="courseCollectionView" destination="Ft2-mN-mkR" id="ZEg-1T-INr"/>
@@ -4150,7 +4151,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                                 <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="4h9-BJ-ss2" kind="presentation" id="CVh-lN-O9w"/>
+                                                <action selector="joinAction:" destination="nhP-aC-jHF" eventType="touchUpInside" id="LD9-zO-MK7"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1Z-7c-a1x">
@@ -4164,6 +4165,13 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                                 <action selector="loginAction:" destination="nhP-aC-jHF" eventType="touchUpInside" id="zCo-Xo-ULA"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLunchericonTwoCopy" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-8p-Jqj">
+                                            <rect key="frame" x="26" y="40" width="58" height="54"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="hBm-8p-Jqj" secondAttribute="height" multiplier="29:27" id="BEA-jP-hrU"/>
+                                                <constraint firstAttribute="height" constant="54" id="tJt-Tg-WQv"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -4171,12 +4179,14 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                         <constraint firstAttribute="top" secondItem="JIC-u4-N3X" secondAttribute="top" id="5Ip-8G-jXI"/>
                                         <constraint firstItem="x4q-kb-fOa" firstAttribute="trailing" secondItem="1k0-IU-TqQ" secondAttribute="trailing" id="8Y7-9F-38V"/>
                                         <constraint firstItem="jSh-jy-5QP" firstAttribute="centerX" secondItem="doL-xe-K7V" secondAttribute="centerX" id="8dF-7d-pUc"/>
+                                        <constraint firstItem="hBm-8p-Jqj" firstAttribute="top" secondItem="doL-xe-K7V" secondAttribute="top" constant="40" id="8nR-Sl-8IX"/>
                                         <constraint firstItem="FvX-vS-wKe" firstAttribute="top" secondItem="uPA-cO-tJz" secondAttribute="bottom" constant="11" id="EzF-n7-WW4"/>
                                         <constraint firstItem="1k0-IU-TqQ" firstAttribute="centerX" secondItem="IhP-dM-qVl" secondAttribute="centerX" id="GLU-TN-8bs"/>
                                         <constraint firstItem="jSh-jy-5QP" firstAttribute="top" secondItem="TNK-LI-SZn" secondAttribute="bottom" constant="11" id="Srl-Z2-XMd"/>
                                         <constraint firstAttribute="trailing" secondItem="JIC-u4-N3X" secondAttribute="trailing" id="Xbm-KC-kZ6"/>
                                         <constraint firstItem="FvX-vS-wKe" firstAttribute="centerX" secondItem="1k0-IU-TqQ" secondAttribute="centerX" id="cQs-2e-a77"/>
                                         <constraint firstItem="JIC-u4-N3X" firstAttribute="leading" secondItem="doL-xe-K7V" secondAttribute="leading" id="dGb-8w-uJz"/>
+                                        <constraint firstItem="hBm-8p-Jqj" firstAttribute="leading" secondItem="doL-xe-K7V" secondAttribute="leading" constant="26" id="di7-fX-lUn"/>
                                         <constraint firstItem="j1Z-7c-a1x" firstAttribute="centerY" secondItem="x4q-kb-fOa" secondAttribute="centerY" id="eHr-Ks-cWW"/>
                                         <constraint firstItem="j1Z-7c-a1x" firstAttribute="centerX" secondItem="doL-xe-K7V" secondAttribute="centerX" id="gdN-GJ-hxN"/>
                                         <constraint firstItem="jSh-jy-5QP" firstAttribute="centerX" secondItem="IhP-dM-qVl" secondAttribute="centerX" id="gz6-vt-NuQ"/>
@@ -4672,6 +4682,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="loginBtn" width="102" height="35"/>
         <image name="loginFullGraphic" width="375" height="338"/>
         <image name="loginGraphic" width="375" height="201"/>
+        <image name="loginLunchericonTwoCopy" width="66" height="64"/>
         <image name="loginTextbox" width="249" height="35"/>
         <image name="questionBtn" width="85" height="30"/>
         <image name="rectangle12Copy" width="199" height="27"/>

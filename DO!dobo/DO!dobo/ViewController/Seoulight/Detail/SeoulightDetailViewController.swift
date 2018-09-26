@@ -284,8 +284,8 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             self.resChk = seoulightDetailData.dobo.isReserved
             self.imgCount = seoulightDetailData.dobo.bgi.count
             self.titleLabel.text = seoulightDetailData.dobo.title
-            self.dateLabel.text = seoulightDetailData.dobo.due_date
-            self.timeLabel.text = seoulightDetailData.dobo.end_date
+            self.dateLabel.text = seoulightDetailData.dobo.start_date
+            self.timeLabel.text = seoulightDetailData.dobo.due_date
             self.minPeopleLabel.text = String(seoulightDetailData.dobo.min_people)
             self.maxPeopleLabel.text = String(seoulightDetailData.dobo.max_people)
             self.contentLabel.text = seoulightDetailData.dobo.content

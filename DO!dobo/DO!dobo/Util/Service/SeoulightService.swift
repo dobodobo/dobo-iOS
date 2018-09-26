@@ -298,4 +298,95 @@ struct SeoulightService: APIService {
         }
     }
     
+    //MARK: 서울라이트 글 등록 - POST
+    static func writeSeoulightCourse(category: String, lang: String, title: String, content: String, min_people: String, max_people: String, start_date: String, due_date: String, bgi: [UIImage], course : [String : [[String: Any]]], completion: @escaping (_ message: String) -> Void) {
+        
+        let URL = url("/seoulite")
+        
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let token_header = [ "token" : token ]
+        
+        let titleData = title.data(using: .utf8)
+        let contentData = content.data(using: .utf8)
+        let minPeopleData = min_people.data(using: .utf8)
+        let maxPeopleData = max_people.data(using: .utf8)
+        let categoryData = category.data(using: .utf8)
+        let startDateData = start_date.data(using: .utf8)
+        let dueDateData = due_date.data(using: .utf8)
+        let langData = lang.data(using: .utf8)
+
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            
+            multipartFormData.append(titleData!, withName: "title")
+            multipartFormData.append(contentData!, withName: "content")
+            multipartFormData.append(minPeopleData!, withName: "min_people")
+            multipartFormData.append(maxPeopleData!, withName: "max_people")
+            multipartFormData.append(categoryData!, withName: "category")
+            multipartFormData.append(startDateData!, withName: "start_date")
+            multipartFormData.append(dueDateData!, withName: "due_date")
+            multipartFormData.append(langData!, withName: "lang")
+            
+            for (index, bgi) in bgi.enumerated() {
+                multipartFormData.append(UIImageJPEGRepresentation(bgi, 0.3)!, withName: "bgi", fileName: "bgi\(index).jpg", mimeType: "image/jpg")
+            }
+            
+            for (key,value) in course {
+                
+                do {
+                    
+                    let data = try JSONSerialization.data(withJSONObject: value)
+                    multipartFormData.append(data , withName: key)
+                    print(JSON(data))
+                    
+                } catch {
+                    print("코스 에러")
+                }
+                
+            }
+            
+        }, to: URL, method: .post, headers: token_header) { (encodingResult) in
+            
+            switch encodingResult {
+            case .success(request: let upload, streamingFromDisk: _, streamFileURL: _) :
+                
+                upload.responseData(completionHandler: {(res) in
+                switch res.result {
+                        
+                case .success:
+    
+                    print("서울라이트 글등록: 접근")
+    
+                    if let value = res.result.value {
+    
+                        let message = JSON(value)["message"].string
+                        print(message!)
+    
+                        if message == "success" {
+                            print("서울라이트 글등록: 성공")
+                            completion("success")
+                        }
+    
+                        else {
+                            print("서울라이트 글등록: 실패")
+                            completion("fail")
+                        }
+                    }
+    
+                    break
+                        
+                    case .failure(let err):
+                        print(err.localizedDescription)
+                    }
+                })
+                
+                break
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+        
 }

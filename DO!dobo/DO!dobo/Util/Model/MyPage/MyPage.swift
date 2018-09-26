@@ -13,6 +13,23 @@ struct MyPage: Codable {
     let nick: String
     let avatar: String?
     let role: String
-    let askTourList: [TourList]
-    let madeTourList: [TourList]
+    let askTourList: [AskTourList]?
+    let madeTourList: [MadeTourList]?
 }
+
+struct MadeTourList: Codable {
+    let title: String
+    let content: String
+    let image: String?
+    let status: String
+}
+
+struct AskTourList: Codable {
+    let dIdx: Int
+    let title: String
+    let content: String
+    let image: String?
+    let status: String
+}
+
+
