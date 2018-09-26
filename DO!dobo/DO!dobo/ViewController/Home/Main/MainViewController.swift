@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
@@ -20,19 +21,26 @@ class MainViewController: UIViewController {
     @IBOutlet weak var seoulightminPeopleLabel: UILabel!
     @IBOutlet weak var seoulightmaxPeopleLabel: UILabel!
     
+    var doboIdx = 5
+    var seoulightIdx = 28
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        doboInit(idx: doboIdx)
+        //TODO: 서울라이트 대표글 정하기
+        seoulightInit(idx: seoulightIdx)
+        
         doboNameTextView.text =
         """
-        여의나루
-        밤도깨비시장
+        서울로
+        근·현대 건축기행
         """
         
         seoulightNameTextView.text =
         """
         양재 시민의 숲
-        꽃 시장 탐방 코스
+        - 꽃 시장 탐방 코스
         """
         
         //imageView shadow
@@ -41,6 +49,42 @@ class MainViewController: UIViewController {
         seoulightImageView.dropShadow(color: #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1), opacity: 5, offSet: CGSize(width: -3, height: 10), radius: 5, scale: true)
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    //MARK: 오늘의 도보 - GET
+    func doboInit(idx: Int) {
+        SeoulService.seoulDetailInit(idx: idx) { (seoulDetailData) in
+        
+            self.doboImageView.kf.setImage(with: URL(string: seoulDetailData.dobo.image), placeholder: UIImage())
+        }
+    }
+    
+    //MARK: 오늘의 도보 with 서울라이트 - GET
+    func seoulightInit(idx: Int) {
+        SeoulightService.seoulightDetailInit(idx: idx) { (seoulightDetailData) in
+            
+            self.seoulightImageView.kf.setImage(with: URL(string: seoulightDetailData.dobo.bgi[0]), placeholder: UIImage())
+            self.seoulightDateLabel.text = seoulightDetailData.dobo.due_date
+            self.seoulightminPeopleLabel.text = String(seoulightDetailData.dobo.min_people)
+            self.seoulightmaxPeopleLabel.text = String(seoulightDetailData.dobo.max_people)
+        }
+    }
+    
+    //MARK: 해당 도보 상세페이지로 이동
+    @IBAction func doboDatailAction(_ sender: UITapGestureRecognizer) {
+        let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "SeoulDetailViewController") as! SeoulDetailViewController
+        datailVC.idx = doboIdx
+        self.navigationController?.pushViewController(datailVC, animated: true)
+    }
+    
+    //MARK: 해당 서울라이트 상세페이지로 이동
+    @IBAction func seoulightAction(_ sender: UITapGestureRecognizer) {
+        let datailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "SeoulightDetailViewController") as! SeoulightDetailViewController
+        datailVC.idx = seoulightIdx
+        self.navigationController?.pushViewController(datailVC, animated: true)
+        
     }
     
     //MARK: 서울도보관광 소개 페이지로 이동

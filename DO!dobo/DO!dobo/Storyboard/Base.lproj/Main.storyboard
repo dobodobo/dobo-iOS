@@ -41,30 +41,42 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.60392156860000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acn-Xy-Tcq">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acn-Xy-Tcq">
                                                     <rect key="frame" x="149" y="53" width="213" height="153"/>
-                                                    <color key="backgroundColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="acn-Xy-Tcq" secondAttribute="height" multiplier="71:51" id="RZ0-Yl-TI1"/>
                                                         <constraint firstAttribute="height" constant="153" id="vPp-qz-vl4"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="O0H-6K-f2p" appends="YES" id="6NM-DQ-YXx"/>
+                                                    </connections>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erg-jK-ZPk">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erg-jK-ZPk">
                                                     <rect key="frame" x="149" y="283" width="213" height="153"/>
-                                                    <color key="backgroundColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="153" id="NPS-nI-TpD"/>
                                                         <constraint firstAttribute="width" secondItem="erg-jK-ZPk" secondAttribute="height" multiplier="71:51" id="r6r-cf-70L"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="mMm-D3-YWd" appends="YES" id="Zwz-cA-U04"/>
+                                                    </connections>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ㅇㅇ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rr-I1-JdO">
                                                     <rect key="frame" x="43" y="68" width="231" height="70"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="3pM-ub-DCY"/>
                                                         <constraint firstAttribute="width" constant="231" id="RYU-6T-boi"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="B1y-h7-beb" appends="YES" id="WzD-wo-dUT"/>
+                                                    </connections>
                                                 </textView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icDate" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-Pf-ZU0">
                                                     <rect key="frame" x="35" y="413" width="9" height="13"/>
@@ -105,12 +117,16 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ㅇㅇ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfr-fi-zZO">
                                                     <rect key="frame" x="43" y="298" width="231" height="70"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="fIM-UW-l4x"/>
                                                         <constraint firstAttribute="width" constant="231" id="o3F-uA-hki"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="xO7-az-dra" appends="YES" id="edR-J7-bV5"/>
+                                                    </connections>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e8-tG-Rt3">
                                                     <rect key="frame" x="86" y="414" width="18" height="10"/>
@@ -267,6 +283,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="O0H-6K-f2p">
+                    <connections>
+                        <action selector="doboDatailAction:" destination="BYZ-38-t0r" id="gyX-lH-w06"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="B1y-h7-beb">
+                    <connections>
+                        <action selector="doboDatailAction:" destination="BYZ-38-t0r" id="2Ml-TT-jbp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mMm-D3-YWd">
+                    <connections>
+                        <action selector="seoulightAction:" destination="BYZ-38-t0r" id="RhK-08-fsZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="xO7-az-dra">
+                    <connections>
+                        <action selector="seoulightAction:" destination="BYZ-38-t0r" id="sKd-ak-Wd9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2709.5999999999999" y="-747.52623688155927"/>
         </scene>
