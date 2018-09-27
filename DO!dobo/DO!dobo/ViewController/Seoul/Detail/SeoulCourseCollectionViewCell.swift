@@ -12,5 +12,6 @@ class SeoulCourseCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var courseImageView: UIImageView!
     @IBOutlet weak var nameTextView: UITextView!
+    @IBOutlet weak var courseCateImageView: UIImageView!
     
 }

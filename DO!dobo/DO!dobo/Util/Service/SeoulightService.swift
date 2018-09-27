@@ -336,7 +336,7 @@ struct SeoulightService: APIService {
                 do {
                     
                     let data = try JSONSerialization.data(withJSONObject: value)
-                    multipartFormData.append(data , withName: key)
+                    multipartFormData.append(data, withName: key)
                     print(JSON(data))
                     
                 } catch {

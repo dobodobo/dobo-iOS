@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
     func doboInit(idx: Int) {
         SeoulService.seoulDetailInit(idx: idx) { (seoulDetailData) in
         
-            self.doboImageView.kf.setImage(with: URL(string: seoulDetailData.dobo.image), placeholder: UIImage())
+            self.doboImageView.kf.setImage(with: URL(string: (seoulDetailData.dobo.image)), placeholder: UIImage())
         }
     }
     

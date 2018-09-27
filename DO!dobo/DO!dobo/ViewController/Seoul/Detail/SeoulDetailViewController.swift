@@ -211,9 +211,9 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == placeCollectionView {
-                return gino(seoulDetails?.dobo.tourlist.count)
+            return gino(seoulDetails?.dobo.tourlist.count)
         } else {
-            return gino(seoulDetails?.dobo.course!.count)
+            return gino(seoulDetails?.dobo.course.count)
         }
     }
     
@@ -230,8 +230,21 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulCourseCollectionViewCell", for: indexPath) as! SeoulCourseCollectionViewCell
             
             //TODO: 카테고리에 맞춰서 이미지 넣기
-            cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
-            cell.nameTextView.text = seoulDetails?.dobo.course![indexPath.row].name
+            //카테고리로 이미지 넣기
+            let category = seoulDetails?.dobo.course[indexPath.row].category
+            if category == "0" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseFoodCafe")
+            } else if category == "1" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseSightseeing")
+            }else if category == "2" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseBus")
+            }else if category == "3" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseCulture")
+            } else {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseActivity")
+            }
+
+            cell.nameTextView.text = seoulDetails?.dobo.course[indexPath.row].name
             
             return cell
         }
@@ -273,7 +286,7 @@ class SeoulDetailViewController: UIViewController, UITableViewDataSource, UITabl
             self.titleLabel.text = seoulDetailData.dobo.title
             self.contentTextView.text = seoulDetailData.dobo.content
     
-            self.imageArr.append(KingfisherSource(urlString: seoulDetailData.dobo.image)!)
+            self.imageArr.append(KingfisherSource(urlString: (seoulDetailData.dobo.image))!)
             self.placeImageSlide.setImageInputs(self.imageArr)
             
             self.seoulDetails = seoulDetailData

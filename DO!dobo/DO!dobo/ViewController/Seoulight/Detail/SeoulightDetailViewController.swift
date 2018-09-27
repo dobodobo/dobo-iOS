@@ -375,7 +375,19 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeoulightCourseCollectionViewCell", for: indexPath) as! SeoulightCourseCollectionViewCell
         
             //카테고리로 이미지 넣기
-            cell.courseImageView.image = #imageLiteral(resourceName: "group16.png")
+            let category = seoulightDetails?.dobo.course[indexPath.row].category
+            if category == "0" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseFoodCafe")
+            } else if category == "1" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseSightseeing")
+            }else if category == "2" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseBus")
+            }else if category == "3" {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseCulture")
+            } else {
+                cell.courseCateImageView.image = #imageLiteral(resourceName: "courseActivity")
+            }
+
             cell.nameTextView.text = seoulightDetails?.dobo.course[indexPath.row].name
             
             return cell

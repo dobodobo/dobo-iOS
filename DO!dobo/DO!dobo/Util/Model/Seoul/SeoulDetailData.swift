@@ -11,5 +11,5 @@ import Foundation
 struct SeoulDetailData: Codable {
     let status: Int
     let message: String
-    let result: SeoulDetail
+    let result: SeoulDetail?
 }

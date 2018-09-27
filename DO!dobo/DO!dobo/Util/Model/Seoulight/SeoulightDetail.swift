@@ -44,7 +44,7 @@ struct Seoulite: Codable {
 
 struct Course: Codable {
     let name: String
-    let category: String
+    let category: String?
 }
 
 

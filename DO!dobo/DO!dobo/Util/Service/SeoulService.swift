@@ -66,18 +66,21 @@ struct SeoulService: APIService {
             case .success:
                 
                 if let value = res.result.value {
+                    print(JSON(value))
                     
                     let decoder = JSONDecoder()
-                    
+
                     do {
+
                         let seoulDetailData = try decoder.decode(SeoulDetailData.self, from: value)
-                        
+                        print(seoulDetailData.message)
                         if seoulDetailData.message == "success" {
                             print("서울 상세보기: 성공")
-                            completion(seoulDetailData.result)
+                            completion(seoulDetailData.result!)
                         } else {
                             print("서울 상세보기: 서버 에러")
                         }
+
                         
                     } catch {
                         print("서울 상세보기: 변수 문제")
