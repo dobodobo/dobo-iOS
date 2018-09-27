@@ -232,6 +232,7 @@ class SeoulightDetailViewController: UIViewController, UITableViewDataSource, UI
             
             if message == "success" {
                 self.noticeSuccess("예약 완료", autoClear: true, autoClearTime: 1)
+                self.navigationController?.popViewController(animated: true)
             } else {
                 self.simpleAlert(title: "예약 실패", message: "다시 시도해주세요.")
             }

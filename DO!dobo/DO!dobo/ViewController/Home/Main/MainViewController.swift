@@ -24,6 +24,14 @@ class MainViewController: UIViewController {
     var doboIdx = 5
     var seoulightIdx = 28
     
+    override func viewWillAppear(_ animated: Bool) {
+        //네비게이션바 복구
+        self.navigationController!.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController!.navigationBar.backgroundColor = UIColor.clear
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

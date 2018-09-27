@@ -397,6 +397,18 @@ extension SeoulightWriteTableViewController: UIImagePickerControllerDelegate, UI
 //MARK: date picker extension
 extension SeoulightWriteTableViewController {
     
+//    let currentDate: Date = Date()
+//    var calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+//    calendar.timeZone = TimeZone(identifier: "UTC")!
+//    var components: DateComponents = DateComponents()
+//    components.calendar = calendar
+//    components.year = -18
+//    let maxDate: Date = calendar.date(byAdding: components, to: currentDate)!
+//    components.year = -150
+//    let minDate: Date = calendar.date(byAdding: components, to: currentDate)!
+//    self.minimumDate = minDate
+//    self.maximumDate = maxDate
+    
     func initDatePicker1(){
         
         datePicker.datePickerMode = .date
@@ -405,19 +417,13 @@ extension SeoulightWriteTableViewController {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        datePicker.minimumDate = Date()
+        let minDate = Calendar.current.date(byAdding: .day, value: +1, to: Date())
         
-        guard let date = datePicker.minimumDate else {
-            fatalError("포맷과 맞지 않아 데이터 변환이 실패했습니다")
-        }
+        datePicker.minimumDate = minDate
         
-//        datePicker.date = date
+        datePicker.date = minDate!
         
-        var yearfromNow: Date {
-            return (Calendar.current as NSCalendar).date(byAdding: .year, value: 1, to: Date(), options: [])!
-        }
-        
-        datePicker.maximumDate = yearfromNow
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: +1, to: Date())!
         
         setTextfieldView(textField: dateTextField, selector: #selector(selectedDatePicker1), inputView: datePicker)
     }
@@ -430,13 +436,13 @@ extension SeoulightWriteTableViewController {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        guard let date = dateFormatter.date(from: "1996-01-29") else {
-            fatalError("포맷과 맞지 않아 데이터 변환이 실패했습니다")
-        }
+        let minDate = Calendar.current.date(byAdding: .day, value: +1, to: Date())
         
-        datePicker.date = date
+        datePicker.minimumDate = minDate
+
+        datePicker.date = minDate!
         
-        datePicker.maximumDate = Date()
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: +1, to: Date())!
         
         setTextfieldView(textField: finishTextField, selector: #selector(selectedDatePicker2), inputView: datePicker)
     }
