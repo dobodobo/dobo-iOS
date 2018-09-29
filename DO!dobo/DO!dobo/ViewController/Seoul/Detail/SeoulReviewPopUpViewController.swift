@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeoulReviewPopUpViewController: UIViewController {
+class SeoulReviewPopUpViewController: UIViewController, UITextViewDelegate {
     
     //keyboard var
     @IBOutlet weak var c: NSLayoutConstraint!
@@ -18,6 +18,7 @@ class SeoulReviewPopUpViewController: UIViewController {
     
     @IBOutlet weak var reviewView: UIView!
     @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var reviewButton: UIButton!
     
     var idx: Int = 0
     
@@ -25,13 +26,22 @@ class SeoulReviewPopUpViewController: UIViewController {
         super.viewDidLoad()
         print(gino(idx))
         
+        self.reviewTextView.delegate = self
         setKeyboardSetting()
         self.showAnimate()
-        
         
         reviewView.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: 텍스트필드 널값 체크
+    func textViewDidChange(_ textView: UITextView) {
+        if reviewTextView.text == ""{
+            reviewButton.setImage(#imageLiteral(resourceName: "fBtnBlank"), for: .normal)
+        } else {
+            reviewButton.setImage(#imageLiteral(resourceName: "fBtnFill"), for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +77,6 @@ class SeoulReviewPopUpViewController: UIViewController {
                 detailVC.idx = self.idx
                 
                 self.navigationController?.pushViewController(detailVC, animated: true)
-                
                 
             } else {
                 self.simpleAlert(title: "리뷰 등록 실패", message: "다시 시도해주세요.")

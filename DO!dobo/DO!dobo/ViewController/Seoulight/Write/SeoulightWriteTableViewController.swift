@@ -25,7 +25,6 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var finishTextField: UITextField!
     @IBOutlet weak var categoryButton: UIButton!
-    @IBOutlet weak var courseSearchTextField: UITextField!
     @IBOutlet weak var courseCollectionView: UICollectionView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -43,13 +42,29 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     var orimageArr: [UIImage] = []
     var imageNum: Int = 0
     
-    var courseArr: [String] = []
-    var courseNum: Int = 0
+    var courseArr: [String] = [] {
+        didSet {
+            courseCollectionView.reloadData()
+        }
+    }
+    
+    var courseCategoryArr: [String] = [] {
+        didSet {
+            courseCollectionView.reloadData()
+        }
+    }
+    
     var allDic : [[String : String]] = []
     
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let center = NotificationCenter.default
+        
+        //코스 추가
+        center.addObserver(self, selector: #selector(addCourse), name: Notification.Name("addCourse"), object: nil)
+        center.addObserver(self, selector: #selector(addCategory), name: Notification.Name("addCategory"), object: nil)
         
         //datePicker
         initDatePicker1()
@@ -68,17 +83,31 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
 
     }
     
+    //MARK: 키보드 method
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
     
+    //MARK: 코스 검색(코스)
+    @objc func addCourse(noti: Notification) {
+        if let course = noti.object as? String {
+            self.courseArr.append(course)
+        }
+    }
+    
+    //MARK: 코스 검색(카테고리)
+    @objc func addCategory(noti: Notification) {
+
+        if let category = noti.object as? String {
+            self.courseCategoryArr.append(category)
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         courseCollectionView.reloadData()
         
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,19 +183,20 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     //MARK: 글 등록 액션
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
         
-        if courseNum >= 2 && imageNum >= 2 && category != 0 && languageTextField.text != "" && titleTextField.text != "" && contentTextView.text != "" && minPeopleTextField.text != "" && maxPeopleTextField.text != "" && dateTextField.text != "" && finishTextField.text != "" {
+        if courseArr.count >= 2 && imageNum >= 2 && category != 0 && languageTextField.text != "" && titleTextField.text != "" && contentTextView.text != "" && minPeopleTextField.text != "" && maxPeopleTextField.text != "" && dateTextField.text != "" && finishTextField.text != "" {
             
             writeSeoulightCourse()
+
         } else {
             
-            if courseNum == 0 || imageNum == 0 || category == 0 || languageTextField.text == "" || titleTextField.text == "" || contentTextView.text == "" || minPeopleTextField.text == "" || maxPeopleTextField.text == "" || dateTextField.text == "" || finishTextField.text == "" {
+            if courseArr.count == 0 || imageNum == 0 || category == 0 || languageTextField.text == "" || titleTextField.text == "" || contentTextView.text == "" || minPeopleTextField.text == "" || maxPeopleTextField.text == "" || dateTextField.text == "" || finishTextField.text == "" {
                 simpleAlert(title: "글 등록 실패", message: "모든 항목을 입력해주세요.")
             }
             
-            if courseNum < 2 && imageNum < 2 {
+            if courseArr.count < 2 && imageNum < 2 {
                 simpleAlert(title: "글 등록 실패", message: "최소 2개의 코스와 사진을 등록하셔야 합니다.")
             } else {
-                if courseNum < 2 {
+                if courseArr.count < 2 {
                     simpleAlert(title: "글 등록 실패", message: "최소 2개의 코스를 등록하셔야 합니다.")
                 }
                 
@@ -180,9 +210,9 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     //MARK: 서울라이트 글등록 - POST
     func writeSeoulightCourse() {
         
-        for i in 0 ... courseNum - 1 {
+        for i in 0 ... courseArr.count - 1 {
 
-            let sample : [String: String] = ["category" : "1", "name":  courseArr[i]]
+            let sample : [String: String] = ["category" : courseCategoryArr[i], "name":  courseArr[i]]
             
             allDic.append(sample)
         }
@@ -203,22 +233,6 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         }
     }
     
-    //MAKR: 코스 카테고리 피커뷰 액션
-    @IBAction func categryIconAction(_ sender: UIButton) {
-        
-    }
-    
-    
-    //MARK: 코스 검색 액션
-    @IBAction func courseSearchAction(_ sender: UITextField) {
-        
-        courseSearchTextField.resignFirstResponder()
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        present(acController, animated: true, completion: nil)
-    }
-
-
     // MARK: TableView method
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -234,7 +248,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height = super.tableView(tableView, heightForRowAt: indexPath)
 
-        if courseNum == 0 {
+        if courseArr.count == 0 {
             if (indexPath.row == 8) {
                 height = 0.0
 
@@ -248,6 +262,7 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == courseCollectionView {
+
             return courseArr.count
         }
         
@@ -303,7 +318,6 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     @objc func deleteCourseFromButton(button: UIButton) {
         
         courseArr.remove(at: button.tag)
-        courseNum -= 1
         courseCollectionView.reloadData()
     }
     
@@ -315,31 +329,6 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
         imageCollectionView.reloadData()
     }
 
-}
-
-//MARK: Google Place API extension
-extension SeoulightWriteTableViewController: GMSAutocompleteViewControllerDelegate {
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        // Get the place name from 'GMSAutocompleteViewController'
-        // Then display the name in textField
-        courseSearchTextField.text = place.name
-        
-        courseArr.append(gsno(courseSearchTextField.text))
-        courseNum += 1
-        
-        // Dismiss the GMSAutocompleteViewController when something is selected
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // Handle the error
-        print("Error: ", error.localizedDescription)
-    }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        // Dismiss when the user canceled the action
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 // MARK: 이미지 첨부
@@ -397,18 +386,6 @@ extension SeoulightWriteTableViewController: UIImagePickerControllerDelegate, UI
 //MARK: date picker extension
 extension SeoulightWriteTableViewController {
     
-//    let currentDate: Date = Date()
-//    var calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-//    calendar.timeZone = TimeZone(identifier: "UTC")!
-//    var components: DateComponents = DateComponents()
-//    components.calendar = calendar
-//    components.year = -18
-//    let maxDate: Date = calendar.date(byAdding: components, to: currentDate)!
-//    components.year = -150
-//    let minDate: Date = calendar.date(byAdding: components, to: currentDate)!
-//    self.minimumDate = minDate
-//    self.maximumDate = maxDate
-    
     func initDatePicker1(){
         
         datePicker.datePickerMode = .date
@@ -424,6 +401,9 @@ extension SeoulightWriteTableViewController {
         datePicker.date = minDate!
         
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: +1, to: Date())!
+        
+        let loc = Locale(identifier: "kr")
+        datePicker.locale = loc
         
         setTextfieldView(textField: dateTextField, selector: #selector(selectedDatePicker1), inputView: datePicker)
     }
@@ -443,6 +423,9 @@ extension SeoulightWriteTableViewController {
         datePicker.date = minDate!
         
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: +1, to: Date())!
+        
+        let loc = Locale(identifier: "kr")
+        datePicker.locale = loc
         
         setTextfieldView(textField: finishTextField, selector: #selector(selectedDatePicker2), inputView: datePicker)
     }

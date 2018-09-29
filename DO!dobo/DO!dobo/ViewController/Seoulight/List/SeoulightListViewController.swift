@@ -18,6 +18,8 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackBtn()
+        
         seoulightInit(category: category)
         
         //pop swipe
@@ -37,6 +39,23 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController!.navigationBar.backgroundColor = UIColor.clear
     }
+    
+    @IBAction func AddCourseAction(_ sender: UIBarButtonItem) {
+        let role = gsno(UserDefaults.standard.string(forKey: "role"))
+        
+        if role != "SEOULITE" {
+            simpleAlert(title: "권한 없음", message:
+                """
+                서울라이트가 되어야 글 등록이 가능합니다.
+                마이페이지에서 신청 가능합니다.
+                """)
+        } else {
+            let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightWriteTableViewController") as! SeoulightWriteTableViewController
+            
+            self.navigationController?.pushViewController(addVC, animated: true)
+        }
+    }
+    
     
     //MARK: 인기순 액션
     @IBAction func hitAction(_ sender: UIButton) {

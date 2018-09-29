@@ -19,7 +19,7 @@ class SeoulightApplyViewController: UIViewController {
     //toggle btn var
     @IBOutlet weak var singleButton: UIButton!
     @IBOutlet weak var orgButton: UIButton!
-    var single: Int?
+    var single: Int = 0
     
     //pickerView var
     let datePicker = UIDatePicker()
@@ -83,14 +83,13 @@ class SeoulightApplyViewController: UIViewController {
             
             if message == "success" {
                 
-                //FIXME: 알림 메시지 수정
-                self.simpleAlert(title: "신청 완료", message:
+                self.simpleAlertwithOKHandler(title: "신청 완료", message:
                     """
                     관리자 심사 후, 추후 기재하신 번호를 통하여
                     결과가 발표됩니다.
-                    """
-                )
-                self.navigationController?.popViewController(animated: true)
+                    """) { (okHandler) in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
             
             else {
@@ -176,6 +175,9 @@ extension SeoulightApplyViewController  {
         datePicker.date = date
         
         datePicker.maximumDate = Date()
+        
+        let loc = Locale(identifier: "kr")
+        datePicker.locale = loc
         
         
         setTextfieldView(textField: birthTextField, selector: #selector(selectedDatePicker), inputView: datePicker)

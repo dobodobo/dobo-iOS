@@ -31,7 +31,12 @@ class JoinViewController: UIViewController {
         
         self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         
-        isNullCheck()
+        //텍스트필드 체크
+        idTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        pwdTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        pwdCheckTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
         setKeyboardSetting()
         
         //imageView circle
@@ -46,6 +51,17 @@ class JoinViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: 텍스트필드 널값 체크
+     @objc func textFieldDidChange(_ textField: UITextField) {
+        if idTextField.text != "" && pwdTextField.text != "" && pwdCheckTextField.text != "" && nameTextField.text != ""{
+            saveButton.setImage(#imageLiteral(resourceName: "finishBtnFill"), for: .normal)
+            saveButton.isEnabled = true
+        } else {
+            saveButton.setImage(#imageLiteral(resourceName: "finishBtnBlank"), for: .normal)
+            saveButton.isEnabled = false
+        }
     }
     
     //MARK: 이미지 피커 액션

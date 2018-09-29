@@ -39,6 +39,15 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //확인 팝업
+    func simpleAlertwithOKHandler(title: String, message: String, okHandler : ((UIAlertAction) -> Void)?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인",style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    
     //MARK: 신고 팝업
     func simpleActionSheetWithHandler(title: String, message: String) {
 

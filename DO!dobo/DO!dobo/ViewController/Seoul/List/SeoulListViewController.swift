@@ -19,8 +19,10 @@ class SeoulListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //pop swipe
-        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+        setBackBtn()
+        
+//        //pop swipe
+//        navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
         
         seoulInit(category: category)
 

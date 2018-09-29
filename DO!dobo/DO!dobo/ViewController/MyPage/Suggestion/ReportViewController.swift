@@ -58,6 +58,7 @@ class ReportViewController: UIViewController {
             
             //TODO: 팝업 라이브러리 추가
             if message == "success" {
+                self.noticeSuccess("접수 완료", autoClear: true, autoClearTime: 1)
                 self.navigationController?.popViewController(animated: true)
             }
             

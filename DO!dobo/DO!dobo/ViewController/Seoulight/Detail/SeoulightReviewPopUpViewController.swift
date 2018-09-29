@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeoulightReviewPopUpViewController: UIViewController {
+class SeoulightReviewPopUpViewController: UIViewController, UITextViewDelegate {
 
     //keyboard var
     @IBOutlet weak var c: NSLayoutConstraint!
@@ -18,11 +18,14 @@ class SeoulightReviewPopUpViewController: UIViewController {
     
     @IBOutlet weak var reviewView: UIView!
     @IBOutlet weak var reviewTextView: UITextView!
+    @IBOutlet weak var reviewButton: UIButton!    
     
     var idx: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.reviewTextView.delegate = self;
         
         setKeyboardSetting()
         self.showAnimate()
@@ -32,6 +35,24 @@ class SeoulightReviewPopUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: 텍스트필드 널값 체크
+    func textViewDidChange(_ textView: UITextView) {
+        if reviewTextView.text == ""{
+            reviewButton.setImage(#imageLiteral(resourceName: "fBtnBlank"), for: .normal)
+        } else {
+            reviewButton.setImage(#imageLiteral(resourceName: "fBtnFill"), for: .normal)
+        }
+    }
+
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if reviewTextView.text == ""{
+//            reviewButton.setImage(#imageLiteral(resourceName: "fBtnBlank"), for: .normal)
+//            reviewButton.isEnabled = false
+//        } else {
+//            reviewButton.setImage(#imageLiteral(resourceName: "fBtnFill"), for: .normal)
+//            reviewButton.isEnabled = true
+//        }
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
