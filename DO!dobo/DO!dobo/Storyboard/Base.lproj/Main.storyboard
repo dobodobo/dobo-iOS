@@ -814,9 +814,17 @@
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IHE-0x-Hxr">
+                                                            <rect key="frame" x="-6" y="0.0" width="6" height="99"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="6" id="q3D-pQ-hn1"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="IHE-0x-Hxr" secondAttribute="bottom" id="0UG-cz-H9R"/>
+                                                        <constraint firstItem="B9C-AK-yHF" firstAttribute="leading" secondItem="IHE-0x-Hxr" secondAttribute="trailing" id="9Jm-2c-PF7"/>
                                                         <constraint firstItem="fcA-aQ-ooq" firstAttribute="leading" secondItem="UdQ-mk-O7p" secondAttribute="trailing" constant="5" id="9gh-0R-0lp"/>
                                                         <constraint firstItem="8Xp-ex-lMT" firstAttribute="leading" secondItem="c8O-I4-i7d" secondAttribute="leading" id="DUb-MA-7en"/>
                                                         <constraint firstItem="mYv-KX-Nbk" firstAttribute="leading" secondItem="8Xp-ex-lMT" secondAttribute="trailing" constant="12" id="H1v-1P-6q4"/>
@@ -825,6 +833,7 @@
                                                         <constraint firstItem="YVq-lF-2CR" firstAttribute="centerY" secondItem="UdQ-mk-O7p" secondAttribute="centerY" id="LdW-Ev-NzT"/>
                                                         <constraint firstAttribute="bottom" secondItem="fcA-aQ-ooq" secondAttribute="bottom" constant="17.5" id="QQO-JQ-lAB"/>
                                                         <constraint firstItem="c8O-I4-i7d" firstAttribute="top" secondItem="cs7-mX-MuW" secondAttribute="top" constant="10" id="VWp-O2-38J"/>
+                                                        <constraint firstItem="IHE-0x-Hxr" firstAttribute="top" secondItem="cs7-mX-MuW" secondAttribute="top" id="YDA-xO-x2H"/>
                                                         <constraint firstItem="c8O-I4-i7d" firstAttribute="leading" secondItem="B9C-AK-yHF" secondAttribute="trailing" constant="11" id="ZhS-NN-ug8"/>
                                                         <constraint firstAttribute="height" constant="99" id="bEM-cD-kTk"/>
                                                         <constraint firstAttribute="bottom" secondItem="B9C-AK-yHF" secondAttribute="bottom" id="c0M-pH-PsE"/>
@@ -843,8 +852,8 @@
                                             <constraints>
                                                 <constraint firstItem="cs7-mX-MuW" firstAttribute="top" secondItem="HXV-uL-YkP" secondAttribute="top" constant="4" id="Uqx-Nk-hQN"/>
                                                 <constraint firstAttribute="bottom" secondItem="cs7-mX-MuW" secondAttribute="bottom" constant="12" id="WaP-XJ-1yT"/>
+                                                <constraint firstItem="IHE-0x-Hxr" firstAttribute="leading" secondItem="HXV-uL-YkP" secondAttribute="leading" constant="10" id="Y94-yE-IDf"/>
                                                 <constraint firstAttribute="trailing" secondItem="cs7-mX-MuW" secondAttribute="trailing" id="ne4-Qo-N2f"/>
-                                                <constraint firstItem="cs7-mX-MuW" firstAttribute="leading" secondItem="HXV-uL-YkP" secondAttribute="leading" constant="16" id="yYo-GF-bJi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -855,6 +864,7 @@
                                             <outlet property="maxPeopleLabel" destination="lDQ-NP-fEG" id="ge7-8w-2sT"/>
                                             <outlet property="minPeopleLabel" destination="PYz-Ru-itT" id="baV-6d-thU"/>
                                             <outlet property="placeImageView" destination="B9C-AK-yHF" id="CKO-MM-5s6"/>
+                                            <outlet property="statusImageView" destination="IHE-0x-Hxr" id="BEL-TS-uvY"/>
                                             <outlet property="titleLabel" destination="c8O-I4-i7d" id="ZEb-Cy-cn1"/>
                                         </connections>
                                     </tableViewCell>

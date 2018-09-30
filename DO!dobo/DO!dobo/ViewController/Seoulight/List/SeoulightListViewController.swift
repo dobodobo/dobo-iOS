@@ -110,6 +110,12 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         cell.maxPeopleLabel.text = String(seoulights[indexPath.row].max_people)
         cell.languageLabel.text = seoulights[indexPath.row].lang
         
+        if seoulights[indexPath.row].status == "WAITING" {
+            cell.statusImageView.backgroundColor = #colorLiteral(red: 0.6, green: 0.8901960784, blue: 0.8823529412, alpha: 1)
+        } else {
+            cell.statusImageView.backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.7568627451, blue: 0.7568627451, alpha: 1)
+        }
+        
         return cell
     }
     
