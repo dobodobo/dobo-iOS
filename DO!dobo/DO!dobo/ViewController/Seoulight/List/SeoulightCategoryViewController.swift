@@ -25,7 +25,7 @@ class SeoulightCategoryViewController: UIViewController {
     @IBAction func allAction(_ sender: UIButton) {
         let seoulightVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightListViewController") as! SeoulightListViewController
         
-        seoulightVC.category = "0"
+        seoulightVC.category = "7"
         
         self.navigationController?.pushViewController(seoulightVC, animated: true)
     }

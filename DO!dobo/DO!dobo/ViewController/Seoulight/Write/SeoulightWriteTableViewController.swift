@@ -44,6 +44,11 @@ class SeoulightWriteTableViewController: UITableViewController, UICollectionView
     
     var courseArr: [String] = [] {
         didSet {
+            
+            for i in 0 ... courseArr.count - 1 {
+                print("바뀜")
+                print(courseArr[i])
+            }
             courseCollectionView.reloadData()
         }
     }

@@ -111,7 +111,7 @@ class SeoulightCourseModalTableViewController: UITableViewController {
         } else {
             NotificationCenter.default.post(name: Notification.Name("addCourse"), object: course)
             NotificationCenter.default.post(name: Notification.Name("addCategory"), object: category)
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

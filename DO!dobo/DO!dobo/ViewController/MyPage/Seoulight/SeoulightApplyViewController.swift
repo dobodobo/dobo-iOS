@@ -72,14 +72,14 @@ class SeoulightApplyViewController: UIViewController {
         self.simpleAlert(title: "신청 실패", message: "필수 항목을 모두 입력해주세요.")
             
         } else {
-            applySeoulight(name: gsno(nameTextField.text), birth: gsno(birthTextField.text), organization: gsno(orgTextField.text), portfolio: gsno(portTextField.text), phone: gsno(phoneTextField.text), intro: gsno(introTextView.text))
+            applySeoulight(name: gsno(nameTextField.text), birth: gsno(birthTextField.text), organization: gsno(orgTextField.text), portfolio: gsno(portTextField.text), email: gsno(UserDefaults.standard.string(forKey: "email")), phone: gsno(phoneTextField.text), intro: gsno(introTextView.text))
         }
     }
     
     //TODO: 개인/단체 변수 추가(single)
     //MARK: 서울라이트 신청하기 - POST
-    func applySeoulight(name: String, birth: String, organization: String, portfolio: String, phone: String, intro: String) {
-        MyPageService.applySeoulight(name: name, birth: birth, organization: organization, portfolio: portfolio, phone: phone, intro: intro) { (message) in
+    func applySeoulight(name: String, birth: String, organization: String, portfolio: String, email: String, phone: String, intro: String) {
+        MyPageService.applySeoulight(name: name, birth: birth, organization: organization, portfolio: portfolio, email: email, phone: phone, intro: intro) { (message) in
             
             if message == "success" {
                 
@@ -89,6 +89,7 @@ class SeoulightApplyViewController: UIViewController {
                     결과가 발표됩니다.
                     """) { (okHandler) in
                     self.navigationController?.popViewController(animated: true)
+                    UserDefaults.standard.setValue("SEOULITE", forKey: "role")
                 }
             }
             

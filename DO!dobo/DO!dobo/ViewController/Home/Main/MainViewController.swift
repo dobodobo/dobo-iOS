@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var seoulightmaxPeopleLabel: UILabel!
     
     var doboIdx = 5
-    var seoulightIdx = 28
+    var seoulightIdx = 1
     
     override func viewWillAppear(_ animated: Bool) {
         //네비게이션바 복구

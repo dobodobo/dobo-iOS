@@ -14,6 +14,6 @@ protocol APIService {
 
 extension APIService {
     static func url(_ path: String) -> String {
-        return "http://52.78.25.56:3000/api" + path
+        return "http://52.78.41.4:3000/api" + path
     }
 }

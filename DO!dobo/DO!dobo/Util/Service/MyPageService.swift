@@ -180,7 +180,7 @@ struct MyPageService: APIService {
     }
     
     //MARK: 서울라이트 신청하기 - POST
-    static func applySeoulight(name: String, birth: String, organization: String, portfolio: String, phone: String, intro: String, completion: @escaping (_ message: String) -> Void) {
+    static func applySeoulight(name: String, birth: String, organization: String, portfolio: String, email: String, phone: String, intro: String, completion: @escaping (_ message: String) -> Void) {
         
         let URL = url("/seoulight/register")
         
@@ -193,6 +193,7 @@ struct MyPageService: APIService {
             "birth" : birth,
             "organization" : organization,
             "portfolio" : portfolio,
+            "email": email,
             "phone" : phone,
             "intro" : intro
         ]

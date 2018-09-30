@@ -50,9 +50,9 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
                 마이페이지에서 신청 가능합니다.
                 """)
         } else {
-            let addVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SeoulightWriteTableViewController") as! SeoulightWriteTableViewController
+            let courseNaviVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "courseNaviVC")
             
-            self.navigationController?.pushViewController(addVC, animated: true)
+            self.present(courseNaviVC, animated: true, completion: nil)
         }
     }
     
@@ -109,12 +109,6 @@ class SeoulightListViewController: UIViewController, UITableViewDelegate, UITabl
         cell.minPeopleLabel.text = String(seoulights[indexPath.row].min_people)
         cell.maxPeopleLabel.text = String(seoulights[indexPath.row].max_people)
         cell.languageLabel.text = seoulights[indexPath.row].lang
-        
-        if seoulights[indexPath.row].status == "WAITING" {
-            cell.statusImageView.backgroundColor = #colorLiteral(red: 0.6, green: 0.8901960784, blue: 0.8823529412, alpha: 1)
-        } else {
-            cell.statusImageView.backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.7568627451, blue: 0.7568627451, alpha: 1)
-        }
         
         return cell
     }

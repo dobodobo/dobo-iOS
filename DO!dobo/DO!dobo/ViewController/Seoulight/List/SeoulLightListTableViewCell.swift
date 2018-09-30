@@ -16,7 +16,6 @@ class SeoulLightListTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var minPeopleLabel: UILabel!
     @IBOutlet weak var maxPeopleLabel: UILabel!
-    @IBOutlet weak var statusImageView: UIImageView!
     
     @IBOutlet weak var languageImageView: UIImageView!
     @IBOutlet weak var languageLabel: UILabel!
