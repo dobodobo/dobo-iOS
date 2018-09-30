@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //splash time
+        Thread.sleep(forTimeInterval: 1.0)
+        
         // Override point for customization after application launch.
         // Set the Google Place API's autocomplete UI control
         GMSPlacesClient.provideAPIKey(googlePlacesKey)

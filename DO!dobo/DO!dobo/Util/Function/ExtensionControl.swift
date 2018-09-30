@@ -42,7 +42,7 @@ extension UIViewController {
     //확인 팝업
     func simpleAlertwithOKHandler(title: String, message: String, okHandler : ((UIAlertAction) -> Void)?){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인",style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인",style: .default, handler: okHandler)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }

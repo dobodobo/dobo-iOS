@@ -64,6 +64,15 @@ class JoinViewController: UIViewController {
         }
     }
     
+    
+    //MARK: email validation
+    func isValid(_ mailStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: mailStr)
+    }
+    
     //MARK: 이미지 피커 액션
     @IBAction func opnImagePicker(_ sender: UITapGestureRecognizer) {
         openGallery()
@@ -77,11 +86,16 @@ class JoinViewController: UIViewController {
             if pwdCheckTextField.text == "" || pwdTextField.text == "" || nameTextField.text == "" || idTextField.text == "" {
                 simpleAlert(title: "회원가입 실패", message: "모든 항목을 입력해주세요")
             }
+                
+            else if isValid(gsno(idTextField.text)) == false {
+                simpleAlert(title: "회원가입 실패", message: "아이디가 이메일 형식에 맞지 않습니다.")
+            }
             
             //동일성 체크
             else if pwdCheckTextField.text != pwdTextField.text {
                 simpleAlert(title: "회원가입 실패", message: "비밀번호가 일치하지 않습니다.")
             }
+            
             
             else {
                 join(email: gsno(idTextField.text), pwd: gsno(pwdTextField.text), name: gsno(nameTextField.text), profileImage: pImage)

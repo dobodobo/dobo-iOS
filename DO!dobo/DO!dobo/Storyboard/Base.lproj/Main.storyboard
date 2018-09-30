@@ -48,7 +48,7 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.60392156860000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acn-Xy-Tcq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acn-Xy-Tcq">
                                                     <rect key="frame" x="149" y="53" width="213" height="153"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <gestureRecognizers/>
@@ -419,7 +419,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-yY-7Dh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="880"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="816"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="DcA-ap-4R1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="816"/>
@@ -648,7 +648,7 @@
                         <constraints>
                             <constraint firstItem="AMp-bc-qS7" firstAttribute="trailing" secondItem="zfm-yY-7Dh" secondAttribute="trailing" id="RU2-LU-KuV"/>
                             <constraint firstItem="zfm-yY-7Dh" firstAttribute="leading" secondItem="AMp-bc-qS7" secondAttribute="leading" id="f0d-wN-MJL"/>
-                            <constraint firstItem="zfm-yY-7Dh" firstAttribute="top" secondItem="AMp-bc-qS7" secondAttribute="top" constant="-64" id="v1w-Gz-bqG"/>
+                            <constraint firstItem="zfm-yY-7Dh" firstAttribute="top" secondItem="AMp-bc-qS7" secondAttribute="top" id="v1w-Gz-bqG"/>
                             <constraint firstAttribute="bottom" secondItem="zfm-yY-7Dh" secondAttribute="bottom" id="wj5-g1-lrV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMp-bc-qS7"/>
@@ -739,7 +739,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cs7-mX-MuW">
                                                     <rect key="frame" x="16" y="4" width="359" height="99"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B9C-AK-yHF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="B9C-AK-yHF">
                                                             <rect key="frame" x="0.0" y="0.0" width="129" height="99"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="99" id="nM4-1f-AEM"/>
@@ -1024,7 +1024,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmy-ph-gOU">
                                                     <rect key="frame" x="16" y="4" width="359" height="99"/>
                                                     <subviews>
-                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U90-hb-cz6">
+                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="U90-hb-cz6">
                                                             <rect key="frame" x="0.0" y="0.0" width="129" height="99"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="99" id="bjq-pA-56C"/>
@@ -1328,7 +1328,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KDa-T3-lIi">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KDa-T3-lIi">
                                             <rect key="frame" x="25" y="540" width="50" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -2905,7 +2905,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4b-liG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4b-liG">
                                             <rect key="frame" x="144" y="20" width="87" height="87"/>
                                             <color key="backgroundColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -3165,7 +3165,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLs-VD-5fT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                                             <subviews>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="5kF-6B-NOs">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="5kF-6B-NOs">
                                                     <rect key="frame" x="144" y="20" width="87" height="87"/>
                                                     <color key="backgroundColor" red="0.47058823529999999" green="0.7843137255" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <gestureRecognizers/>
@@ -3938,7 +3938,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HP7-o0-9sC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="uaT-GD-VM3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
@@ -4123,7 +4123,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1EW-U5-SMB" firstAttribute="trailing" secondItem="HP7-o0-9sC" secondAttribute="trailing" id="58G-LS-bYc"/>
-                            <constraint firstItem="HP7-o0-9sC" firstAttribute="top" secondItem="1EW-U5-SMB" secondAttribute="top" constant="-64" id="KsX-RQ-MbT"/>
+                            <constraint firstItem="HP7-o0-9sC" firstAttribute="top" secondItem="1EW-U5-SMB" secondAttribute="top" id="KsX-RQ-MbT"/>
                             <constraint firstAttribute="bottom" secondItem="HP7-o0-9sC" secondAttribute="bottom" id="Z5R-pf-lHS"/>
                             <constraint firstItem="HP7-o0-9sC" firstAttribute="leading" secondItem="1EW-U5-SMB" secondAttribute="leading" id="fAO-jd-xEl"/>
                         </constraints>
@@ -4417,7 +4417,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
                                                 <constraint firstAttribute="height" constant="201" id="oTR-XF-ZDn"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="u1B-Zx-8JL">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="u1B-Zx-8JL">
                                             <rect key="frame" x="134" y="144" width="106" height="106"/>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -4858,6 +4858,7 @@ Seoulight는 개인뿐만 아니라 단체로도 활동 가능합니다.
         <image name="loginGraphic" width="375" height="201"/>
         <image name="loginLunchericonTwoCopy" width="66" height="64"/>
         <image name="loginTextbox" width="249" height="35"/>
+        <image name="logo" width="60" height="60"/>
         <image name="questionBtn" width="85" height="30"/>
         <image name="rectangle12Copy" width="199" height="27"/>
         <image name="rectangle16" width="60" height="20"/>
