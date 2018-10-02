@@ -7,6 +7,8 @@
 
 ## [ About ]
 
+![AppIcon](https://avatars1.githubusercontent.com/u/43130881?s=200&v=4)
+
 ***'서울 시민과 함께 걷는 서울 명소'***
 
 서울시에서 제공하는 '서울 도보 관광' 프로그램를 활성화시키고 <br>
